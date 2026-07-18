@@ -1,10 +1,25 @@
-// Shared cinematic timeline for the island reveal.
+// Shared cinematic timeline for the island reveal + scroll-driven journey.
 // 0-2s   dense fog | 2-5s fog drifts | 5-8s golden light breaks through
 // 8-12s  island silhouette appears | 12-16s full reveal
 // 16-20s camera orbits | 20-24s descend toward village | 24s+ nav fades in
+// After the intro, SCROLL drives one continuous shot:
+//   0.00-0.30  descend from the panoramic frame over forest toward the gate
+//   0.30-0.58  fly low through the main street, beneath the gate and banners
+//   0.58-0.70  slow near the elder's house, the door creaks open
+//   0.70-0.74  cross the threshold (screen dips to darkness for a beat)
+//   0.74-1.00  drift through the ancient study and zoom into the map
+
+import * as THREE from 'three'
 
 export const INTRO_END = 24
 export const NAV_FADE = 24
+
+/** Where the scroll journey hands off from exterior to the study interior. */
+export const DOOR_CROSS = 0.72
+/** Study room center, hidden far beneath the island. */
+export const STUDY_CENTER: [number, number, number] = [0, -60, 0]
+/** The elder's house world placement. */
+export const ELDER_HOUSE_POS: [number, number, number] = [-3, 4.0, 2.6]
 
 export function easeInOut(x: number) {
   return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2
@@ -99,4 +114,117 @@ export function cameraPoseAt(t: number): CameraPose {
     ty: 6 + Math.sin(i * 0.2) * 0.25,
     tz: 14,
   }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scroll-driven journey: one continuous drone shot                    */
+/* ------------------------------------------------------------------ */
+
+function curve(points: [number, number, number][]) {
+  return new THREE.CatmullRomCurve3(
+    points.map((p) => new THREE.Vector3(...p)),
+    false,
+    'centripetal',
+    0.5
+  )
+}
+
+// Exterior: panoramic frame -> over the forest -> under the gate ->
+// down the main street -> pause at the elder's door -> through the doorway.
+const EXT_POS = curve([
+  [4, 9.5, 52],
+  [7.5, 8.4, 40],
+  [3, 6.4, 29.5],
+  [1, 5.0, 21.6],
+  [0.8, 4.9, 15.5],
+  [-0.4, 5.0, 9.6],
+  [-2.2, 4.9, 6.6],
+  [-3, 4.88, 5.2],
+  [-3, 4.88, 4.6],
+  [-3, 4.86, 3.95],
+])
+const EXT_TGT = curve([
+  [0, 6, 14],
+  [0.6, 5.2, 15],
+  [0.9, 4.7, 12],
+  [0.6, 4.6, 8.5],
+  [-0.2, 4.7, 5.8],
+  [-1.8, 4.8, 4.4],
+  [-3, 4.86, 3.4],
+  [-3, 4.86, 3.0],
+  [-3, 4.86, 2.7],
+  [-3, 4.86, 2.4],
+])
+
+// Interior: through the door of the ancient study -> drift across the room ->
+// zoom down onto the map until it fills the frame.
+const INT_POS = curve([
+  [0, -56.4, 10.4],
+  [0, -56.7, 7.4],
+  [1, -56.95, 4.8],
+  [0.45, -56.95, 2.7],
+  [0, -56.68, 1.25],
+  [0, -56.52, 0.45],
+])
+const INT_TGT = curve([
+  [0, -57.3, 3.2],
+  [0, -57.45, 2.2],
+  [0, -57.65, 1.0],
+  [0, -57.8, 0.4],
+  [0, -57.86, 0.08],
+  [0, -57.88, 0],
+])
+
+const _p = new THREE.Vector3()
+const _t = new THREE.Vector3()
+
+/** Camera pose along the scroll journey, p in [0, 1]. */
+export function journeyPoseAt(p: number): CameraPose {
+  const k = clamp01(p)
+  if (k < DOOR_CROSS) {
+    // Ease so the flight glides fast over the sea and slows near the door.
+    const u = easeInOut(k / DOOR_CROSS) * 0.35 + (k / DOOR_CROSS) * 0.65
+    EXT_POS.getPoint(u, _p)
+    EXT_TGT.getPoint(u, _t)
+  } else {
+    const u = (k - DOOR_CROSS) / (1 - DOOR_CROSS)
+    // Ease-out so the final map zoom settles gently.
+    const e = 1 - Math.pow(1 - u, 2.1)
+    INT_POS.getPoint(e, _p)
+    INT_TGT.getPoint(e, _t)
+  }
+  return { px: _p.x, py: _p.y, pz: _p.z, tx: _t.x, ty: _t.y, tz: _t.z }
+}
+
+/** Darkness overlay while crossing the door threshold (0..1). */
+export function doorFadeAt(p: number) {
+  const d = (p - DOOR_CROSS) / 0.045
+  return Math.exp(-d * d)
+}
+
+/** Door open amount 0..1 — begins as the camera slows before the house. */
+export function doorOpenAt(p: number) {
+  return seg(p, 0.6, 0.7)
+}
+
+/** Lantern awakening on the elder's house. */
+export function lanternGlowAt(p: number) {
+  return seg(p, 0.44, 0.56)
+}
+
+/** Raven flight: 0 = absent, ramps in, 1 = perched on the roof. */
+export function ravenAt(p: number) {
+  return seg(p, 0.38, 0.52)
+}
+
+/** Fog density/color along the journey (blends over the intro values). */
+export function journeyFog(p: number): { density: number; color: string } {
+  if (p < 0.55) return { density: lerp(0.0032, 0.006, seg(p, 0.1, 0.55)), color: '#f2e8d5' }
+  if (p < DOOR_CROSS) return { density: lerp(0.006, 0.02, seg(p, 0.55, DOOR_CROSS)), color: '#e8d9bd' }
+  return { density: lerp(0.03, 0.045, seg(p, DOOR_CROSS, 1)), color: '#170f08' }
+}
+
+/** Rune glow on the ancient map — awakens during the final zoom. */
+export function runeGlowAt(p: number) {
+  return seg(p, 0.82, 0.97)
 }

@@ -1,22 +1,47 @@
 'use client'
 
-import { useMemo, useRef } from 'react'
+import { Suspense, useMemo, useRef, type MutableRefObject, type RefObject } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { Cloud, Clouds, Sky, Sparkles } from '@react-three/drei'
 import { Bloom, EffectComposer, Vignette } from '@react-three/postprocessing'
 import * as THREE from 'three'
-import { cameraPoseAt, fogDensityAt, INTRO_END, lightRampAt } from '@/lib/cinematic'
+import {
+  cameraPoseAt,
+  clamp01,
+  doorFadeAt,
+  fogDensityAt,
+  INTRO_END,
+  journeyFog,
+  journeyPoseAt,
+  lerp,
+  lightRampAt,
+} from '@/lib/cinematic'
 import { Island } from './island'
 import { Birds, CloudShadows, FloatingLeaves, Forest, Grass } from './nature'
 import { Boats, Ocean } from './ocean'
+import { Villagers } from './villagers'
+import { ElderHouse } from './elder-house'
+import { AncientStudy } from './study'
+
+export interface JourneyUiRefs {
+  fade: RefObject<HTMLDivElement | null>
+  scene2: RefObject<HTMLDivElement | null>
+  scene3: RefObject<HTMLDivElement | null>
+}
 
 interface SceneProps {
   skipRequested: boolean
   onRevealed: () => void
+  /** { raw } is written by the scroll handler; { value } is the smoothed progress. */
+  progress: MutableRefObject<{ raw: number; value: number }>
+  ui: JourneyUiRefs
 }
 
-/** Drives the cinematic timeline: camera, fog density and light ramp. */
-function CinematicDirector({ skipRequested, onRevealed }: SceneProps) {
+const FOG_DAY = new THREE.Color('#f2e8d5')
+const _fogColor = new THREE.Color()
+
+/** Drives the whole cinematic: intro timeline, then the scroll journey. */
+function CinematicDirector({ skipRequested, onRevealed, progress, ui }: SceneProps) {
   const { camera, scene } = useThree()
   const startRef = useRef<number | null>(null)
   const offsetRef = useRef(0)
@@ -24,7 +49,7 @@ function CinematicDirector({ skipRequested, onRevealed }: SceneProps) {
   const sunRef = useRef<THREE.DirectionalLight>(null)
   const target = useMemo(() => new THREE.Vector3(), [])
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock }, dt) => {
     if (startRef.current === null) startRef.current = clock.getElapsedTime()
     let t = clock.getElapsedTime() - startRef.current + offsetRef.current
 
@@ -33,19 +58,57 @@ function CinematicDirector({ skipRequested, onRevealed }: SceneProps) {
       t = INTRO_END
     }
 
-    // Camera
-    const pose = cameraPoseAt(t)
-    camera.position.set(pose.px, pose.py, pose.pz)
-    target.set(pose.tx, pose.ty, pose.tz)
+    // Critically-damped smoothing gives every scroll input cinematic easing.
+    const pr = progress.current
+    pr.value += (pr.raw - pr.value) * (1 - Math.exp(-dt * 2.4))
+    const p = clamp01(pr.value)
+
+    // Camera: intro pose blends seamlessly into the scroll journey.
+    const intro = cameraPoseAt(t)
+    if (p < 0.001) {
+      camera.position.set(intro.px, intro.py, intro.pz)
+      target.set(intro.tx, intro.ty, intro.tz)
+    } else {
+      const j = journeyPoseAt(p)
+      const mix = clamp01(p / 0.03) // dissolve out of the idle drift
+      // Subtle handheld drift keeps the shot alive without breaking the path
+      const drift = Math.max(0, 1 - p * 1.6) * 0.3
+      camera.position.set(
+        lerp(intro.px, j.px, mix) + Math.sin(t * 0.7) * drift,
+        lerp(intro.py, j.py, mix) + Math.sin(t * 0.53) * drift * 0.5,
+        lerp(intro.pz, j.pz, mix)
+      )
+      target.set(lerp(intro.tx, j.tx, mix), lerp(intro.ty, j.ty, mix), lerp(intro.tz, j.tz, mix))
+    }
     camera.lookAt(target)
 
-    // Fog
+    // Fog: intro schedule, then journey schedule (density + color shift indoors)
     const fog = scene.fog as THREE.FogExp2 | null
-    if (fog) fog.density = fogDensityAt(t)
+    if (fog) {
+      if (p < 0.001) {
+        fog.density = fogDensityAt(t)
+        fog.color.copy(FOG_DAY)
+      } else {
+        const jf = journeyFog(p)
+        fog.density = lerp(fogDensityAt(t), jf.density, clamp01(p / 0.03))
+        fog.color.copy(_fogColor.set(jf.color))
+      }
+    }
 
     // Golden light piercing through
     const ramp = lightRampAt(t)
-    if (sunRef.current) sunRef.current.intensity = 0.4 + ramp * 2.6
+    if (sunRef.current) sunRef.current.intensity = (0.4 + ramp * 2.6) * (1 - clamp01((p - 0.6) / 0.15) * 0.85)
+
+    // DOM overlays driven straight from the render loop (no react state churn)
+    if (ui.fade.current) ui.fade.current.style.opacity = String(doorFadeAt(p))
+    if (ui.scene2.current) {
+      const o = clamp01((p - 0.05) / 0.04) * clamp01((0.22 - p) / 0.05)
+      ui.scene2.current.style.opacity = String(o)
+    }
+    if (ui.scene3.current) {
+      const o = clamp01((p - 0.76) / 0.04) * clamp01((0.92 - p) / 0.05)
+      ui.scene3.current.style.opacity = String(o)
+    }
 
     if (!revealedRef.current && t >= INTRO_END) {
       revealedRef.current = true
