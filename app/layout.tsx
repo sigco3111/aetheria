@@ -48,6 +48,16 @@ export default function RootLayout({
     <html lang="en" className={`${cinzel.variable} bg-background`}>
       <body className="antialiased overflow-hidden">
         {children}
+        <footer className="fixed bottom-0 w-full bg-black/50 backdrop-blur-sm text-white/80 py-2 px-4 text-xs flex flex-wrap justify-between items-center z-50 font-sans">
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            <span>Team: <strong>AA-OG's</strong></span>
+            <span>Code: <strong>GAM-03</strong></span>
+            <span className="hidden sm:inline">Title: <strong>Interactive Open-World Game Companion App</strong></span>
+          </div>
+          <div className="mt-1 sm:mt-0">
+            <span>Members: <strong>Govind Jindal, Aaradhya Khanna</strong></span>
+          </div>
+        </footer>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

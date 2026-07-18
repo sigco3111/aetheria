@@ -601,22 +601,28 @@ function MapTable({ progress }: { progress: MutableRefObject<{ value: number }> 
           <meshStandardMaterial color={WOOD_DARK} roughness={1} />
         </mesh>
       ))}
-      {/* The ancient map — worn parchment with the generated texture */}
-      <mesh position={[0, 2.09, 0]} rotation={[-Math.PI / 2, 0, 0.04]}>
-        <planeGeometry args={[3.1, 2.3]} />
-        <meshStandardMaterial map={map} roughness={0.85} />
-      </mesh>
-      {/* Curled parchment edges */}
-      {[-1.56, 1.56].map((x, i) => (
-        <mesh key={i} position={[x * 0.995, 2.11, 0]} rotation={[0, 0, i === 0 ? 0.5 : -0.5]}>
-          <cylinderGeometry args={[0.035, 0.035, 2.3, 6, 1, true]} />
-          <meshStandardMaterial color={PARCH} roughness={1} side={THREE.DoubleSide} />
+      <group
+        onClick={() => { window.location.href = '/grand_guild_exchange/index.html' }}
+        onPointerOver={() => document.body.style.cursor = 'pointer'}
+        onPointerOut={() => document.body.style.cursor = 'auto'}
+      >
+        {/* The ancient map — worn parchment with the generated texture */}
+        <mesh position={[0, 2.09, 0]} rotation={[-Math.PI / 2, 0, 0.04]}>
+          <planeGeometry args={[3.1, 2.3]} />
+          <meshStandardMaterial map={map} roughness={0.85} />
         </mesh>
-      ))}
-      {/* Animated rune overlay */}
-      <mesh position={[0, 2.105, 0]} rotation={[-Math.PI / 2, 0, 0.04]} material={runeMaterial}>
-        <planeGeometry args={[3.1, 2.3]} />
-      </mesh>
+        {/* Curled parchment edges */}
+        {[-1.56, 1.56].map((x, i) => (
+          <mesh key={i} position={[x * 0.995, 2.11, 0]} rotation={[0, 0, i === 0 ? 0.5 : -0.5]}>
+            <cylinderGeometry args={[0.035, 0.035, 2.3, 6, 1, true]} />
+            <meshStandardMaterial color={PARCH} roughness={1} side={THREE.DoubleSide} />
+          </mesh>
+        ))}
+        {/* Animated rune overlay */}
+        <mesh position={[0, 2.105, 0]} rotation={[-Math.PI / 2, 0, 0.04]} material={runeMaterial}>
+          <planeGeometry args={[3.1, 2.3]} />
+        </mesh>
+      </group>
       {/* Tiny candles ringing the map */}
       <Candle position={[-1.85, 2.07, -1.2]} phase={0} />
       <Candle position={[1.8, 2.07, -1.15]} phase={1.7} height={0.16} />
