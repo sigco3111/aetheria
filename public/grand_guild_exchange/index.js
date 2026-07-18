@@ -1,9 +1,11 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import GuildExchange from './App';
-
 const container = document.getElementById('root');
-if (container) {
-  const root = createRoot(container);
-  root.render(<GuildExchange />);
+function mountGuildExchange() {
+  if (!container) return;
+  const App = window.GuildExchange;
+  if (typeof App !== 'function') {
+    return setTimeout(mountGuildExchange, 50);
+  }
+  const root = ReactDOM.createRoot(container);
+  root.render(React.createElement(App));
 }
+mountGuildExchange();

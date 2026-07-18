@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+const { useState, useEffect, useRef, useMemo } = React;
 
 // --- DATA ---
 
@@ -43,7 +43,7 @@ const CREATORS = [
 // --- CANVAS ARTWORK RENDERERS ---
 
 // A helper to draw diegetic thumbnails on canvas so we don't need external images.
-function drawArt(canvas: HTMLCanvasElement | null, type: string, color: string, seed: number) {
+function drawArt(canvas, type, color, seed) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -119,8 +119,8 @@ function drawArt(canvas: HTMLCanvasElement | null, type: string, color: string, 
   ctx.restore();
 }
 
-function CanvasArt({ type, color, id }: { type: string, color: string, id: number }) {
-  const ref = useRef<HTMLCanvasElement>(null);
+function CanvasArt({ type, color, id }) {
+  const ref = useRef(null);
   useEffect(() => {
     if (ref.current) {
       ref.current.width = ref.current.offsetWidth * 2;
@@ -133,14 +133,14 @@ function CanvasArt({ type, color, id }: { type: string, color: string, id: numbe
 
 // --- COMPONENTS ---
 
-export default function GuildExchange() {
-  const [entered, setEntered] = useState(false);
+window.GuildExchange = function GuildExchange() {
+  const [entered, setEntered] = useState(true);
   const [search, setSearch] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
-  const [viewing, setViewing] = useState<any>(null);
+  const [viewing, setViewing] = useState(null);
   const [toast, setToast] = useState('');
-  const [bookmarks, setBookmarks] = useState<Set<number>>(new Set());
+  const [bookmarks, setBookmarks] = useState(new Set());
 
   // Filter logic
   const filtered = useMemo(() => {
@@ -156,12 +156,12 @@ export default function GuildExchange() {
     return res;
   }, [activeFilter, search, sortBy]);
 
-  const handleToast = (msg: string) => {
+  const handleToast = (msg) => {
     setToast(msg);
     setTimeout(() => setToast(''), 3000);
   };
 
-  const toggleBookmark = (e: React.MouseEvent, id: number) => {
+  const toggleBookmark = (e, id) => {
     e.stopPropagation();
     const next = new Set(bookmarks);
     if (next.has(id)) { next.delete(id); handleToast('Removed from compendium.'); }
@@ -496,7 +496,7 @@ export default function GuildExchange() {
                 <p className="desc">{viewing.desc}</p>
                 
                 <div className="detail-tags">
-                  {viewing.tags.map((t: string) => <span key={t}>{t}</span>)}
+                  {viewing.tags.map((t) => <span key={t}>{t}</span>)}
                 </div>
 
                 <div className="spec-grid">
@@ -563,4 +563,4 @@ export default function GuildExchange() {
 
     </div>
   );
-}
+};
