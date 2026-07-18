@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { AmbientAudio } from './ambient-audio'
+import { TABLE_MAX_PROGRESS } from '@/lib/cinematic'
 import { CinematicScene, type JourneyUiRefs } from './scene'
 
 const NAV_LINKS = ['The Isle', 'Legends', 'The Keep', 'Gallery'] as const
@@ -41,19 +42,21 @@ export function CinematicExperience() {
   }, [])
 
   // --- Scroll-driven progress ---
-  // We normalize wheel / trackpad delta into a 0..1 range.
-  // The total scrollable "distance" is ~6000px worth of delta.
+  // We normalize wheel / trackpad delta into a 0..1 range (for the cinematic journey).
+  // The total scrollable "distance" is ~6000px worth of delta for p=0..1,
+  // and we allow scrolling up to TABLE_MAX_PROGRESS (e.g. 1.5).
   useEffect(() => {
     if (!revealed) return
 
-    const TOTAL = 6000 // total virtual scroll distance in px
+    const TOTAL = 6000 // total virtual scroll distance in px for p=1.0
+    const MAX_SCROLL = TOTAL * TABLE_MAX_PROGRESS
     let accumulated = 0
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault()
       // Normalize wheel delta: trackpad gives small px values, mouse wheel gives larger
       const delta = Math.abs(e.deltaY) > 60 ? e.deltaY * 0.3 : e.deltaY
-      accumulated = Math.max(0, Math.min(TOTAL, accumulated + delta))
+      accumulated = Math.max(0, Math.min(MAX_SCROLL, accumulated + delta))
       progress.current.raw = accumulated / TOTAL
     }
 
@@ -66,7 +69,7 @@ export function CinematicExperience() {
       e.preventDefault()
       const delta = lastTouchY - e.touches[0].clientY
       lastTouchY = e.touches[0].clientY
-      accumulated = Math.max(0, Math.min(TOTAL, accumulated + delta * 1.5))
+      accumulated = Math.max(0, Math.min(MAX_SCROLL, accumulated + delta * 1.5))
       progress.current.raw = accumulated / TOTAL
     }
 

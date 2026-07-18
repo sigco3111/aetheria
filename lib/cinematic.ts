@@ -228,3 +228,41 @@ export function journeyFog(p: number): { density: number; color: string } {
 export function runeGlowAt(p: number) {
   return seg(p, 0.82, 0.97)
 }
+
+/* ------------------------------------------------------------------ */
+/*  Explorer's table: camera pulls back to an interactive overview     */
+/* ------------------------------------------------------------------ */
+
+/** Progress where the map pause ends and the pullback begins. */
+export const TABLE_PAUSE_END = 1.06
+/** Progress where the pullback finishes and the table is interactive. */
+export const TABLE_REVEAL_END = 1.4
+/** Maximum allowed progress value (beyond this, scroll stops). */
+export const TABLE_MAX_PROGRESS = 1.5
+
+/**
+ * Camera pose during the table reveal phase (rawP > 1.0).
+ * Smoothly pulls back from the map closeup to a ~37° overhead view.
+ */
+export function tablePoseAt(rawP: number): CameraPose {
+  const start = journeyPoseAt(1.0)
+  if (rawP <= TABLE_PAUSE_END) return start
+
+  const t = easeInOut(clamp01((rawP - TABLE_PAUSE_END) / (TABLE_REVEAL_END - TABLE_PAUSE_END)))
+
+  // Overview: camera above and behind the table, angled down ~37°.
+  // Table surface in world space: y ≈ -57.91 (STUDY_CENTER[1] + 2.09)
+  return {
+    px: lerp(start.px, 0, t),
+    py: lerp(start.py, -53, t),
+    pz: lerp(start.pz, 6.5, t),
+    tx: lerp(start.tx, 0, t),
+    ty: lerp(start.ty, -57.91, t),
+    tz: lerp(start.tz, 0, t),
+  }
+}
+
+/** 0..1 opacity for artifacts fading in during the table reveal. */
+export function tableArtifactFade(rawP: number) {
+  return seg(rawP, 1.1, TABLE_REVEAL_END)
+}
