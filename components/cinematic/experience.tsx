@@ -5,7 +5,12 @@ import { Canvas } from '@react-three/fiber'
 import { AmbientAudio } from './ambient-audio'
 import { CinematicScene, type JourneyUiRefs } from './scene'
 
-const NAV_LINKS = ['The Isle', 'Legends', 'The Keep', 'Gallery'] as const
+const NAV_LINKS = [
+  { label: 'The Isle', href: '/cartographers_sanctum/index.html' },
+  { label: 'Legends', href: '/achievements/index.html' },
+  { label: 'The Keep', href: '#' },
+  { label: 'Gallery', href: '#' },
+] as const
 
 /** Total scrollable length of the journey. Longer = slower, more cinematic. */
 const SCROLL_LENGTH_VH = 900
@@ -126,12 +131,12 @@ export function CinematicExperience() {
           </a>
           <ul className="hidden items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => (
-              <li key={link}>
+              <li key={link.label}>
                 <a
-                  href="#"
+                  href={link.href}
                   className="font-serif text-sm tracking-[0.18em] text-parchment/90 drop-shadow-[0_2px_8px_rgba(20,30,50,0.6)] transition-colors hover:text-gold"
                 >
-                  {link.toUpperCase()}
+                  {link.label.toUpperCase()}
                 </a>
               </li>
             ))}

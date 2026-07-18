@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Cartographer's Sanctum</title>
+  <meta name="description" content="Enter the legendary hall where every known world has been mapped.">
+  <script
+    src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.0/dist/index.global.js"
+    integrity="sha384-nWTzRTCY/9V4Bo352ehygr1c4cnst4XN6lMR3fipakEQrhVpc0hEM5Dii3Amz0sT"
+    crossorigin="anonymous"
+  ></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+  </style>
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-dvh overflow-hidden text-sm antialiased">
+  <a class="skip-link" href="#main-stage">Skip to sanctum</a>
+
+  <!-- PORTAL / ENTRY -->
+  <div id="portal" class="portal" role="dialog" aria-modal="true" aria-labelledby="portal-title">
+    <canvas id="ink-canvas" aria-hidden="true"></canvas>
+    <div class="portal-veil"></div>
+    <div class="portal-content">
+      <p class="portal-eyebrow">The parchment tears open</p>
+      <h1 id="portal-title" class="portal-title">The Cartographer's Sanctum</h1>
+      <p class="portal-sub">Headquarters of every explorer who has ever mapped a world.</p>
+      <button type="button" id="enter-btn" class="enter-btn" autofocus>
+        <span class="enter-btn-glow"></span>
+        <span class="enter-btn-label">Step Through the Ink</span>
+      </button>
+      <p class="portal-hint">Press Enter · Esc skips ceremony</p>
+    </div>
+    <div class="portal-tear" aria-hidden="true"></div>
+  </div>
+
+  <!-- AMBIENT LAYER -->
+  <div id="sanctum" class="sanctum is-hidden" aria-hidden="true">
+    <div class="chamber-bg" aria-hidden="true">
+      <div class="stone-wall"></div>
+      <div class="celestial-ceiling"></div>
+      <div class="constellation" id="constellation"></div>
+      <div class="dust" id="dust"></div>
+      <div class="candle-glow candle-l"></div>
+      <div class="candle-glow candle-r"></div>
+      <div class="candle-glow candle-c"></div>
+      <div class="shelf shelf-l"></div>
+      <div class="shelf shelf-r"></div>
+      <div class="beams"></div>
+    </div>
+
+    <!-- TOP RITUAL BAR -->
+    <header class="ritual-bar" role="banner">
+      <div class="brand-mark">
+        <span class="compass-mini" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="28" height="28"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M20 4 L23 20 L20 36 L17 20 Z" fill="currentColor" opacity=".85"/><circle cx="20" cy="20" r="2.5" fill="#c9a227"/></svg>
+        </span>
+        <div>
+          <p class="brand-kicker">Legendary Hall</p>
+          <h1 class="brand-title">Cartographer's Sanctum</h1>
+        </div>
+      </div>
+
+      <div class="search-parchment" role="search">
+        <label for="search-input" class="sr-only">Search forgotten kingdoms</label>
+        <span class="search-quill" aria-hidden="true">❧</span>
+        <input
+          id="search-input"
+          type="search"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Search forgotten kingdoms, caves, dragons, ruins…"
+          aria-describedby="search-status"
+        />
+        <kbd class="search-kbd" aria-hidden="true">/</kbd>
+        <div id="search-ink" class="search-ink" aria-hidden="true"></div>
+        <div id="search-results" class="search-results" hidden role="listbox" aria-label="Search results"></div>
+      </div>
+
+      <div class="ritual-actions">
+        <button type="button" id="btn-daynight" class="icon-relic" aria-pressed="false" title="Toggle day and night" aria-label="Toggle day and night on the atlas">
+          <span class="relic-icon" aria-hidden="true">☾</span>
+          <span class="relic-label">Night</span>
+        </button>
+        <button type="button" id="btn-weather" class="icon-relic" title="Cycle weather" aria-label="Cycle map weather">
+          <span class="relic-icon" aria-hidden="true">☁</span>
+          <span class="relic-label">Weather</span>
+        </button>
+        <button type="button" id="btn-motion" class="icon-relic" aria-pressed="false" title="Reduce motion" aria-label="Toggle reduced motion">
+          <span class="relic-icon" aria-hidden="true">✦</span>
+          <span class="relic-label">Motion</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-stage" class="main-stage">
+      <!-- LEFT: Collection shelves + trending -->
+      <aside class="wing wing-left" aria-label="Collections and worlds">
+        <section class="panel-card collections-panel">
+          <header class="panel-head">
+            <h2>Leather Collections</h2>
+            <p>Pull a tome from the shelf</p>
+          </header>
+          <ul id="collections-list" class="book-shelf" role="list"></ul>
+        </section>
+
+        <section class="panel-card worlds-panel">
+          <header class="panel-head">
+            <h2>Trending Worlds</h2>
+            <p>Recently explored realms</p>
+          </header>
+          <div id="worlds-rail" class="worlds-rail" role="listbox" aria-label="Game worlds"></div>
+        </section>
+      </aside>
+
+      <!-- CENTER: Magical map table -->
+      <section class="map-table-wrap" aria-label="Magical atlas table">
+        <div class="table-pedestal">
+          <div class="table-rim"></div>
+          <div class="table-brass"></div>
+          <div id="map-stage" class="map-stage" tabindex="0" role="application" aria-label="Living world map. Arrow keys pan, plus and minus zoom, Enter selects focused pin.">
+            <canvas id="map-canvas" width="900" height="620" aria-hidden="true"></canvas>
+            <div id="map-pins" class="map-pins"></div>
+            <div id="map-threads" class="map-threads" aria-hidden="true"></div>
+            <div id="map-fog" class="map-fog" aria-hidden="true"></div>
+            <div id="map-ripple" class="map-ripple" aria-hidden="true"></div>
+            <div class="map-vignette" aria-hidden="true"></div>
+            <div class="map-breath" aria-hidden="true"></div>
+          </div>
+          <div class="table-legs" aria-hidden="true"></div>
+        </div>
+
+        <!-- Relic filters around the table -->
+        <nav class="relic-ring" aria-label="Map layer relics" id="relic-ring"></nav>
+
+        <div class="map-legend" aria-live="polite">
+          <span id="active-world-name">Tamriel — Skyrim</span>
+          <span class="dot">·</span>
+          <span id="pin-count">0 markers</span>
+          <span class="dot">·</span>
+          <span id="layer-status">All layers</span>
+        </div>
+      </section>
+
+      <!-- RIGHT: Illuminated atlas book -->
+      <aside class="wing wing-right" aria-label="Illuminated atlas">
+        <div class="atlas-book" id="atlas-book">
+          <div class="atlas-cover-edge" aria-hidden="true"></div>
+          <div class="atlas-pages">
+            <div class="atlas-page left-page" aria-hidden="true">
+              <div class="page-stain"></div>
+            </div>
+            <div class="atlas-page right-page" id="atlas-content">
+              <div class="page-stain"></div>
+              <div class="atlas-inner" id="atlas-inner">
+                <!-- filled by JS -->
+              </div>
+            </div>
+          </div>
+          <div class="atlas-tabs" role="tablist" aria-label="Atlas sections">
+            <button type="button" class="atlas-tab is-active" role="tab" aria-selected="true" data-tab="lore">Lore</button>
+            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="stats">Stats</button>
+            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="community">Community</button>
+          </div>
+        </div>
+
+        <div class="quick-satchel" aria-label="Explorer actions">
+          <button type="button" id="btn-bookmark" class="satchel-btn" disabled>
+            <span aria-hidden="true">📌</span> Pin Bookmark
+          </button>
+          <button type="button" id="btn-download" class="satchel-btn" disabled>
+            <span aria-hidden="true">📜</span> Seal Scroll
+          </button>
+          <button type="button" id="btn-share" class="satchel-btn" disabled>
+            <span aria-hidden="true">🕯</span> Share Discovery
+          </button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Floating stone tablet (location detail) -->
+    <div id="tablet" class="stone-tablet" hidden role="dialog" aria-modal="true" aria-labelledby="tablet-title">
+      <button type="button" class="tablet-close" id="tablet-close" aria-label="Close tablet">✕</button>
+      <div class="tablet-carving">
+        <p class="tablet-kicker" id="tablet-world"></p>
+        <h2 id="tablet-title"></h2>
+        <div class="tablet-meta" id="tablet-meta"></div>
+        <p class="tablet-desc" id="tablet-desc"></p>
+        <div class="tablet-grid" id="tablet-grid"></div>
+        <div class="tablet-actions">
+          <button type="button" class="tablet-btn" id="tablet-bookmark">Drive pin into parchment</button>
+          <button type="button" class="tablet-btn ghost" id="tablet-route">Trace route</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll seal download overlay -->
+    <div id="scroll-seal" class="scroll-seal" hidden aria-live="polite">
+      <div class="scroll-body">
+        <div class="scroll-roll"></div>
+        <p id="scroll-msg">Sealing the scroll…</p>
+      </div>
+    </div>
+
+    <!-- Toast / ceremonial notices -->
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <p id="search-status" class="sr-only" aria-live="polite"></p>
+
+    <footer class="sanctum-foot">
+      <span>Warm candlelight · Cool moonlight · Handcrafted parchment</span>
+      <span class="foot-sep">·</span>
+      <span id="focus-hint">Tab through relics · Click pins · / to search</span>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
