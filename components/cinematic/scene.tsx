@@ -197,7 +197,7 @@ function GodRays() {
   )
 }
 
-export function CinematicScene({ skipRequested, onRevealed }: SceneProps) {
+export function CinematicScene({ skipRequested, onRevealed, progress, ui }: SceneProps) {
   return (
     <>
       {/* Warm haze fog — the star of the opening shot */}
@@ -217,7 +217,12 @@ export function CinematicScene({ skipRequested, onRevealed }: SceneProps) {
       <ambientLight intensity={0.65} color={'#ffeedd'} />
       <hemisphereLight args={['#bfe3ff', '#7a9b6a', 0.55]} />
 
-      <CinematicDirector skipRequested={skipRequested} onRevealed={onRevealed} />
+      <CinematicDirector
+        skipRequested={skipRequested}
+        onRevealed={onRevealed}
+        progress={progress}
+        ui={ui}
+      />
 
       <Island />
       <Forest />
@@ -228,6 +233,17 @@ export function CinematicScene({ skipRequested, onRevealed }: SceneProps) {
       <Ocean />
       <Boats />
       <GodRays />
+
+      {/* Living village: NPCs, animals, street life */}
+      <Villagers />
+
+      {/* Elder's house — door opens, raven lands, lantern glows as camera nears */}
+      <ElderHouse progress={progress} />
+
+      {/* Ancient study interior — lazy-loaded because of texture dependency */}
+      <Suspense fallback={null}>
+        <AncientStudy progress={progress} />
+      </Suspense>
 
       {/* Soft drifting clouds */}
       <Clouds material={THREE.MeshBasicMaterial} limit={200}>

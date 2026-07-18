@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { AmbientAudio } from './ambient-audio'
-import { CinematicScene } from './scene'
+import { CinematicScene, type JourneyUiRefs } from './scene'
 
 const NAV_LINKS = ['The Isle', 'Legends', 'The Keep', 'Gallery'] as const
 
@@ -14,14 +14,72 @@ export function CinematicExperience() {
   const [soundOn, setSoundOn] = useState(false)
   const audioRef = useRef<AmbientAudio | null>(null)
 
+  // Scroll progress shared between the DOM scroll handler and the R3F render loop.
+  // { raw } is written on every wheel/touch event, { value } is the smoothed version
+  // driven inside CinematicDirector's useFrame.
+  const progress = useRef({ raw: 0, value: 0 })
+
+  // DOM overlay refs driven imperatively from the render loop (no React state churn).
+  const fadeRef = useRef<HTMLDivElement>(null)
+  const scene2Ref = useRef<HTMLDivElement>(null)
+  const scene3Ref = useRef<HTMLDivElement>(null)
+  const ui: JourneyUiRefs = {
+    fade: fadeRef,
+    scene2: scene2Ref,
+    scene3: scene3Ref,
+  }
+
+  // --- Skip-intro button delay ---
   useEffect(() => {
     const t = setTimeout(() => setShowSkip(true), 2500)
     return () => clearTimeout(t)
   }, [])
 
+  // --- Cleanup audio on unmount ---
   useEffect(() => {
     return () => audioRef.current?.stop()
   }, [])
+
+  // --- Scroll-driven progress ---
+  // We normalize wheel / trackpad delta into a 0..1 range.
+  // The total scrollable "distance" is ~6000px worth of delta.
+  useEffect(() => {
+    if (!revealed) return
+
+    const TOTAL = 6000 // total virtual scroll distance in px
+    let accumulated = 0
+
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault()
+      // Normalize wheel delta: trackpad gives small px values, mouse wheel gives larger
+      const delta = Math.abs(e.deltaY) > 60 ? e.deltaY * 0.3 : e.deltaY
+      accumulated = Math.max(0, Math.min(TOTAL, accumulated + delta))
+      progress.current.raw = accumulated / TOTAL
+    }
+
+    // Touch support for mobile
+    let lastTouchY = 0
+    const onTouchStart = (e: TouchEvent) => {
+      lastTouchY = e.touches[0].clientY
+    }
+    const onTouchMove = (e: TouchEvent) => {
+      e.preventDefault()
+      const delta = lastTouchY - e.touches[0].clientY
+      lastTouchY = e.touches[0].clientY
+      accumulated = Math.max(0, Math.min(TOTAL, accumulated + delta * 1.5))
+      progress.current.raw = accumulated / TOTAL
+    }
+
+    window.addEventListener('wheel', onWheel, { passive: false })
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchmove', onTouchMove, { passive: false })
+
+    return () => {
+      window.removeEventListener('wheel', onWheel)
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchmove', onTouchMove)
+    }
+  }, [revealed])
 
   const toggleSound = useCallback(() => {
     setSoundOn((on) => {
@@ -47,10 +105,53 @@ export function CinematicExperience() {
         dpr={[1, 1.75]}
         aria-hidden="true"
       >
-        <CinematicScene skipRequested={skipRequested} onRevealed={onRevealed} />
+        <CinematicScene
+          skipRequested={skipRequested}
+          onRevealed={onRevealed}
+          progress={progress}
+          ui={ui}
+        />
       </Canvas>
 
       <h1 className="sr-only">Aetheria Isle — a floating medieval fantasy island revealed from the morning mist</h1>
+
+      {/* ---- Door-threshold darkness overlay ---- */}
+      <div
+        ref={fadeRef}
+        className="pointer-events-none absolute inset-0 z-10 bg-black"
+        style={{ opacity: 0 }}
+        aria-hidden="true"
+      />
+
+      {/* ---- Scene 2 text overlay: village flythrough ---- */}
+      <div
+        ref={scene2Ref}
+        className="pointer-events-none absolute inset-x-0 bottom-20 z-10 flex flex-col items-center gap-2 px-6 text-center"
+        style={{ opacity: 0 }}
+        aria-hidden="true"
+      >
+        <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
+          THE LIVING VILLAGE
+        </p>
+        <p className="font-serif text-lg font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-2xl">
+          Where Voices Echo Through Cobblestone
+        </p>
+      </div>
+
+      {/* ---- Scene 3 text overlay: elder's study ---- */}
+      <div
+        ref={scene3Ref}
+        className="pointer-events-none absolute inset-x-0 bottom-20 z-10 flex flex-col items-center gap-2 px-6 text-center"
+        style={{ opacity: 0 }}
+        aria-hidden="true"
+      >
+        <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
+          THE ANCIENT STUDY
+        </p>
+        <p className="font-serif text-lg font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-2xl">
+          Secrets Inscribed in Fading Ink
+        </p>
+      </div>
 
       {/* ---- Navigation: hidden until the island reveal completes ---- */}
       <header
@@ -106,6 +207,23 @@ export function CinematicExperience() {
           {'Where the morning mist parts, an ancient kingdom waits.'}
         </p>
       </div>
+
+      {/* ---- Scroll hint — pulses after reveal to invite interaction ---- */}
+      {revealed && (
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex justify-center animate-bounce"
+          aria-hidden="true"
+        >
+          <div className="flex flex-col items-center gap-1">
+            <p className="font-serif text-[9px] tracking-[0.4em] text-parchment/60 drop-shadow-[0_2px_8px_rgba(20,30,50,0.5)]">
+              SCROLL TO EXPLORE
+            </p>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-parchment/50">
+              <path d="M10 4 L10 16 M5 11 L10 16 L15 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      )}
 
       {/* ---- Skip intro ---- */}
       {showSkip && !revealed && (
