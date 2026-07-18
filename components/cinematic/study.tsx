@@ -5,7 +5,9 @@ import { useFrame } from '@react-three/fiber'
 import { Sparkles, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 import { runeGlowAt, STUDY_CENTER } from '@/lib/cinematic'
-import { ExplorerTableArtifacts } from './explorer-table'
+
+// Preload so the study is ready long before the camera crosses the door.
+useTexture.preload('/textures/ancient-map.png')
 
 /* Scene 3 — "The Ancient Study". A candlelit, centuries-old room hidden
    beneath the world, entered seamlessly through the elder's door.
@@ -516,7 +518,7 @@ function Candle({ position, height = 0.22, phase = 0 }: { position: [number, num
 
 /* ---------------- The map table ---------------- */
 
-function MapTable({ progress }: { progress: MutableRefObject<{ raw: number; value: number }> }) {
+function MapTable({ progress }: { progress: MutableRefObject<{ value: number }> }) {
   const map = useTexture('/textures/ancient-map.png')
   const runeMat = useRef<THREE.ShaderMaterial>(null)
   const tableLight = useRef<THREE.PointLight>(null)
@@ -633,7 +635,7 @@ function MapTable({ progress }: { progress: MutableRefObject<{ raw: number; valu
 
 /* ---------------- Full study ---------------- */
 
-export function AncientStudy({ progress }: { progress: MutableRefObject<{ raw: number; value: number }> }) {
+export function AncientStudy({ progress }: { progress: MutableRefObject<{ value: number }> }) {
   const [cx, cy, cz] = STUDY_CENTER
   return (
     <group position={[cx, cy, cz]}>
@@ -666,7 +668,6 @@ export function AncientStudy({ progress }: { progress: MutableRefObject<{ raw: n
       </mesh>
 
       <MapTable progress={progress} />
-      <ExplorerTableArtifacts progress={progress} />
 
       {/* Standing candles around the room */}
       <Candle position={[-6.2, 1.06, 1.9]} phase={2.2} height={0.4} />

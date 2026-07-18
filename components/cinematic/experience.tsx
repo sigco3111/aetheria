@@ -3,10 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { AmbientAudio } from './ambient-audio'
-import { TABLE_MAX_PROGRESS } from '@/lib/cinematic'
 import { CinematicScene, type JourneyUiRefs } from './scene'
 
 const NAV_LINKS = ['The Isle', 'Legends', 'The Keep', 'Gallery'] as const
+
+/** Total scrollable length of the journey. Longer = slower, more cinematic. */
+const SCROLL_LENGTH_VH = 900
 
 export function CinematicExperience() {
   const [revealed, setRevealed] = useState(false)
@@ -15,74 +17,29 @@ export function CinematicExperience() {
   const [soundOn, setSoundOn] = useState(false)
   const audioRef = useRef<AmbientAudio | null>(null)
 
-  // Scroll progress shared between the DOM scroll handler and the R3F render loop.
-  // { raw } is written on every wheel/touch event, { value } is the smoothed version
-  // driven inside CinematicDirector's useFrame.
+  // Shared with the R3F director: { raw } written here, { value } smoothed there.
   const progress = useRef({ raw: 0, value: 0 })
+  const revealedRef = useRef(false)
+  const scroller = useRef<HTMLDivElement>(null)
 
-  // DOM overlay refs driven imperatively from the render loop (no React state churn).
+  // DOM overlays driven directly from the render loop (no react state churn)
   const fadeRef = useRef<HTMLDivElement>(null)
   const scene2Ref = useRef<HTMLDivElement>(null)
   const scene3Ref = useRef<HTMLDivElement>(null)
-  const ui: JourneyUiRefs = {
-    fade: fadeRef,
-    scene2: scene2Ref,
-    scene3: scene3Ref,
-  }
+  const ui = useRef<JourneyUiRefs>({ fade: fadeRef, scene2: scene2Ref, scene3: scene3Ref })
 
-  // --- Skip-intro button delay ---
+  // Title card + scroll hint fade out as the journey begins
+  const titleRef = useRef<HTMLDivElement>(null)
+  const hintRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     const t = setTimeout(() => setShowSkip(true), 2500)
     return () => clearTimeout(t)
   }, [])
 
-  // --- Cleanup audio on unmount ---
   useEffect(() => {
     return () => audioRef.current?.stop()
   }, [])
-
-  // --- Scroll-driven progress ---
-  // We normalize wheel / trackpad delta into a 0..1 range (for the cinematic journey).
-  // The total scrollable "distance" is ~6000px worth of delta for p=0..1,
-  // and we allow scrolling up to TABLE_MAX_PROGRESS (e.g. 1.5).
-  useEffect(() => {
-    if (!revealed) return
-
-    const TOTAL = 6000 // total virtual scroll distance in px for p=1.0
-    const MAX_SCROLL = TOTAL * TABLE_MAX_PROGRESS
-    let accumulated = 0
-
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault()
-      // Normalize wheel delta: trackpad gives small px values, mouse wheel gives larger
-      const delta = Math.abs(e.deltaY) > 60 ? e.deltaY * 0.3 : e.deltaY
-      accumulated = Math.max(0, Math.min(MAX_SCROLL, accumulated + delta))
-      progress.current.raw = accumulated / TOTAL
-    }
-
-    // Touch support for mobile
-    let lastTouchY = 0
-    const onTouchStart = (e: TouchEvent) => {
-      lastTouchY = e.touches[0].clientY
-    }
-    const onTouchMove = (e: TouchEvent) => {
-      e.preventDefault()
-      const delta = lastTouchY - e.touches[0].clientY
-      lastTouchY = e.touches[0].clientY
-      accumulated = Math.max(0, Math.min(MAX_SCROLL, accumulated + delta * 1.5))
-      progress.current.raw = accumulated / TOTAL
-    }
-
-    window.addEventListener('wheel', onWheel, { passive: false })
-    window.addEventListener('touchstart', onTouchStart, { passive: true })
-    window.addEventListener('touchmove', onTouchMove, { passive: false })
-
-    return () => {
-      window.removeEventListener('wheel', onWheel)
-      window.removeEventListener('touchstart', onTouchStart)
-      window.removeEventListener('touchmove', onTouchMove)
-    }
-  }, [revealed])
 
   const toggleSound = useCallback(() => {
     setSoundOn((on) => {
@@ -97,7 +54,27 @@ export function CinematicExperience() {
     })
   }, [])
 
-  const onRevealed = useCallback(() => setRevealed(true), [])
+  const onRevealed = useCallback(() => {
+    revealedRef.current = true
+    setRevealed(true)
+  }, [])
+
+  const onScroll = useCallback(() => {
+    const el = scroller.current
+    if (!el) return
+    // Scroll only drives the journey once the intro reveal has finished.
+    if (!revealedRef.current) {
+      el.scrollTop = 0
+      return
+    }
+    const max = el.scrollHeight - el.clientHeight
+    const p = max > 0 ? el.scrollTop / max : 0
+    progress.current.raw = p
+    // Title + hint dissolve as the descent begins (styles only — no rerender)
+    const fade = String(Math.max(0, 1 - p / 0.04))
+    if (titleRef.current) titleRef.current.style.opacity = fade
+    if (hintRef.current) hintRef.current.style.opacity = fade
+  }, [])
 
   return (
     <main className="relative h-dvh w-full overflow-hidden bg-[#f2e8d5]">
@@ -112,48 +89,23 @@ export function CinematicExperience() {
           skipRequested={skipRequested}
           onRevealed={onRevealed}
           progress={progress}
-          ui={ui}
+          ui={ui.current}
         />
       </Canvas>
 
       <h1 className="sr-only">Aetheria Isle — a floating medieval fantasy island revealed from the morning mist</h1>
 
-      {/* ---- Door-threshold darkness overlay ---- */}
+      {/* ---- Invisible scroll track: native wheel/trackpad/touch momentum ---- */}
       <div
-        ref={fadeRef}
-        className="pointer-events-none absolute inset-0 z-10 bg-black"
-        style={{ opacity: 0 }}
-        aria-hidden="true"
-      />
-
-      {/* ---- Scene 2 text overlay: village flythrough ---- */}
-      <div
-        ref={scene2Ref}
-        className="pointer-events-none absolute inset-x-0 bottom-20 z-10 flex flex-col items-center gap-2 px-6 text-center"
-        style={{ opacity: 0 }}
-        aria-hidden="true"
+        ref={scroller}
+        onScroll={onScroll}
+        className={`absolute inset-0 z-10 overflow-y-auto overscroll-none ${
+          revealed ? '' : 'pointer-events-none'
+        }`}
+        style={{ scrollbarWidth: 'none' }}
+        aria-label="Scroll to journey through the island"
       >
-        <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
-          THE LIVING VILLAGE
-        </p>
-        <p className="font-serif text-lg font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-2xl">
-          Where Voices Echo Through Cobblestone
-        </p>
-      </div>
-
-      {/* ---- Scene 3 text overlay: elder's study ---- */}
-      <div
-        ref={scene3Ref}
-        className="pointer-events-none absolute inset-x-0 bottom-20 z-10 flex flex-col items-center gap-2 px-6 text-center"
-        style={{ opacity: 0 }}
-        aria-hidden="true"
-      >
-        <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
-          THE ANCIENT STUDY
-        </p>
-        <p className="font-serif text-lg font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-2xl">
-          Secrets Inscribed in Fading Ink
-        </p>
+        <div style={{ height: `${SCROLL_LENGTH_VH}vh` }} aria-hidden="true" />
       </div>
 
       {/* ---- Navigation: hidden until the island reveal completes ---- */}
@@ -193,40 +145,67 @@ export function CinematicExperience() {
         </nav>
       </header>
 
-      {/* ---- Title card, revealed with the nav ---- */}
+      {/* ---- Title card, revealed with the nav, dissolves on first scroll ---- */}
       <div
-        className={`pointer-events-none absolute inset-x-0 bottom-14 z-10 flex flex-col items-center gap-3 px-6 text-center transition-all delay-500 duration-[2500ms] ease-out md:bottom-20 ${
+        className={`pointer-events-none absolute inset-x-0 bottom-14 z-10 transition-all delay-500 duration-[2500ms] ease-out md:bottom-20 ${
           revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
         aria-hidden={!revealed}
       >
+        <div ref={titleRef} className="flex flex-col items-center gap-3 px-6 text-center">
+          <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
+            BEYOND THE ENDLESS SEA
+          </p>
+          <p className="text-balance font-serif text-3xl font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-5xl">
+            AETHERIA ISLE
+          </p>
+          <p className="max-w-md text-pretty font-serif text-xs leading-relaxed tracking-wider text-parchment/85 drop-shadow-[0_2px_10px_rgba(20,30,50,0.7)] md:text-sm">
+            {'Where the morning mist parts, an ancient kingdom waits.'}
+          </p>
+          {/* Scroll hint */}
+          <div ref={hintRef} className="mt-4 flex flex-col items-center gap-1.5">
+            <p className="font-serif text-[10px] tracking-[0.4em] text-parchment/75 drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)]">
+              SCROLL TO DESCEND
+            </p>
+            <span className="block h-7 w-px animate-pulse bg-parchment/60" aria-hidden="true" />
+          </div>
+        </div>
+      </div>
+
+      {/* ---- Scene 2 caption: the living village ---- */}
+      <div
+        ref={scene2Ref}
+        className="pointer-events-none absolute inset-x-0 bottom-16 z-10 flex flex-col items-center gap-2 px-6 text-center opacity-0 md:bottom-24"
+        aria-hidden="true"
+      >
         <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
-          BEYOND THE ENDLESS SEA
+          SCENE II
         </p>
-        <p className="text-balance font-serif text-3xl font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-5xl">
-          AETHERIA ISLE
-        </p>
-        <p className="max-w-md text-pretty font-serif text-xs leading-relaxed tracking-wider text-parchment/85 drop-shadow-[0_2px_10px_rgba(20,30,50,0.7)] md:text-sm">
-          {'Where the morning mist parts, an ancient kingdom waits.'}
+        <p className="text-balance font-serif text-2xl font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-4xl">
+          THE LIVING VILLAGE
         </p>
       </div>
 
-      {/* ---- Scroll hint — pulses after reveal to invite interaction ---- */}
-      {revealed && (
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex justify-center animate-bounce"
-          aria-hidden="true"
-        >
-          <div className="flex flex-col items-center gap-1">
-            <p className="font-serif text-[9px] tracking-[0.4em] text-parchment/60 drop-shadow-[0_2px_8px_rgba(20,30,50,0.5)]">
-              SCROLL TO EXPLORE
-            </p>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-parchment/50">
-              <path d="M10 4 L10 16 M5 11 L10 16 L15 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      )}
+      {/* ---- Scene 3 caption: the ancient study ---- */}
+      <div
+        ref={scene3Ref}
+        className="pointer-events-none absolute inset-x-0 bottom-16 z-10 flex flex-col items-center gap-2 px-6 text-center opacity-0 md:bottom-24"
+        aria-hidden="true"
+      >
+        <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(255,171,82,0.4)] md:text-xs">
+          SCENE III
+        </p>
+        <p className="text-balance font-serif text-2xl font-semibold tracking-[0.14em] text-[#e8d5b0] drop-shadow-[0_4px_18px_rgba(0,0,0,0.8)] md:text-4xl">
+          THE ANCIENT STUDY
+        </p>
+      </div>
+
+      {/* ---- Door-threshold darkness: driven by the render loop ---- */}
+      <div
+        ref={fadeRef}
+        className="pointer-events-none absolute inset-0 z-[25] bg-black opacity-0"
+        aria-hidden="true"
+      />
 
       {/* ---- Skip intro ---- */}
       {showSkip && !revealed && (

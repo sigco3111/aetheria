@@ -13,7 +13,6 @@ import {
   INTRO_END,
   journeyFog,
   journeyPoseAt,
-  tablePoseAt,
   lerp,
   lightRampAt,
 } from '@/lib/cinematic'
@@ -62,28 +61,21 @@ function CinematicDirector({ skipRequested, onRevealed, progress, ui }: ScenePro
     // Critically-damped smoothing gives every scroll input cinematic easing.
     const pr = progress.current
     pr.value += (pr.raw - pr.value) * (1 - Math.exp(-dt * 2.4))
-    
-    // rawP can go beyond 1.0 into the table reveal phase
-    const rawP = Math.max(0, pr.value)
-    // p is clamped to [0, 1] for legacy fog, lighting, and door logic
-    const p = clamp01(rawP)
+    const p = clamp01(pr.value)
 
-    // Camera: intro pose blends seamlessly into the scroll journey, then to the table reveal.
+    // Camera: intro pose blends seamlessly into the scroll journey.
     const intro = cameraPoseAt(t)
-    if (rawP < 0.001) {
+    if (p < 0.001) {
       camera.position.set(intro.px, intro.py, intro.pz)
       target.set(intro.tx, intro.ty, intro.tz)
     } else {
-      const j = tablePoseAt(rawP)
-      const mix = clamp01(rawP / 0.03) // dissolve out of the idle drift
+      const j = journeyPoseAt(p)
+      const mix = clamp01(p / 0.03) // dissolve out of the idle drift
       // Subtle handheld drift keeps the shot alive without breaking the path
       const drift = Math.max(0, 1 - p * 1.6) * 0.3
-      // Final breathing motion when fully revealed on the table
-      const breath = rawP > 1.0 ? Math.sin(t * 1.2) * 0.02 * clamp01(rawP - 1.0) : 0
-      
       camera.position.set(
         lerp(intro.px, j.px, mix) + Math.sin(t * 0.7) * drift,
-        lerp(intro.py, j.py, mix) + Math.sin(t * 0.53) * drift * 0.5 + breath,
+        lerp(intro.py, j.py, mix) + Math.sin(t * 0.53) * drift * 0.5,
         lerp(intro.pz, j.pz, mix)
       )
       target.set(lerp(intro.tx, j.tx, mix), lerp(intro.ty, j.ty, mix), lerp(intro.tz, j.tz, mix))
@@ -225,12 +217,7 @@ export function CinematicScene({ skipRequested, onRevealed, progress, ui }: Scen
       <ambientLight intensity={0.65} color={'#ffeedd'} />
       <hemisphereLight args={['#bfe3ff', '#7a9b6a', 0.55]} />
 
-      <CinematicDirector
-        skipRequested={skipRequested}
-        onRevealed={onRevealed}
-        progress={progress}
-        ui={ui}
-      />
+      <CinematicDirector skipRequested={skipRequested} onRevealed={onRevealed} progress={progress} ui={ui} />
 
       <Island />
       <Forest />
@@ -242,13 +229,11 @@ export function CinematicScene({ skipRequested, onRevealed, progress, ui }: Scen
       <Boats />
       <GodRays />
 
-      {/* Living village: NPCs, animals, street life */}
+      {/* Scene 2: the living village layer */}
       <Villagers />
 
-      {/* Elder's house — door opens, raven lands, lantern glows as camera nears */}
+      {/* Scene 3: the elder's house + the study hidden beneath the world */}
       <ElderHouse progress={progress} />
-
-      {/* Ancient study interior — lazy-loaded because of texture dependency */}
       <Suspense fallback={null}>
         <AncientStudy progress={progress} />
       </Suspense>
