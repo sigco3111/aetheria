@@ -137,7 +137,7 @@ export function CinematicExperience() {
             ))}
           </ul>
           <a
-            href="#"
+            href="/grand_guild_exchange/index.html"
             className="rounded-full border border-gold/70 bg-abyss/40 px-5 py-2 font-serif text-xs tracking-[0.2em] text-gold backdrop-blur-sm transition-colors hover:bg-gold hover:text-abyss md:text-sm"
           >
             BEGIN JOURNEY
