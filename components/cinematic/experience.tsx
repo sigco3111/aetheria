@@ -8,7 +8,7 @@ import { CinematicScene, type JourneyUiRefs } from './scene'
 const NAV_LINKS = [
   { label: 'The Isle', href: '/cartographers_sanctum/index.html' },
   { label: 'Legends', href: '/achievements/index.html' },
-  { label: 'The Keep', href: '#' },
+  { label: 'The Keep', href: '/curators_vault/index.html' },
   { label: 'Gallery', href: '#' },
 ] as const
 
