@@ -2,6 +2,8 @@
 
 > An immersive, interactive open-world game companion app built for explorers, legends, and collectors.
 
+![Aetheria Isle](./assets/First.png)
+
 ---
 
 ## 📖 Project Overview
