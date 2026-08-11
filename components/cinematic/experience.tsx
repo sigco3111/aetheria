@@ -115,26 +115,26 @@ export function CinematicExperience() {
 
       {/* ---- Navigation: hidden until the island reveal completes ---- */}
       <header
-        className={`pointer-events-none absolute inset-x-0 top-0 z-20 transition-all duration-[2000ms] ease-out ${
+        className={`pointer-events-none absolute inset-x-0 top-0 z-40 transition-all duration-[2000ms] ease-out ${
           revealed ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
         }`}
         aria-hidden={!revealed}
       >
         <nav
-          className={`mx-auto flex max-w-5xl items-center justify-between px-6 py-5 md:px-10 ${
+          className={`mx-auto mt-4 flex max-w-5xl items-center justify-between gap-4 rounded-full border border-parchment/15 bg-abyss/55 px-5 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md md:mt-6 md:gap-6 md:px-7 md:py-3 ${
             revealed ? 'pointer-events-auto' : ''
           }`}
           aria-label="Main"
         >
-          <a href="#" className="font-serif text-lg font-semibold tracking-[0.22em] text-parchment drop-shadow-[0_2px_10px_rgba(20,30,50,0.55)] md:text-xl">
+          <a href="#" className="font-serif text-lg font-semibold tracking-[0.22em] text-parchment md:text-xl">
             에테리아
           </a>
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="hidden items-center gap-7 md:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="font-serif text-sm tracking-[0.18em] text-parchment/90 drop-shadow-[0_2px_8px_rgba(20,30,50,0.6)] transition-colors hover:text-gold"
+                  className="font-serif text-sm tracking-[0.18em] text-parchment transition-colors hover:text-gold"
                 >
                   {link.label.toUpperCase()}
                 </a>
@@ -143,7 +143,7 @@ export function CinematicExperience() {
           </ul>
           <a
             href="/grand_guild_exchange/index.html"
-            className="rounded-full border border-gold/70 bg-abyss/40 px-5 py-2 font-serif text-xs tracking-[0.2em] text-gold backdrop-blur-sm transition-colors hover:bg-gold hover:text-abyss md:text-sm"
+            className="rounded-full border border-gold/70 bg-gold/85 px-5 py-2 font-serif text-xs tracking-[0.2em] text-abyss transition-colors hover:bg-gold hover:text-abyss md:text-sm"
           >
             여행 시작
           </a>
