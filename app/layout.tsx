@@ -50,12 +50,12 @@ export default function RootLayout({
         {children}
         <footer className="fixed bottom-0 w-full bg-black/50 backdrop-blur-sm text-white/80 py-2 px-4 text-xs flex flex-wrap justify-between items-center z-50 font-sans">
           <div className="flex flex-wrap gap-x-4 gap-y-1">
-            <span>Team: <strong>AA-OG's</strong></span>
-            <span>Code: <strong>GAM-03</strong></span>
-            <span className="hidden sm:inline">Title: <strong>인터랙티브 오픈 월드 게임 동반 앱</strong></span>
+            <span>팀: <strong>AA-OG's</strong></span>
+            <span>코드: <strong>GAM-03</strong></span>
+            <span className="hidden sm:inline">제목: <strong>인터랙티브 오픈 월드 게임 동반 앱</strong></span>
           </div>
           <div className="mt-1 sm:mt-0">
-            <span>Members: <strong>Govind Jindal, Aaradhya Khanna</strong></span>
+            <span>팀원: <strong>Govind Jindal, Aaradhya Khanna</strong></span>
           </div>
         </footer>
         {process.env.NODE_ENV === 'production' && <Analytics />}

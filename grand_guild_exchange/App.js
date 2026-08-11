@@ -14,30 +14,30 @@ const RELIC_FILTERS = [
 ];
 
 const DISCOVERIES = [
-  { id: 1, title: 'The Silent Citadel', author: 'Eldarion', cat: 'maps', price: 45, dls: '12k', rating: '4.9', tags: ['dungeon','gothic','boss-arena'], imgColor: '#2b2c30', artType: 'map', desc: 'A vast gothic cathedral ruined by time and dark magic. Contains 4 sprawling floors, a hidden catacomb, and a massive boss arena at the summit. Optimized for low draw calls.' },
-  { id: 2, title: 'Wyrmbone Greatsword', author: 'Kael', cat: 'weapons', price: 0, dls: '38k', rating: '4.8', tags: ['2-handed','fire-dmg','high-poly'], imgColor: '#4a2f26', artType: 'weapon', desc: 'Forged from the spine of a firedrake. The blade constantly emits a subtle heat distortion. Fully rigged and animated.' },
-  { id: 3, title: 'Troll King Skarn', author: 'Grukza', cat: 'creatures', price: 120, dls: '5k', rating: '4.9', tags: ['boss','rigged','pbr'], imgColor: '#3c4a2a', artType: 'creature', desc: 'A towering troll warlord wearing scavenged armor. Includes 24 custom attack animations, idle loops, and 3 phases of combat logic.' },
-  { id: 4, title: 'Void Rift Shader', author: 'Archmage Sol', cat: 'runes', price: 20, dls: '21k', rating: '5.0', tags: ['vfx','portal','compute'], imgColor: '#1c162e', artType: 'rune', desc: 'A highly customizable portal shader that bends local light and space. Drag and drop onto any quad.' },
-  { id: 5, title: 'Alchemist\'s Set', author: 'Nyx', cat: 'props', price: 15, dls: '18k', rating: '4.7', tags: ['clutter','bottles','tables'], imgColor: '#3d291e', artType: 'prop', desc: '140+ individual props to clutter up wizard towers and apothecaries. Mortars, pestles, scales, and glowing liquids.' },
-  { id: 6, title: 'The Drowned Coast', author: 'Eldarion', cat: 'maps', price: 65, dls: '8k', rating: '4.8', tags: ['region','ocean','ruins'], imgColor: '#263b4a', artType: 'map', desc: 'A 4km x 4km coastal region featuring jagged cliffs, shipwrecks, and a haunted fishing village.' },
-  { id: 7, title: 'Sunfire Flask', author: 'Nyx', cat: 'potions', price: 0, dls: '55k', rating: '4.9', tags: ['consumable','animated','glow'], imgColor: '#4a3b1a', artType: 'potion', desc: 'A high-poly glass flask filled with churning magical fire. The liquid sloshes dynamically based on character movement.' },
-  { id: 8, title: 'Age of Kings 로어book', author: 'Scribe Vane', cat: 'scrolls', price: 5, dls: '40k', rating: '4.6', tags: ['ui','text','history'], imgColor: '#473d2b', artType: 'scroll', desc: 'A 20-page interactive UI book containing the complete history of the First Era. Easily integrated into your quest system.' },
-  { id: 9, title: 'Ironwood Crossbow', author: 'Kael', cat: 'weapons', price: 25, dls: '11k', rating: '4.7', tags: ['ranged','mechanisms'], imgColor: '#2f2c25', artType: 'weapon', desc: 'A heavy mechanical crossbow with animated gears, string tension, and reload states.' },
-  { id: 10, title: 'Spectral Wraith', author: 'Archmage Sol', cat: 'creatures', price: 35, dls: '14k', rating: '4.8', tags: ['undead','floating','translucent'], imgColor: '#243236', artType: 'creature', desc: 'An ethereal enemy that floats above the ground. Features an incredible flowing cloth simulation.' },
+  { id: 1, title: '침묵의 성채', author: '엘다리온', cat: 'maps', price: 45, dls: '12k', rating: '4.9', tags: ['dungeon','gothic','boss-arena'], imgColor: '#2b2c30', artType: 'map', desc: '시간과 어두운 마법에 의해 폐허가 된 광대한 고딕 성당. 4개의 펼쳐진 층, 숨겨진 지하 묘지, 그리고 정상의 거대한 보스 아레나 포함. 낮은 드로우 콜에 최적화됨.' },
+  { id: 2, title: '용뼈 대검', author: 'Kael', cat: 'weapons', price: 0, dls: '38k', rating: '4.8', tags: ['2-handed','fire-dmg','high-poly'], imgColor: '#4a2f26', artType: 'weapon', desc: '화룡의 척추로 벼려졌습니다. 칼날은 끊임없이 미묘한 열 왜곡을 방출합니다. 완전히 리깅되고 애니메이션 처리됨.' },
+  { id: 3, title: '트롤왕 스카른', author: '그루자', cat: 'creatures', price: 120, dls: '5k', rating: '4.9', tags: ['boss','rigged','pbr'], imgColor: '#3c4a2a', artType: 'creature', desc: '약탈한 갑옷을 입은 거대한 트롤 전왕. 24개의 커스텀 공격 애니메이션, 대기 루프, 3단계 전투 로직 포함.' },
+  { id: 4, title: '공허 균열 셰이더', author: '대마법사 솔', cat: 'runes', price: 20, dls: '21k', rating: '5.0', tags: ['vfx','portal','compute'], imgColor: '#1c162e', artType: 'rune', desc: '국소 빛과 공간을 휘게 하는 고도로 사용자 정의 가능한 포털 셰이더. 모든 쿼드에 끌어다 놓으세요.' },
+  { id: 5, title: 'Alchemist\'s Set', author: 'Nyx', cat: 'props', price: 15, dls: '18k', rating: '4.7', tags: ['clutter','bottles','tables'], imgColor: '#3d291e', artType: 'prop', desc: '140개 이상의 개별 소품으로 마법사 탑과 약제상을 채웁니다. 막자, 막자사발, 저울, 빛나는 액체 등.' },
+  { id: 6, title: '침몰 해안', author: '엘다리온', cat: 'maps', price: 65, dls: '8k', rating: '4.8', tags: ['region','ocean','ruins'], imgColor: '#263b4a', artType: 'map', desc: '4km x 4km 해안 지역으로, 들쭉날쭉한 절벽, 난파선, 귀신 들린 어촌이 있습니다.' },
+  { id: 7, title: '태양불 플라스크', author: 'Nyx', cat: 'potions', price: 0, dls: '55k', rating: '4.9', tags: ['consumable','animated','glow'], imgColor: '#4a3b1a', artType: 'potion', desc: '휘몰아치는 마법의 불이 담긴 하이폴리 유리 플라스크. 캐릭터 움직임에 따라 액체가 역동적으로 출렁입니다.' },
+  { id: 8, title: '왕들의 시대 로어북', author: '기록관 베인', cat: 'scrolls', price: 5, dls: '40k', rating: '4.6', tags: ['ui','text','history'], imgColor: '#473d2b', artType: 'scroll', desc: '제1시대의 완전한 역사가 담긴 20페이지 인터랙티브 UI 책. 퀘스트 시스템에 손쉽게 통합됩니다.' },
+  { id: 9, title: '철목 석궁', author: 'Kael', cat: 'weapons', price: 25, dls: '11k', rating: '4.7', tags: ['ranged','mechanisms'], imgColor: '#2f2c25', artType: 'weapon', desc: '애니메이션 톱니바퀴, 줄 장력, 재장전 상태가 포함된 묵직한 기계식 석궁.' },
+  { id: 10, title: '스펙트럴 레이스', author: '대마법사 솔', cat: 'creatures', price: 35, dls: '14k', rating: '4.8', tags: ['undead','floating','translucent'], imgColor: '#243236', artType: 'creature', desc: '공중을 떠다니는 천상의 적. 놀라운 흐르는 천 시뮬레이션을 특징으로 합니다.' },
 ];
 
 const KINGDOMS = [
-  { id: 1, name: 'Aethelgard', desc: 'High fantasy, castles, knights', col: '#45566b' },
-  { id: 2, name: 'Drogor Wastes', desc: 'Deserts, ruins, scorpions', col: '#6b5437' },
-  { id: 3, name: 'The Pale', desc: 'Frozen tundras, vikings', col: '#3a4650' },
-  { id: 4, name: 'Sylphwood', desc: 'Elven forests, ancient magic', col: '#335035' },
+  { id: 1, name: '에셀가드', desc: '하이 판타지, 성, 기사', col: '#45566b' },
+  { id: 2, name: '드로고르 황무지', desc: '사막, 폐허, 전갈', col: '#6b5437' },
+  { id: 3, name: '창백의 땅', desc: '얼어붙은 툰드라, 바이킹', col: '#3a4650' },
+  { id: 4, name: '실프우드', desc: '엘프의 숲, 고대의 마법', col: '#335035' },
 ];
 
 const CREATORS = [
-  { id: 1, name: 'Eldarion', rank: 'Grand Architect', icon: '🏰' },
-  { id: 2, name: 'Nyx', rank: 'Master Alchemist', icon: '🦇' },
+  { id: 1, name: 'Eldarion', rank: '대건축가', icon: '🏰' },
+  { id: 2, name: 'Nyx', rank: '대연금술사', icon: '🦇' },
   { id: 3, name: 'Kael', rank: 'Forgemaster', icon: '🔨' },
-  { id: 4, name: 'Archmage Sol', rank: 'Weaver of Light', icon: '👁️' },
+  { id: 4, name: '대마법사 솔', rank: '빛의 직조자', icon: '👁️' },
 ];
 
 // --- CANVAS ARTWORK RENDERERS ---
@@ -164,8 +164,8 @@ window.GuildExchange = function GuildExchange() {
   const toggleBookmark = (e, id) => {
     e.stopPropagation();
     const next = new Set(bookmarks);
-    if (next.has(id)) { next.delete(id); handleToast('Removed from compendium.'); }
-    else { next.add(id); handleToast('Saved to compendium.'); }
+    if (next.has(id)) { next.delete(id); handleToast('도감에서 제거되었습니다.'); }
+    else { next.add(id); handleToast('도감에 저장되었습니다.'); }
     setBookmarks(next);
   };
 
@@ -195,7 +195,7 @@ window.GuildExchange = function GuildExchange() {
 
   return (
     <div id="app">
-      <a href="#main" className="skip sr-only">Skip to main content</a>
+      <a href="#main" className="skip sr-only">본문으로 건너뛰기</a>
       
       {/* Background Ambience */}
       <div id="hall">
@@ -222,16 +222,16 @@ window.GuildExchange = function GuildExchange() {
         <div className="shell topbar-in">
           <div className="crest">🦅</div>
           <div className="brand">
-            <div className="k">Guild Exchange</div>
+            <div className="k">위대한 길드 교역소</div>
             <div className="s">제국 기록 보관소</div>
           </div>
           <div className="topbar-spacer"></div>
           <div className="topbar-actions">
-            <button className="btn btn-brass small" onClick={() => handleToast('Vault locked.')}>
-              <span className="ic">🪙</span> Vault
+            <button className="btn btn-brass small" onClick={() => handleToast('금고가 잠겼습니다.')}>
+              <span className="ic">🪙</span> 금고
             </button>
-            <button className="btn btn-wood small" onClick={() => handleToast('Profile opened.')}>
-              <span className="ic">🧙‍♂️</span> Profile
+            <button className="btn btn-wood small" onClick={() => handleToast('프로필이 열렸습니다.')}>
+              <span className="ic">🧙‍♂️</span> 프로필
             </button>
           </div>
         </div>
@@ -242,7 +242,7 @@ window.GuildExchange = function GuildExchange() {
         {/* HERO MAP TABLE */}
         <section className="hero">
           <h1>기록 보관소</h1>
-          <p className="lede">발견 maps, relics, and lost knowledge left by adventurers from every corner of the realm.</p>
+          <p className="lede">왕국의 모든 구석을 누비던 모험가들이 남긴 지도, 유물, 잊혀진 지식을 발견하세요.</p>
           
           <div className="maptable">
             <div className="rim"></div>
@@ -263,12 +263,12 @@ window.GuildExchange = function GuildExchange() {
             ))}
 
             <div className="kingdom-readout">
-              <div className="kn">Aethelgard Region</div>
-              <div className="kd">142 active scholars exploring</div>
+              <div className="kn">에셀가드 지역</div>
+              <div className="kd">142명의 활동 학자 탐험 중</div>
             </div>
             <div className="map-stats">
-              <span className="chip">14,204 발견ies</span>
-              <span className="chip">28 Guilds</span>
+              <span className="chip">14,204 발견</span>
+              <span className="chip">28개 길드</span>
             </div>
           </div>
         </section>
@@ -283,20 +283,20 @@ window.GuildExchange = function GuildExchange() {
                   <div className="rune-row">
                     <span>ᛚ</span><span>ᛟ</span><span>ᚱ</span><span>ᛖ</span>
                   </div>
-                  <p className="tome-hint">Speak your desire or write it upon the parchment, and the archives shall reveal what is hidden.</p>
+                  <p className="tome-hint">원하는 것을 말하거나 양피지 위에 적으세요. 그러면 기록 보관소가 숨겨진 것을 드러낼 것입니다.</p>
                 </div>
                 <div className="tome-page right">
-                  <div className="tome-results-note">{filtered.length} Tomes Found</div>
+                  <div className="tome-results-note">{filtered.length} 발견된 책</div>
                   <input 
                     type="text" 
                     className="ink-input" 
-                    placeholder="Seek forgotten kingdoms..." 
+                    placeholder="잊혀진 왕국을 찾아서..." 
                     value={search}
                     onChange={e => setSearch(e.target.value)}
-                    aria-label="Search the archives"
+                    aria-label="기록 보관소 검색"
                   />
                   <div className="mt">
-                    <span className="tome-hint">Scribe's ink forms:</span><br/>
+                    <span className="tome-hint">기록관의 먹물이 형태를 만듭니다:</span><br/>
                     {search ? <strong>"{search}"<span className="ink-caret"></span></strong> : <span className="ink-caret"></span>}
                   </div>
                 </div>
@@ -325,16 +325,16 @@ window.GuildExchange = function GuildExchange() {
             <button className="tag-toggle">PBR Ready</button>
             <button className="tag-toggle on">Animated</button>
             <button className="tag-toggle">Low Poly</button>
-            <button className="tag-toggle">Free</button>
+            <button className="tag-toggle">무료</button>
           </div>
 
           <div className="filter-bar">
-            <div className="result-count">{filtered.length} 발견ies</div>
+            <div className="result-count">{filtered.length} 발견</div>
             <select className="sort-select" value={sortBy} onChange={e => setSortBy(e.target.value)} aria-label="Sort by">
-              <option value="popular">Most Renowned</option>
+              <option value="popular">가장 명성 높은</option>
               <option value="new">최근 발견</option>
-              <option value="price_asc">Tithe (Low to High)</option>
-              <option value="price_desc">Tithe (High to Low)</option>
+              <option value="price_asc">헌금 (낮은순)</option>
+              <option value="price_desc">헌금 (높은순)</option>
             </select>
           </div>
 
@@ -351,19 +351,19 @@ window.GuildExchange = function GuildExchange() {
                 </div>
                 <div className="body">
                   <h3 className="title">{d.title}</h3>
-                  <div className="by">발견ed by {d.author}</div>
+                  <div className="by">발견자: {d.author}</div>
                   <div className="meta">
                     <span><b className="stars">★★★★★</b> {d.rating}</span>
-                    <span><b>{d.dls}</b> acquired</span>
+                    <span><b>{d.dls}</b> 획득</span>
                   </div>
                   <div className="tags">
                     {d.tags.map(t => <span key={t}>{t}</span>)}
                   </div>
                   <div className="cardfoot">
-                    <button className="btn btn-wood small" onClick={(e) => { e.stopPropagation(); handleToast(`Acquired ${d.title}`); }}>Acquire</button>
+                    <button className="btn btn-wood small" onClick={(e) => { e.stopPropagation(); handleToast(`${d.title} 획득`); }}>획득</button>
                     <div className="wax">
-                      <button className={`book ${bookmarks.has(d.id) ? 'on' : ''}`} onClick={(e) => toggleBookmark(e, d.id)} aria-label="Bookmark" title="Add to Compendium">🔖</button>
-                      <button aria-label="Applaud" title="Grant Renown" onClick={(e) => { e.stopPropagation(); handleToast('Renown granted!'); }}>🔥</button>
+                      <button className={`book ${bookmarks.has(d.id) ? 'on' : ''}`} onClick={(e) => toggleBookmark(e, d.id)} aria-label="책갈피" title="도감에 추가">🔖</button>
+                      <button aria-label="박수" title="명성 부여" onClick={(e) => { e.stopPropagation(); handleToast('명성이 부여되었습니다!'); }}>🔥</button>
                     </div>
                   </div>
                 </div>
@@ -378,7 +378,7 @@ window.GuildExchange = function GuildExchange() {
           
           {filtered.length > 0 && (
             <div className="loadmore">
-              <button className="btn btn-iron" onClick={() => handleToast('Searching deeper archives...')}>Delve Deeper</button>
+              <button className="btn btn-iron" onClick={() => handleToast('더 깊은 기록 보관소를 탐색 중...')}>더 깊이 탐구</button>
             </div>
           )}
         </section>
@@ -388,20 +388,20 @@ window.GuildExchange = function GuildExchange() {
         {/* COMMUNITY SECTIONS */}
         <section className="section">
           <div className="sec-head">
-            <div className="eyebrow">Guild Honors</div>
-            <h2>Curator's Picks</h2>
-            <p>Artifacts deemed exceptional by the Grandmasters of the Exchange.</p>
+            <div className="eyebrow">길드의 영예</div>
+            <h2>큐레이터의 선택</h2>
+            <p>교역소의 대장장이들에 의해 탁월함이 인정된 유물들.</p>
           </div>
           <div className="rail">
             {[1,2,3,4].map(i => (
               <div key={i} className="rail-card">
                 <div className="pick-plaque">
                   <div className="rank">#{i}</div>
-                  <div className="pt">The Royal Armory Vol {i}</div>
+                  <div className="pt">왕립 병기고 제{i}</div>
                   <div className="pd">A complete set of high-fantasy weaponry forged for kings.</div>
                   <div className="pm">
                     <span>By Kael</span>
-                    <span>14k acquired</span>
+                    <span>14k 획득</span>
                   </div>
                 </div>
               </div>
@@ -412,7 +412,7 @@ window.GuildExchange = function GuildExchange() {
         <section className="section">
           <div className="sec-head">
             <div className="eyebrow">Master Artisans</div>
-            <h2>Renowned Creators</h2>
+            <h2>명성ed Creators</h2>
           </div>
           <div className="creator-grid">
             {CREATORS.map(c => (
@@ -432,7 +432,7 @@ window.GuildExchange = function GuildExchange() {
         <section className="section">
           <div className="sec-head">
             <div className="eyebrow">Expeditions</div>
-            <h2>Regions of Origin</h2>
+            <h2>Regions of 원산지</h2>
           </div>
           <div className="kingdom-grid">
             {KINGDOMS.map(k => (
@@ -451,7 +451,7 @@ window.GuildExchange = function GuildExchange() {
 
       <footer className="foot shell">
         <div className="seal">⚜️</div>
-        <p className="fq">"Knowledge hidden is knowledge lost. Leave your map, take a blade."</p>
+        <p className="fq">"숨겨진 지식은 잃어버린 지식입니다. 지도를 두고, 칼날을 가져가세요."</p>
         <div className="fl">
           <a href="#">Guild Rules</a>
           <a href="#">The Scribes</a>
@@ -464,7 +464,7 @@ window.GuildExchange = function GuildExchange() {
       {viewing && (
         <div className="veil" onClick={() => setViewing(null)}>
           <div className="detail" onClick={e => e.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-            <button className="btn btn-wax detail-close" onClick={() => setViewing(null)} aria-label="Close scroll">✕</button>
+            <button className="btn btn-wax detail-close" onClick={() => setViewing(null)} aria-label="두루마리 닫기">✕</button>
             <div className="detail-grid">
               <div className="detail-gallery">
                 <div className="detail-hero">
@@ -480,7 +480,7 @@ window.GuildExchange = function GuildExchange() {
               <div className="detail-info">
                 <div className="cat">{RELIC_FILTERS.find(f => f.id === viewing.cat)?.label}</div>
                 <h2 id="dialog-title">{viewing.title}</h2>
-                <div className="sub">Added 2 moons ago • Ver 1.04</div>
+                <div className="sub">2달 전에 추가됨 • Ver 1.04</div>
                 
                 <div className="creator-row mt">
                   <div className="avatar">🧙‍♂️</div>
@@ -500,20 +500,20 @@ window.GuildExchange = function GuildExchange() {
                 </div>
 
                 <div className="spec-grid">
-                  <div><div className="k">Acquisitions</div><div className="v">{viewing.dls}</div></div>
-                  <div><div className="k">Renown</div><div className="v">★ {viewing.rating}</div></div>
-                  <div><div className="k">Origin</div><div className="v">Aethelgard</div></div>
-                  <div><div className="k">License</div><div className="v">Royal Free</div></div>
+                  <div><div className="k">획득</div><div className="v">{viewing.dls}</div></div>
+                  <div><div className="k">명성</div><div className="v">★ {viewing.rating}</div></div>
+                  <div><div className="k">원산지</div><div className="v">에셀가드</div></div>
+                  <div><div className="k">라이선스</div><div className="v">왕실 무료</div></div>
                 </div>
 
                 <div className="detail-actions">
-                  <button className="btn btn-brass" onClick={() => handleToast(`Acquired ${viewing.title}`)}>
-                    {viewing.price === 0 ? 'Claim Free Relic' : `Pay Tithe (${viewing.price} G)`}
+                  <button className="btn btn-brass" onClick={() => handleToast(`${viewing.title} 획득`)}>
+                    {viewing.price === 0 ? '무료 유물 수령' : `헌금 지불 (${viewing.price} G)`}
                   </button>
                   <button className="btn btn-wood" onClick={(e) => toggleBookmark(e, viewing.id)}>
-                    {bookmarks.has(viewing.id) ? 'Remove from Compendium' : 'Add to Compendium'}
+                    {bookmarks.has(viewing.id) ? '도감에서 제거' : '도감에 추가'}
                   </button>
-                  <button className="btn btn-iron" onClick={() => handleToast('Link copied to parchment.')}>Share</button>
+                  <button className="btn btn-iron" onClick={() => handleToast('링크가 양피지에 복사되었습니다.')}>Share</button>
                 </div>
 
                 <div className="detail-section">
@@ -528,11 +528,11 @@ window.GuildExchange = function GuildExchange() {
                   <h4>Scholars' Thoughts</h4>
                   <ul className="comments">
                     <li className="comment">
-                      <div className="ch"><div className="cavatar">T</div><div className="cn">Thorin</div><div className="cd">3 days ago</div></div>
+                      <div className="ch"><div className="cavatar">T</div><div className="cn">토린</div><div className="cd">3일 전</div></div>
                       An exquisite piece. Fits perfectly in my dungeon scene.
                     </li>
                     <li className="comment">
-                      <div className="ch"><div className="cavatar">L</div><div className="cn">Lyra</div><div className="cd">1 week ago</div></div>
+                      <div className="ch"><div className="cavatar">L</div><div className="cn">리라</div><div className="cd">1주일 전</div></div>
                       The poly count is a bit high for mobile realms, but beautiful.
                     </li>
                   </ul>

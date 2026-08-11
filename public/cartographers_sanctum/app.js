@@ -11,7 +11,7 @@
   const state = {
     worldId: D.WORLDS[0].id,
     active유물: new Set(["all"]),
-    activeCollection: null,
+    active컬렉션: null,
     selectedId: null,
     focusedPinIndex: -1,
     bookmarks: new Set(loadJson("sanctum_bookmarks", [])),
@@ -78,11 +78,11 @@
     if (state.active유물.has("all") || state.active유물.size === 0) return null;
     const tags = new Set();
     state.active유물.forEach((id) => {
-      const r = D.RELICS.find((x) => x.id === id);
+      const r = D.유물.find((x) => x.id === id);
       if (r && r.tags) r.tags.forEach((t) => tags.add(t));
     });
-    if (state.activeCollection) {
-      const c = D.COLLECTIONS.find((x) => x.id === state.activeCollection);
+    if (state.active컬렉션) {
+      const c = D.COLLECTIONS.find((x) => x.id === state.active컬렉션);
       if (c) c.tags.forEach((t) => tags.add(t));
     }
     return tags;
@@ -191,7 +191,7 @@
       portal.classList.add("is-gone");
       portal.setAttribute("aria-hidden", "true");
     }, 1300);
-    toast("The ink settles. The atlas breathes.");
+    toast("먹물이 가라앉고, 지도책이 숨 쉬기 시작합니다.");
     // focus map for keyboard explorers
     setTimeout(() => els.mapStage.focus({ preventScroll: true }), 900);
   }
@@ -233,15 +233,15 @@
   }
 
   /* ---------- Worlds / collections / relics UI ---------- */
-  function renderCollections() {
+  function render컬렉션s() {
     const ul = els.collectionsList;
     ul.innerHTML = "";
     D.COLLECTIONS.forEach((c) => {
       const li = document.createElement("li");
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "book-item" + (state.activeCollection === c.id ? " is-active" : "");
-      btn.setAttribute("aria-pressed", state.activeCollection === c.id ? "true" : "false");
+      btn.className = "book-item" + (state.active컬렉션 === c.id ? " is-active" : "");
+      btn.setAttribute("aria-pressed", state.active컬렉션 === c.id ? "true" : "false");
       btn.innerHTML = `
         <span class="book-spine" style="--spine:${c.spine}"></span>
         <span class="book-body">
@@ -249,16 +249,16 @@
           <span>${c.count} marked leaves</span>
         </span>`;
       btn.addEventListener("click", () => {
-        state.activeCollection = state.activeCollection === c.id ? null : c.id;
-        if (state.activeCollection) {
+        state.active컬렉션 = state.active컬렉션 === c.id ? null : c.id;
+        if (state.active컬렉션) {
           // clear "all" exclusive feel — collection acts as soft filter
           state.active유물.delete("all");
           if (state.active유물.size === 0) state.active유물.add("all");
           toast(`Tome drawn: ${c.name}`);
         } else {
-          toast("Tome returned to the shelf");
+          toast("책이 선반으로 돌아갔습니다");
         }
-        renderCollections();
+        render컬렉션s();
         render유물();
         renderPins();
         updateLegend();
@@ -316,19 +316,19 @@
   function render유물() {
     const ring = els.relicRing;
     ring.innerHTML = "";
-    D.RELICS.forEach((r) => {
+    D.유물.forEach((r) => {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "relic" + (state.active유물.has(r.id) ? " is-active" : "");
       btn.setAttribute("aria-pressed", state.active유물.has(r.id) ? "true" : "false");
       btn.title = `Layer: ${r.name}`;
       btn.innerHTML = `<span class="relic-sym" aria-hidden="true">${r.symbol}</span><span class="relic-name">${escapeHtml(r.name)}</span>`;
-      btn.addEventListener("click", () => toggleRelic(r.id));
+      btn.addEventListener("click", () => toggle유물(r.id));
       ring.appendChild(btn);
     });
   }
 
-  function toggleRelic(id) {
+  function toggle유물(id) {
     if (id === "all") {
       state.active유물 = new Set(["all"]);
     } else {
@@ -340,8 +340,8 @@
     render유물();
     renderPins();
     updateLegend();
-    const names = [...state.active유물].map((i) => D.RELICS.find((r) => r.id === i)?.name || i);
-    toast(names.includes("전체") ? "모든 레이어 awaken" : `유물 lit: ${names.join(", ")}`);
+    const names = [...state.active유물].map((i) => D.유물.find((r) => r.id === i)?.name || i);
+    toast(names.includes("전체") ? "모든 레이어 깨어남" : `유물 켜짐: ${names.join(", ")}`);
   }
 
   /* ---------- Living map canvas ---------- */
@@ -764,7 +764,7 @@
       <div class="cell"><b>Cartographer</b><span>${escapeHtml(loc.creator)}</span></div>
       <div class="cell"><b>Tags</b><span>${loc.tags.join(", ")}</span></div>`;
     els.tabletBookmark.textContent = state.bookmarks.has(loc.id)
-      ? "Remove parchment pin"
+      ? "양피지 핀 제거"
       : "양피지에 핀 박기";
   }
 
@@ -800,7 +800,7 @@
           <p>${escapeHtml(loc.description)}</p>
           <p><em>“${escapeHtml(loc.notes[0])}”</em></p>
           <div class="tag-row">${loc.tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
-          <p>Difficulty carved as <strong>${escapeHtml(loc.difficulty)}</strong>. Coordinates ${escapeHtml(loc.coords)}.</p>
+          <p>난이도 각인: <strong>${escapeHtml(loc.difficulty)}</strong>. Coordinates ${escapeHtml(loc.coords)}.</p>
         </div>`;
     } else if (state.atlasTab === "stats") {
       inner.innerHTML = `
@@ -858,7 +858,7 @@
           <div class="stat-cell"><b>Realm</b><span>${escapeHtml(world.realm)}</span></div>
           <div class="stat-cell"><b>Rating</b><span>★ ${world.rating}</span></div>
           <div class="stat-cell"><b>Size</b><span>${escapeHtml(world.size)}</span></div>
-          <div class="stat-cell"><b>발견ies</b><span>${world.discoveries}</span></div>
+          <div class="stat-cell"><b>발견</b><span>${world.discoveries}</span></div>
           <div class="stat-cell"><b>Completion</b><span>${world.completion}%</span></div>
           <div class="stat-cell"><b>Markers here</b><span>${locs.length}</span></div>
         </div>`;
@@ -878,12 +878,12 @@
       <div class="atlas-rule"></div>
       <div class="atlas-body">
         <p>${escapeHtml(world.blurb)}</p>
-        <p><em>From the game ${escapeHtml(world.game)}.</em></p>
-        <p>Featured discoveries:</p>
+        <p><em>게임: ${escapeHtml(world.game)}</em></p>
+        <p>추천 discoveries:</p>
         <ul style="margin:0.25rem 0 0.75rem 1rem;padding:0;font-family:var(--font-hand);">
           ${top.map((t) => `<li>${escapeHtml(t.name)} — ★ ${t.rating}</li>`).join("")}
         </ul>
-        <p>Touch a floating seal upon the table to open its stone tablet.</p>
+        <p>양피지 위에 떠 있는 인장을 만져 그 석판을 열어보세요.</p>
       </div>`;
   }
 
@@ -897,7 +897,7 @@
     renderSearchResults();
     els.searchStatus.textContent = q
       ? `${filteredLocations().length} results for ${q}`
-      : "Search cleared";
+      : "검색이 초기화되었습니다";
     if (q.trim()) rippleAt(50 + Math.sin(q.length) * 10, 50);
   }
 
@@ -918,7 +918,7 @@
     ).slice(0, 12);
     if (!hits.length) {
       box.hidden = false;
-      box.innerHTML = `<div class="search-result" style="cursor:default">No kingdoms answer that name…</div>`;
+      box.innerHTML = `<div class="search-result" style="cursor:default">그 이름에 응답하는 왕국이 없습니다…</div>`;
       return;
     }
     box.hidden = false;
@@ -957,14 +957,14 @@
     const w = currentWorld();
     els.activeWorldName.textContent = `${w.realm} — ${w.name}`;
     const tags = activeTags();
-    if (state.activeCollection) {
-      const c = D.COLLECTIONS.find((x) => x.id === state.activeCollection);
-      els.layerStatus.textContent = c ? `Collection: ${c.name}` : "Collection";
+    if (state.active컬렉션) {
+      const c = D.COLLECTIONS.find((x) => x.id === state.active컬렉션);
+      els.layerStatus.textContent = c ? `컬렉션: ${c.name}` : "컬렉션";
     } else if (!tags) {
       els.layerStatus.textContent = "모든 레이어";
     } else {
       els.layerStatus.textContent = [...state.active유물]
-        .map((id) => D.RELICS.find((r) => r.id === id)?.name)
+        .map((id) => D.유물.find((r) => r.id === id)?.name)
         .filter(Boolean)
         .join(" · ");
     }
@@ -975,10 +975,10 @@
     if (!id) return;
     if (state.bookmarks.has(id)) {
       state.bookmarks.delete(id);
-      toast("Pin lifted from the parchment");
+      toast("양피지에서 핀이 뽑힘");
     } else {
       state.bookmarks.add(id);
-      toast("Bookmark driven into the atlas");
+      toast("지도책에 책갈피 박힘");
     }
     saveJson("sanctum_bookmarks", [...state.bookmarks]);
     renderPins();
@@ -993,13 +993,13 @@
     els.scrollSeal.hidden = false;
     els.scrollMsg.textContent = `Sealing “${loc.name}”…`;
     setTimeout(() => {
-      els.scrollMsg.textContent = "Wax set. Scroll placed in your satchel.";
+      els.scrollMsg.textContent = "봉인 완료. 두루마리가 가방에 담겼습니다.";
     }, 1100);
     setTimeout(() => {
       els.scrollSeal.hidden = true;
       // actual file download of a tiny parchment note
       const text = [
-        "THE CARTOGRAPHER'S SANCTUM",
+        "지도사의 신전",
         "════════════════════════",
         loc.name,
         `${currentWorld().game} · ${currentWorld().realm}`,
@@ -1019,17 +1019,17 @@
       a.download = `${loc.name.replace(/\s+/g, "_").toLowerCase()}_scroll.txt`;
       a.click();
       URL.revokeObjectURL(a.href);
-      toast("Scroll sealed and delivered");
+      toast("두루마리 봉인되어 전달됨");
     }, 2000);
   }
 
   function share발견y() {
     if (!state.selectedId) return;
     const loc = D.LOCATIONS.find((l) => l.id === state.selectedId);
-    const text = `발견ed ${loc.name} in the Cartographer's Sanctum (${currentWorld().name})`;
+    const text = `발견ed ${loc.name} in the 지도사의 신전 (${currentWorld().name})`;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(
-        () => toast("발견y copied to the courier's slate"),
+        () => toast("발견y 급사의 석판에 복사됨"),
         () => toast(text)
       );
     } else {
@@ -1051,7 +1051,7 @@
       .map((x) => x.l);
     state.routes = [[loc, ...nearby]];
     renderThreads();
-    toast("Route inked across the living map");
+    toast("살아있는 지도 위에 경로가 그려졌습니다");
   }
 
   /* ---------- Day/night weather motion ---------- */
@@ -1084,7 +1084,7 @@
         e.preventDefault();
         enterSanctum();
       }
-      if (e.key === "Escape") {
+      if (e.key === "Esc") {
         e.preventDefault();
         enterSanctum();
       }
@@ -1098,7 +1098,7 @@
       return;
     }
 
-    if (e.key === "Escape") {
+    if (e.key === "Esc") {
       if (!els.searchResults.hidden) {
         els.searchResults.hidden = true;
         return;
@@ -1260,7 +1260,7 @@
     els.btnDaynight.addEventListener("click", () => {
       state.is밤 = !state.is밤;
       applyAtmosphere();
-      toast(state.is밤 ? "Moonlight washes the atlas" : "Candlelight returns");
+      toast(state.is밤 ? "달빛이 지도책을 씻어냅니다" : "촛불이 돌아옴");
     });
     els.btn날씨.addEventListener("click", () => {
       const order = ["mist", "clear", "storm"];
@@ -1268,10 +1268,10 @@
       applyAtmosphere();
       toast(
         state.weather === "clear"
-          ? "Skies clear above the table"
+          ? "탁자 위로 하늘이 개입니다"
           : state.weather === "storm"
-            ? "Stormfront rolls across the ink"
-            : "Soft mist returns"
+            ? "먹물 위로 폭풍 전선이 지나갑니다"
+            : "부드러운 안개가 돌아옵니다"
       );
     });
     els.btn모션.addEventListener("click", () => {
@@ -1283,7 +1283,7 @@
         buildDust();
         buildStars();
       }
-      toast(state.reduce모션 ? "모션 stilled" : "Chamber breathes again");
+      toast(state.reduce모션 ? "모션 stilled" : "방이 다시 숨 쉬기 시작합니다");
     });
 
     els.btnBookmark.addEventListener("click", () => toggleBookmark());
@@ -1312,7 +1312,7 @@
     initPortalInk();
     buildStars();
     buildDust();
-    renderCollections();
+    render컬렉션s();
     renderWorlds();
     render유물();
     // map sized after layout

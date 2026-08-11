@@ -1,6 +1,6 @@
 /* Sample cartography data — dense, handcrafted, never empty */
 window.SANCTUM_DATA = (function () {
-  const RELICS = [
+  const 유물 = [
     { id: "all", name: "전체", symbol: "✧", tags: null },
     { id: "cities", name: "도시", symbol: "🏛", tags: ["city", "village", "capital"] },
     { id: "castles", name: "성", symbol: "🏰", tags: ["castle", "fort", "tower"] },
@@ -29,9 +29,9 @@ window.SANCTUM_DATA = (function () {
   ];
 
   const CREATORS = [
-    "Elandra Quill", "Thorn Mapwright", "Sister Vellum", "Kael the Surveyor",
-    "Mira Inkhand", "Old Cartos", "Rune of Ashfall", "Lysa 밤chart",
-    "Brother Compass", "Ivy Wayfinder", "Dorian Sealwright", "Nessa Deepink",
+    "엘란드라 깃펜", "가시 지도제작자", "벨룸 자매", "측량사 카엘",
+    "미라 먹손", "옛 카르토스", "재의 룬", "리사 밤해도",
+    "컴퍼스 형제", "아이비 길잡이", "도리안 인장장이", "네사 짙은먹물",
   ];
 
   const WORLDS = [
@@ -50,7 +50,7 @@ window.SANCTUM_DATA = (function () {
     },
     {
       id: "elden",
-      name: "The Lands Between",
+      name: "사이의 땅",
       realm: "엘든 링",
       game: "엘든 링",
       rating: 4.95,
@@ -63,9 +63,9 @@ window.SANCTUM_DATA = (function () {
     },
     {
       id: "witcher",
-      name: "The Continent",
+      name: "대륙",
       realm: "위처 3",
-      game: "위처 3: Wild Hunt",
+      game: "위처 3: 야생의 사냥",
       rating: 4.92,
       completion: 73,
       size: "136 km²",
@@ -76,7 +76,7 @@ window.SANCTUM_DATA = (function () {
     },
     {
       id: "botw",
-      name: "Hyrule",
+      name: "하일룰",
       realm: "야생의 숨결",
       game: "The Legend of Zelda: 야생의 숨결",
       rating: 4.97,
@@ -89,7 +89,7 @@ window.SANCTUM_DATA = (function () {
     },
     {
       id: "totk",
-      name: "Hyrule & Skies",
+      name: "하일룰과 하늘",
       realm: "왕국의 눈물",
       game: "The Legend of Zelda: 왕국의 눈물",
       rating: 4.94,
@@ -98,11 +98,11 @@ window.SANCTUM_DATA = (function () {
       discoveries: 1380,
       art: "linear-gradient(135deg,#4a7a9a 0%,#6a8a4a 40%,#5a3a2a 100%)",
       palette: { land: "#5a7a40", water: "#2a6a9a", peak: "#8a7a6a", snow: "#e8f0ff", forest: "#2a5a30" },
-      blurb: "Sky islands, depths, and a kingdom rewritten by ancient power.",
+      blurb: "하늘의 섬들, 심연, 그리고 고대의 힘으로 다시 쓰여진 왕국.",
     },
     {
       id: "rdr2",
-      name: "America, 1899",
+      name: "아메리카, 1899",
       realm: "Red Dead Redemption 2",
       game: "Red Dead Redemption 2",
       rating: 4.91,
@@ -111,11 +111,11 @@ window.SANCTUM_DATA = (function () {
       discoveries: 780,
       art: "linear-gradient(135deg,#5a4a2a 0%,#3a5a3a 50%,#2a3a5a 100%)",
       palette: { land: "#6a6a3a", water: "#2a4a5a", peak: "#7a6a5a", snow: "#dce4ec", forest: "#2a4a28" },
-      blurb: "Frontier wilderness, dying outlaws, and maps drawn in dust.",
+      blurb: "변방의 황야, 죽어가는 무법자, 그리고 먼지 위에 그려진 지도.",
     },
     {
       id: "tsushima",
-      name: "Tsushima",
+      name: "쓰시마",
       realm: "Ghost of Tsushima",
       game: "Ghost of Tsushima",
       rating: 4.88,
@@ -124,7 +124,7 @@ window.SANCTUM_DATA = (function () {
       discoveries: 640,
       art: "linear-gradient(135deg,#8a3a4a 0%,#3a5a3a 50%,#2a2a3a 100%)",
       palette: { land: "#5a6a3a", water: "#2a4a6a", peak: "#6a6058", snow: "#e0e8f0", forest: "#2a4a30" },
-      blurb: "Wind-swept islands, fox shrines, and the path of the ghost.",
+      blurb: "바람에 휩쓸린 섬들, 여우 신사, 그리고 유령의 길.",
     },
     {
       id: "kcd",
@@ -137,11 +137,11 @@ window.SANCTUM_DATA = (function () {
       discoveries: 410,
       art: "linear-gradient(135deg,#4a4a3a 0%,#3a4a2a 50%,#2a2a2a 100%)",
       palette: { land: "#5a5a38", water: "#3a5058", peak: "#6a6558", snow: "#d8dce0", forest: "#2e4228" },
-      blurb: "Medieval Bohemia without magic—only mud, steel, and honor.",
+      blurb: "마법 없는 중세 보헤미아 — 진흙, 강철, 명예만이 있을 뿐.",
     },
     {
       id: "dogma",
-      name: "Gransys",
+      name: "그랜시스",
       realm: "Dragon's Dogma",
       game: "Dragon's Dogma",
       rating: 4.65,
@@ -150,11 +150,11 @@ window.SANCTUM_DATA = (function () {
       discoveries: 520,
       art: "linear-gradient(135deg,#3a2a4a 0%,#2a3a2a 50%,#4a2a1a 100%)",
       palette: { land: "#4a5a35", water: "#2a4558", peak: "#6a5a4a", snow: "#d0d8e0", forest: "#284028" },
-      blurb: "Pawns, wyverns, and a world that remembers your choices.",
+      blurb: "사환, 와이번, 그리고 당신의 선택을 기억하는 세계.",
     },
     {
       id: "nms",
-      name: "Euclid Galaxy",
+      name: "유클리드 은하",
       realm: "No Man's Sky",
       game: "No Man's Sky",
       rating: 4.6,
@@ -163,11 +163,11 @@ window.SANCTUM_DATA = (function () {
       discoveries: 2400,
       art: "linear-gradient(135deg,#1a2a4a 0%,#2a1a4a 40%,#1a4a3a 100%)",
       palette: { land: "#3a6a5a", water: "#1a3a6a", peak: "#5a4a6a", snow: "#c8d8f0", forest: "#1a5a40" },
-      blurb: "Infinite stars, procedural shores, and the atlas interface.",
+      blurb: "무한한 별들, 절차적으로 생성된 해안, 그리고 지도책 인터페이스.",
     },
     {
       id: "hogwarts",
-      name: "The Highlands",
+      name: "고지대",
       realm: "Hogwarts Legacy",
       game: "Hogwarts Legacy",
       rating: 4.75,
@@ -176,7 +176,7 @@ window.SANCTUM_DATA = (function () {
       discoveries: 690,
       art: "linear-gradient(135deg,#2a2a4a 0%,#3a2a1a 45%,#1a3a2a 100%)",
       palette: { land: "#4a5a38", water: "#2a4560", peak: "#6a655a", snow: "#e0e6f0", forest: "#2a4028" },
-      blurb: "성, forbidden forests, and maps that rearrange themselves.",
+      blurb: "성, 금지된 숲, 그리고 스스로 재배열되는 지도.",
     },
     {
       id: "cyber",
@@ -189,7 +189,7 @@ window.SANCTUM_DATA = (function () {
       discoveries: 880,
       art: "linear-gradient(135deg,#1a0a2a 0%,#2a1a3a 40%,#0a2a3a 100%)",
       palette: { land: "#3a3a48", water: "#1a3a4a", peak: "#5a4a5a", snow: "#b0b8c8", forest: "#2a3a30" },
-      blurb: "Neon cartography of a city that never sleeps—or forgives.",
+      blurb: "잠들지 않고, 용서하지도 않는 도시의 네온 지도학.",
     },
     {
       id: "minecraft",
@@ -202,11 +202,11 @@ window.SANCTUM_DATA = (function () {
       discoveries: 9999,
       art: "linear-gradient(135deg,#3a7a3a 0%,#5a8a3a 40%,#3a5a8a 100%)",
       palette: { land: "#5a8a3a", water: "#2a6aaa", peak: "#8a8a8a", snow: "#f0f4ff", forest: "#2a6a28" },
-      blurb: "Block-born continents, deep dark cities, and player-made myths.",
+      blurb: "블록으로 태어난 대륙, 깊고 어두운 도시, 그리고 플레이어가 만든 신화.",
     },
     {
       id: "valheim",
-      name: "The Tenth World",
+      name: "제10세계",
       realm: "Valheim",
       game: "Valheim",
       rating: 4.8,
@@ -215,11 +215,11 @@ window.SANCTUM_DATA = (function () {
       discoveries: 560,
       art: "linear-gradient(135deg,#2a3a4a 0%,#1a3a2a 50%,#3a2a1a 100%)",
       palette: { land: "#3a5a38", water: "#1a3a4a", peak: "#6a6a6a", snow: "#d8e4f0", forest: "#1a3a22" },
-      blurb: "Viking afterlife—biomes ring the world-tree's shadow.",
+      blurb: "바이킹의 이승 — 바이옴들은 세계수 그림자를 둘러쌉니다.",
     },
     {
       id: "ac",
-      name: "Historical Earth",
+      name: "역사적 지구",
       realm: "Assassin's Creed",
       game: "Assassin's Creed Odyssey",
       rating: 4.72,
@@ -228,33 +228,33 @@ window.SANCTUM_DATA = (function () {
       discoveries: 920,
       art: "linear-gradient(135deg,#2a5a7a 0%,#5a7a4a 45%,#7a5a2a 100%)",
       palette: { land: "#6a7a45", water: "#2a6a9a", peak: "#8a7a6a", snow: "#e8eef8", forest: "#3a5a30" },
-      blurb: "Aegean isles, oracles, and eagle-eyed cartography.",
+      blurb: "에게 해의 섬들, 신탁, 그리고 매의 눈 같은 지도 제작술.",
     },
     {
       id: "aetherion",
-      name: "Aetherion",
-      realm: "Community Atlas",
-      game: "Aetherion (Fictional)",
+      name: "에테리온",
+      realm: "커뮤니티 지도집",
+      game: "에테리온 (가상)",
       rating: 4.83,
       completion: 28,
       size: "Archipelago",
       discoveries: 334,
       art: "linear-gradient(135deg,#2a1a4a 0%,#1a3a5a 40%,#3a2a1a 100%)",
       palette: { land: "#4a4a6a", water: "#1a2a5a", peak: "#7a6a8a", snow: "#d0d0f0", forest: "#2a3a4a" },
-      blurb: "Floating isles bound by star-bridges—mapped by the Sanctum itself.",
+      blurb: "별의 다리로 연결된 부유 섬들 — 신전 자체가 지도화했습니다.",
     },
     {
       id: "ashmere",
-      name: "Ashmere",
-      realm: "Community Atlas",
-      game: "Chronicles of Ashmere (Fictional)",
+      name: "애시미어",
+      realm: "커뮤니티 지도집",
+      game: "애시미어 연대기 (가상)",
       rating: 4.77,
       completion: 36,
       size: "Coastal",
       discoveries: 288,
       art: "linear-gradient(135deg,#4a2a1a 0%,#2a2a2a 50%,#1a2a3a 100%)",
       palette: { land: "#5a4a30", water: "#2a4050", peak: "#6a5a4a", snow: "#d0d4d8", forest: "#2a3820" },
-      blurb: "Volcanic shores, glass deserts, and cities built in cooled magma.",
+      blurb: "화산의 해안, 유리 사막, 그리고 식은 용암 위에 세워진 도시들.",
     },
   ];
 
@@ -267,21 +267,21 @@ window.SANCTUM_DATA = (function () {
   };
 
   const DESCS = [
-    "Locals speak of lights beneath the water when the moon is thin.",
-    "A cartographer's note marks this place with three urgent strokes of ink.",
-    "Wind carries the smell of iron and old incense.",
-    "The ground here is warmer than it should be.",
-    "Community scouts report rare flora along the eastern ridge.",
-    "An unfinished sketch in the margins suggests a second entrance.",
-    "Pilgrims leave wax seals on the standing stones.",
-    "Speedrunners favor the northern ledge for a clean drop.",
-    "A merchant caravan vanished here in the last frost.",
-    "Echoes answer twice—once from stone, once from something else.",
-    "The map stains dark where blood was spilled in the third age.",
-    "Photographers gather at dusk for the gold-hour cliffs.",
-    "A handwritten warning: do not follow the singing.",
-    "Survey rods still stand where the old expedition camped.",
-    "보물 hunters left empty chests and one sealed letter.",
+    "현지인들은 달이 얇을 때 물 아래 빛에 대해 이야기합니다.",
+    "지도 제작자의 메모가 이 장소를 먹물 세 획의 다급한 표시로 남겨두었습니다.",
+    "바람이 철과 오래된 향의 냄새를 실어 나릅니다.",
+    "이곳의 땅은 마땅히 그래야 할 때보다 따뜻합니다.",
+    "커뮤니티 정찰병들이 동쪽 능선에서 희귀 식물군을 보고했습니다.",
+    "여백에 그려진 미완성 스케치가 두 번째 입구를 암시합니다.",
+    "순례자들이 세워진 돌에 밀납 인장을 남깁니다.",
+    "스피드러너들은 깔끔한 낙하를 위해 북쪽 선반을 선호합니다.",
+    "지난 서리철에 상인 캐러밴이 여기서 사라졌습니다.",
+    "메아리가 두 번 응답합니다 — 한 번은 돌에서, 한 번은 다른 무언가에서.",
+    "제3시대에 피가 흘렸던 자리에 지도가 어둡게 얼룩져 있습니다.",
+    "사진작가들이 황금빛 시간 절벽을 위해 황혼에 모여듭니다.",
+    "손글씨 경고: 노래를 따라가지 말 것.",
+    "옛 탐험대가 야영했던 자리에 측량 막대가 여전히 서 있습니다.",
+    "보물 사냥꾼들이 빈 상자와 봉인된 편지 한 통을 남겼습니다.",
   ];
 
   const DIFFICULTIES = ["Tranquil", "겸손", "Perilous", "Dire", "전설"];
@@ -379,10 +379,10 @@ window.SANCTUM_DATA = (function () {
           coords: `${(rng() * 180 - 90).toFixed(2)}°, ${(rng() * 360 - 180).toFixed(2)}°`,
           notes: [
             `${creator} marked this on the ${["vernal", "autumnal", "solstice", "eclipse"][Math.floor(rng() * 4)]} survey.`,
-            rng() > 0.5 ? "Wax seal: verified by three explorers." : "Sketch attached—see community layer.",
+            rng() > 0.5 ? "밀납 인장: 세 탐험가에 의해 검증됨." : "스케치 첨부 — 커뮤니티 레이어 참조.",
           ],
           community: [
-            `"${pick(rng, ["Bring torches.", "Best at dawn.", "Watch the ridge.", "Hidden ledge west.", "Farm route clockwise."])}" — ${pick(rng, CREATORS)}`,
+            `"${pick(rng, ["Bring torches.", "새벽이 가장 좋다.", "능선을 살피라.", "서쪽에 숨겨진 선반.", "농장 경로는 시계 방향."])}" — ${pick(rng, CREATORS)}`,
             rng() > 0.4 ? `Photo spot rated ${rating}/5 by pilgrims.` : `Speedrun split saves ~${Math.floor(8 + rng() * 40)}s.`,
           ],
         });
@@ -394,7 +394,7 @@ window.SANCTUM_DATA = (function () {
   const LOCATIONS = generateLocations();
 
   return {
-    RELICS,
+    유물,
     COLLECTIONS,
     WORLDS,
     LOCATIONS,

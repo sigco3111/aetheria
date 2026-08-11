@@ -9,7 +9,7 @@ import { runeGlowAt, STUDY_CENTER } from '@/lib/cinematic'
 // Preload so the study is ready long before the camera crosses the door.
 useTexture.preload('/textures/ancient-map.png')
 
-/* Scene 3 — "The Ancient Study". A candlelit, centuries-old room hidden
+/* Scene 3 — "The 고대 Study". A candlelit, centuries-old room hidden
    beneath the world, entered seamlessly through the elder's door.
    Room: 22x9x22 around STUDY_CENTER, floor at y = -60. */
 
@@ -213,7 +213,7 @@ function Fireplace() {
 
 /* ---------------- Shelves of ancient books ---------------- */
 
-function Bookshelf({ position, rotation = 0, seed }: { position: [number, number, number]; rotation?: number; seed: number }) {
+function 책들helf({ position, rotation = 0, seed }: { position: [number, number, number]; rotation?: number; seed: number }) {
   const books = useMemo(() => {
     const rnd = mulberry32(seed)
     const rows: { x: number; y: number; h: number; w: number; c: string; lean: number }[] = []
@@ -516,7 +516,7 @@ function Candle({ position, height = 0.22, phase = 0 }: { position: [number, num
   )
 }
 
-/* ---------------- The map table ---------------- */
+/* ---------------- 지도 테이블 ---------------- */
 
 function MapTable({ progress }: { progress: MutableRefObject<{ value: number }> }) {
   const map = useTexture('/textures/ancient-map.png')
@@ -639,9 +639,9 @@ function MapTable({ progress }: { progress: MutableRefObject<{ value: number }> 
   )
 }
 
-/* ---------------- Full study ---------------- */
+/* ---------------- 전체 서재 ---------------- */
 
-export function AncientStudy({ progress }: { progress: MutableRefObject<{ value: number }> }) {
+export function 고대Study({ progress }: { progress: MutableRefObject<{ value: number }> }) {
   const [cx, cy, cz] = STUDY_CENTER
   return (
     <group position={[cx, cy, cz]}>
@@ -649,10 +649,10 @@ export function AncientStudy({ progress }: { progress: MutableRefObject<{ value:
       <WindowShaft />
       <Fireplace />
 
-      <Bookshelf position={[-4, 0, -10.6]} seed={11} />
-      <Bookshelf position={[-8, 0, -10.6]} seed={23} />
-      <Bookshelf position={[0.2, 0, -10.6]} seed={37} />
-      <Bookshelf position={[10.6, 0, -4]} rotation={-Math.PI / 2} seed={51} />
+      <책들helf position={[-4, 0, -10.6]} seed={11} />
+      <책들helf position={[-8, 0, -10.6]} seed={23} />
+      <책들helf position={[0.2, 0, -10.6]} seed={37} />
+      <책들helf position={[10.6, 0, -4]} rotation={-Math.PI / 2} seed={51} />
 
       <Globe position={[-8.6, 0, 6.4]} />
       <Telescope position={[-9, 0, -6.8]} rotation={0.7} />

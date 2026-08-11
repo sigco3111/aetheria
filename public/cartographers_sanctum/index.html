@@ -24,7 +24,7 @@
 <body class="min-h-dvh overflow-hidden text-sm antialiased">
   <a class="skip-link" href="#main-stage">신전으로 건너뛰기</a>
 
-  <!-- PORTAL / ENTRY -->
+  <!-- 포털 / ENTRY -->
   <div id="portal" class="portal" role="dialog" aria-modal="true" aria-labelledby="portal-title">
     <canvas id="ink-canvas" aria-hidden="true"></canvas>
     <div class="portal-veil"></div>
@@ -64,7 +64,7 @@
         </span>
         <div>
           <p class="brand-kicker">전설의 전당</p>
-          <h1 class="brand-title">Cartographer's Sanctum</h1>
+          <h1 class="brand-title">지도사의 신전</h1>
         </div>
       </div>
 
@@ -81,7 +81,7 @@
         />
         <kbd class="search-kbd" aria-hidden="true">/</kbd>
         <div id="search-ink" class="search-ink" aria-hidden="true"></div>
-        <div id="search-results" class="search-results" hidden role="listbox" aria-label="Search results"></div>
+        <div id="search-results" class="search-results" hidden role="listbox" aria-label="검색 결과"></div>
       </div>
 
       <div class="ritual-actions">
@@ -93,7 +93,7 @@
           <span class="relic-icon" aria-hidden="true">☁</span>
           <span class="relic-label">날씨</span>
         </button>
-        <button type="button" id="btn-motion" class="icon-relic" aria-pressed="false" title="Reduce motion" aria-label="모션 줄이기">
+        <button type="button" id="btn-motion" class="icon-relic" aria-pressed="false" title="모션 줄이기" aria-label="모션 줄이기">
           <span class="relic-icon" aria-hidden="true">✦</span>
           <span class="relic-label">모션</span>
         </button>
@@ -101,8 +101,8 @@
     </header>
 
     <main id="main-stage" class="main-stage">
-      <!-- LEFT: Collection shelves + trending -->
-      <aside class="wing wing-left" aria-label="Collections and worlds">
+      <!-- LEFT: 컬렉션 shelves + trending -->
+      <aside class="wing wing-left" aria-label="컬렉션과 세계">
         <section class="panel-card collections-panel">
           <header class="panel-head">
             <h2>가죽 컬렉션</h2>
@@ -137,8 +137,8 @@
           <div class="table-legs" aria-hidden="true"></div>
         </div>
 
-        <!-- Relic filters around the table -->
-        <nav class="relic-ring" aria-label="Map layer relics" id="relic-ring"></nav>
+        <!-- 유물 filters around the table -->
+        <nav class="relic-ring" aria-label="지도 레이어 유물" id="relic-ring"></nav>
 
         <div class="map-legend" aria-live="polite">
           <span id="active-world-name">탐레일 — 스카이림</span>
@@ -166,7 +166,7 @@
           </div>
           <div class="atlas-tabs" role="tablist" aria-label="지도책 섹션">
             <button type="button" class="atlas-tab is-active" role="tab" aria-selected="true" data-tab="lore">로어</button>
-            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="stats">Stats</button>
+            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="stats">통계</button>
             <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="notes">노트</button>
             <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="community">Community</button>
           </div>

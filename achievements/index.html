@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   THE HALL OF 전설 — Design Tokens
+   전설의 전당 — 디자인 토큰
    Palette:
      --void:        #0a0806  (the dark beyond the arches)
      --stone-deep:  #1c1712  (primary architecture)
@@ -653,19 +653,19 @@ body.reduced-motion *{
 <div class="vignette" aria-hidden="true"></div>
 <canvas class="dust-layer" id="dust-canvas" aria-hidden="true"></canvas>
 
-<nav id="progress-rail" aria-label="Section navigation">
+<nav id="progress-rail" aria-label="섹션 탐색">
   <button data-target="#gate" class="active" aria-label="입구"></button>
-  <button data-target="#monument" aria-label="The World Tree"></button>
-  <button data-target="#categories" aria-label="Category Alcoves"></button>
-  <button data-target="#heroes" aria-label="Hero Wall"></button>
-  <button data-target="#statistics" aria-label="Statistics of the Realm"></button>
+  <button data-target="#monument" aria-label="세계수"></button>
+  <button data-target="#categories" aria-label="카테고리 벽감"></button>
+  <button data-target="#heroes" aria-label="영웅의 벽"></button>
+  <button data-target="#statistics" aria-label="왕국의 통계"></button>
 </nav>
 
-<a href="#main" class="sr-only">Skip to content</a>
+<a href="#main" class="sr-only">본문으로 건너뛰기</a>
 
 <main id="main">
 
-  <section id="gate" aria-label="Entrance to the Hall of Legends">
+  <section id="gate" aria-label="전설의 전당 입구">
     <div class="gate-arches" aria-hidden="true">
       <div class="arch a1"></div>
       <div class="arch a2"></div>
@@ -678,11 +678,11 @@ body.reduced-motion *{
     <div class="motes" id="gate-motes" aria-hidden="true"></div>
 
     <div class="gate-content">
-      <div class="gate-eyebrow">The Relic Has Awoken</div>
-      <h1 class="gate-title">THE HALL<br>OF 전설</h1>
-      <p class="gate-sub">Every deed you have done now lives here, carved in stone and gold, where history remembers heroes.</p>
+      <div class="gate-eyebrow">유물이 깨어났다</div>
+      <h1 class="gate-title">전설의 전당</h1>
+      <p class="gate-sub">당신이 행한 모든 업적이 이제 여기, 돌과 금 속에 새겨져, 역사가 영웅을 기억하는 그곳에 살아 있습니다.</p>
       <div class="gate-descend">
-        <span>Enter</span>
+        <span>입장</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
       </div>
     </div>
@@ -690,9 +690,9 @@ body.reduced-motion *{
 
   <section id="monument" aria-labelledby="monument-title">
     <div class="monument-intro">
-      <div class="section-eyebrow">The Centerpiece</div>
+      <div class="section-eyebrow">핵심 조형물</div>
       <h2 class="section-title" id="monument-title">전설의 세계수</h2>
-      <p class="section-lede">Its roots drink from every hall below. Each bough holds the light of a thousand deeds — touch a branch to walk its path.</p>
+      <p class="section-lede">그 뿌리는 아래의 모든 전당에서 물을 빨아들입니다. 각 가지에는 수천 행위의 빛이 담겨 있어요 — 가지를 만져 그 길을 걸어보세요.</p>
     </div>
 
     <div class="tree-stage">
@@ -762,33 +762,33 @@ body.reduced-motion *{
 
         <!-- interactive category nodes -->
         <g class="tree-nodes">
-          <g class="tree-node-group" tabindex="0" data-category="warrior" role="button" aria-label="전사 category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="warrior" role="button" aria-label="전사 카테고리, 업적 보기">
             <circle class="tree-node" cx="110" cy="150" r="12" fill="#e2536b" style="color:#e2536b"/>
-            <text class="tree-node-label" x="110" y="128" text-anchor="middle">WARRIOR</text>
+            <text class="tree-node-label" x="110" y="128" text-anchor="middle">전사</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="explorer" role="button" aria-label="탐험가 category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="explorer" role="button" aria-label="탐험가 카테고리, 업적 보기">
             <circle class="tree-node" cx="60" cy="370" r="13" fill="#5b8fb0" style="color:#5b8fb0"/>
-            <text class="tree-node-label" x="60" y="396" text-anchor="middle">EXPLORER</text>
+            <text class="tree-node-label" x="60" y="396" text-anchor="middle">탐험가</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="collector" role="button" aria-label="Collector category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="collector" role="button" aria-label="수집가 카테고리, 업적 보기">
             <circle class="tree-node" cx="760" cy="145" r="12" fill="#d9b23e" style="color:#d9b23e"/>
-            <text class="tree-node-label" x="760" y="123" text-anchor="middle">COLLECTOR</text>
+            <text class="tree-node-label" x="760" y="123" text-anchor="middle">수집가</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="lorekeeper" role="button" aria-label="로어keeper category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="lorekeeper" role="button" aria-label="로어키퍼 카테고리, 업적 보기">
             <circle class="tree-node" cx="440" cy="20" r="13" fill="#a561c2" style="color:#a561c2"/>
-            <text class="tree-node-label" x="440" y="0" text-anchor="middle">LOREKEEPER</text>
+            <text class="tree-node-label" x="440" y="0" text-anchor="middle">로어키퍼</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="builder" role="button" aria-label="Builder category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="builder" role="button" aria-label="장인 카테고리, 업적 보기">
             <circle class="tree-node" cx="840" cy="380" r="11" fill="#9ca3a8" style="color:#9ca3a8"/>
-            <text class="tree-node-label" x="840" y="404" text-anchor="middle">BUILDER</text>
+            <text class="tree-node-label" x="840" y="404" text-anchor="middle">장인</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="monster-slayer" role="button" aria-label="Monster Slayer category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="monster-slayer" role="button" aria-label="몬스터 슬레이어 카테고리, 업적 보기">
             <circle class="tree-node" cx="630" cy="25" r="11" fill="#e2536b" style="color:#e2536b"/>
-            <text class="tree-node-label" x="630" y="4" text-anchor="middle">MONSTER SLAYER</text>
+            <text class="tree-node-label" x="630" y="4" text-anchor="middle">몬스터 슬레이어</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="community" role="button" aria-label="Community Hero category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="community" role="button" aria-label="커뮤니티 영웅 카테고리, 업적 보기">
             <circle class="tree-node" cx="260" cy="30" r="11" fill="#d9b23e" style="color:#d9b23e"/>
-            <text class="tree-node-label" x="260" y="10" text-anchor="middle">COMMUNITY HERO</text>
+            <text class="tree-node-label" x="260" y="10" text-anchor="middle">커뮤니티 영웅</text>
           </g>
         </g>
 
@@ -801,32 +801,32 @@ body.reduced-motion *{
       </svg>
     </div>
 
-    <p class="monument-caption">Seven boughs. Seven callings. Every hero's path begins at the root and climbs toward the light.</p>
+    <p class="monument-caption">일곱 개의 가지. 일곱 가지의 사명. 모든 영웅의 길은 뿌리에서 시작해 빛을 향해 올라갑니다.</p>
   </section>
 
   <section id="categories" aria-labelledby="categories-title">
-    <h2 id="categories-title" class="sr-only">Achievement Categories</h2>
+    <h2 id="categories-title" class="sr-only">업적 카테고리</h2>
     <div class="category-toolbar">
       <div class="toolbar-inscription">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        <span id="visible-count">— relics catalogued —</span>
+        <span id="visible-count">— 개의 유물이 기록됨 —</span>
       </div>
       <div class="toolbar-controls">
-        <input class="rune-search" id="relic-search" type="search" placeholder="Search the relics…" aria-label="Search achievements">
-        <select class="rune-select" id="rarity-filter" aria-label="Filter by rarity">
-          <option value="">전체 Rarities</option>
+        <input class="rune-search" id="relic-search" type="search" placeholder="유물 검색…" aria-label="업적 검색">
+        <select class="rune-select" id="rarity-filter" aria-label="등급별 필터">
+          <option value="">모든 등급</option>
           <option value="common">일반</option>
           <option value="rare">희귀</option>
           <option value="epic">에픽</option>
           <option value="legendary">전설</option>
           <option value="mythic">신화</option>
         </select>
-        <select class="rune-select" id="sort-order" aria-label="Sort achievements">
-          <option value="featured">Featured</option>
-          <option value="recent">Recent Unlocks</option>
-          <option value="difficulty">Most Difficult</option>
-          <option value="rarest">희귀st First</option>
-          <option value="completion">Completion %</option>
+        <select class="rune-select" id="sort-order" aria-label="업적 정렬">
+          <option value="featured">추천</option>
+          <option value="recent">최근 달성</option>
+          <option value="difficulty">가장 어려운</option>
+          <option value="rarest">가장 희귀한 순</option>
+          <option value="completion">완성도 %</option>
         </select>
       </div>
     </div>
@@ -836,9 +836,9 @@ body.reduced-motion *{
 
   <section id="heroes" aria-labelledby="heroes-title">
     <div class="heroes-intro">
-      <div class="section-eyebrow">The Long Memory</div>
-      <h2 class="section-title" id="heroes-title">The Hero Wall</h2>
-      <p class="section-lede">Hundreds of tablets, each one a life's deed carved in stone. As you climb, the wall remembers with you.</p>
+      <div class="section-eyebrow">오랜 기억</div>
+      <h2 class="section-title" id="heroes-title">영웅의 벽</h2>
+      <p class="section-lede">수백 개의 석판, 각각은 돌에 새겨진 한 생애의 행위. 당신이 오를수록, 벽은 당신과 함께 기억합니다.</p>
     </div>
     <div class="wall-wrap">
       <div class="wall-perspective">
@@ -851,20 +851,20 @@ body.reduced-motion *{
 
   <section id="statistics" aria-labelledby="statistics-title">
     <div class="stats-intro">
-      <div class="section-eyebrow">Carved Into the Floor</div>
-      <h2 class="section-title" id="statistics-title">Statistics of the Realm</h2>
-      <p class="section-lede">Numbers, too, can be sacred — when they are earned.</p>
+      <div class="section-eyebrow">바닥에 새겨진</div>
+      <h2 class="section-title" id="statistics-title">왕국의 통계</h2>
+      <p class="section-lede">숫자도 신성할 수 있습니다 — 정당하게 얻어진 것이라면.</p>
     </div>
     <div class="stats-floor" id="stats-floor"></div>
   </section>
 
-  <div class="footer-note">✦ THE HALL OF 전설 REMEMBERS ALL WHO ENTER ✦</div>
+  <div class="footer-note">✦ 전설의 전당에 들어오는 모든 이를 기억합니다 ✦</div>
 
 </main>
 
 <div class="relic-modal-overlay" id="relic-modal-overlay">
   <div class="relic-modal" id="relic-modal" role="dialog" aria-modal="true" aria-labelledby="relic-modal-name">
-    <button class="relic-modal-close" id="relic-modal-close" aria-label="Close">✕</button>
+    <button class="relic-modal-close" id="relic-modal-close" aria-label="닫기">✕</button>
     <div class="relic-modal-icon" id="relic-modal-icon"></div>
     <div class="relic-modal-rarity" id="relic-modal-rarity"></div>
     <div class="relic-modal-name" id="relic-modal-name"></div>
@@ -873,7 +873,7 @@ body.reduced-motion *{
     <div class="relic-modal-desc" id="relic-modal-desc"></div>
     <div class="relic-modal-stats" id="relic-modal-stats"></div>
     <div>
-      <div class="relic-modal-progress-label"><span>Your progress</span><span id="relic-modal-progress-pct"></span></div>
+      <div class="relic-modal-progress-label"><span>당신의 진행도</span><span id="relic-modal-progress-pct"></span></div>
       <div class="relic-modal-progress-track"><div class="relic-modal-progress-fill" id="relic-modal-progress-fill"></div></div>
     </div>
   </div>

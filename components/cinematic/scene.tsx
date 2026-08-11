@@ -21,7 +21,7 @@ import { Birds, CloudShadows, FloatingLeaves, Forest, Grass } from './nature'
 import { Boats, Ocean } from './ocean'
 import { Villagers } from './villagers'
 import { ElderHouse } from './elder-house'
-import { AncientStudy } from './study'
+import { 고대Study } from './study'
 
 export interface JourneyUiRefs {
   fade: RefObject<HTMLDivElement | null>
@@ -235,7 +235,7 @@ export function CinematicScene({ skipRequested, onRevealed, progress, ui }: Scen
       {/* Scene 3: the elder's house + the study hidden beneath the world */}
       <ElderHouse progress={progress} />
       <Suspense fallback={null}>
-        <AncientStudy progress={progress} />
+        <고대Study progress={progress} />
       </Suspense>
 
       {/* Soft drifting clouds */}

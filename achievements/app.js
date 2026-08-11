@@ -121,18 +121,18 @@
                 <div class="alcove-desc">${cat.description}</div>
               </div>
             </div>
-            <div class="alcove-meta">${filtered.length} of ${cat.achievements.length} relics shown</div>
+            <div class="alcove-meta">${filtered.length} / ${cat.achievements.length} 유물 표시</div>
           </div>
-          <div class="relic-row" role="list" aria-label="${cat.name} achievements"></div>
+          <div class="relic-row" role="list" aria-label="${cat.name} 업적"></div>
         </div>
       `;
 
       const row = section.querySelector('.relic-row');
-      filtered.forEach(a => row.appendChild(buildRelicCard(a, cat)));
+      filtered.forEach(a => row.appendChild(build유물Card(a, cat)));
       alcoveContainer.appendChild(section);
     });
 
-    visibleCountEl.textContent = `${totalVisible} relic${totalVisible === 1 ? '' : 's'} catalogued`;
+    visibleCountEl.textContent = `${totalVisible} 유물${totalVisible === 1 ? '' : 's'} catalogued`;
 
     if (totalVisible === 0) {
       const empty = document.createElement('div');
@@ -142,19 +142,19 @@
       empty.style.fontStyle = 'italic';
       empty.style.color = 'var(--parchment)';
       empty.style.opacity = '0.7';
-      empty.textContent = 'No relics answer to that search. Try another name, or clear the rune filters.';
+      empty.textContent = '그 검색에 응답하는 유물이 없습니다. 다른 이름을 시도하거나 룬 필터를 초기화하세요.';
       alcoveContainer.appendChild(empty);
     }
   }
 
-  function buildRelicCard(a, cat) {
+  function build유물Card(a, cat) {
     const rarity = RARITY[a.rarity];
     const card = document.createElement('div');
     card.className = 'relic-card' + (a.unlocked ? '' : ' locked');
     card.style.setProperty('--rarity-color', rarity.color);
     card.setAttribute('role', 'listitem');
     card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', `${a.name}, ${rarity.label} rarity, ${a.completion}% complete`);
+    card.setAttribute('aria-label', `${a.name}, ${rarity.label} 등급, ${a.completion}% 완성`);
 
     card.innerHTML = `
       <div class="relic-rarity-tag">${rarity.label}</div>
@@ -166,12 +166,12 @@
       <div class="relic-desc">${a.description}</div>
       <div class="relic-progress-track"><div class="relic-progress-fill" style="width:${a.completion}%"></div></div>
       <div class="relic-footer">
-        <span>${a.completion}% complete</span>
+        <span>${a.completion}% 완성</span>
         <span class="relic-points">${a.points} pts</span>
       </div>
     `;
 
-    const open = () => openRelicModal(a, cat);
+    const open = () => open유물Modal(a, cat);
     card.addEventListener('click', open);
     card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
 
@@ -188,12 +188,12 @@
   const modalClose = document.getElementById('relic-modal-close');
   let lastFocusedEl = null;
 
-  function openRelicModal(a, cat) {
+  function open유물Modal(a, cat) {
     lastFocusedEl = document.activeElement;
     const rarity = RARITY[a.rarity];
     document.getElementById('relic-modal').style.setProperty('--rarity-color', rarity.color);
     document.getElementById('relic-modal-icon').innerHTML = `<div style="color:${rarity.color}">${iconSVG(a.icon)}</div>`;
-    document.getElementById('relic-modal-rarity').textContent = rarity.label + ' Relic';
+    document.getElementById('relic-modal-rarity').textContent = 등급.label + ' 유물';
     document.getElementById('relic-modal-rarity').style.color = rarity.color;
     document.getElementById('relic-modal-name').textContent = a.name;
     document.getElementById('relic-modal-category').textContent = (cat ? cat.name : a.categoryName) + ' · ' + a.difficulty;
@@ -201,10 +201,10 @@
     document.getElementById('relic-modal-desc').textContent = a.description;
 
     document.getElementById('relic-modal-stats').innerHTML = `
-      <div class="relic-stat"><div class="relic-stat-label">Points</div><div class="relic-stat-value">${a.points}</div></div>
-      <div class="relic-stat"><div class="relic-stat-label">Global Completion</div><div class="relic-stat-value">${a.globalCompletionPct < 1 ? a.globalCompletionPct.toFixed(2) : a.globalCompletionPct.toFixed(1)}%</div></div>
-      <div class="relic-stat"><div class="relic-stat-label">Difficulty</div><div class="relic-stat-value">${a.difficulty}</div></div>
-      <div class="relic-stat"><div class="relic-stat-label">Unlocked</div><div class="relic-stat-value">${a.unlockDate ? formatDate(a.unlockDate) : '— not yet —'}</div></div>
+      <div class="relic-stat"><div class="relic-stat-label">점수</div><div class="relic-stat-value">${a.points}</div></div>
+      <div class="relic-stat"><div class="relic-stat-label">전체 달성률</div><div class="relic-stat-value">${a.globalCompletionPct < 1 ? a.globalCompletionPct.toFixed(2) : a.globalCompletionPct.toFixed(1)}%</div></div>
+      <div class="relic-stat"><div class="relic-stat-label">난이도</div><div class="relic-stat-value">${a.difficulty}</div></div>
+      <div class="relic-stat"><div class="relic-stat-label">달성일</div><div class="relic-stat-value">${a.unlockDate ? formatDate(a.unlockDate) : '— 아직 미해제 —'}</div></div>
     `;
 
     document.getElementById('relic-modal-progress-pct').textContent = a.completion + '%';
@@ -227,7 +227,7 @@
     document.removeEventListener('keydown', escCloseHandler);
     if (lastFocusedEl) lastFocusedEl.focus();
   }
-  function escCloseHandler(e) { if (e.key === 'Escape') closeModal(); }
+  function escCloseHandler(e) { if (e.key === 'Esc') closeModal(); }
 
   modalClose.addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
@@ -286,12 +286,12 @@
   // ---------- Statistics ----------
   const statsFloor = document.getElementById('stats-floor');
   const statSlabs = [
-    { icon: '✦', value: STATS.unlockedByYou, label: 'Achievements Unlocked' },
-    { icon: '⚔', value: STATS.totalPointsEarned.toLocaleString(), label: 'Legacy Points Earned' },
-    { icon: '☾', value: '#' + STATS.legendsRank.toLocaleString(), label: 'Rank Among Legends' },
-    { icon: '⟡', value: STATS.currentStreakDays + ' days', label: 'Current Unlock Streak' },
-    { icon: '◈', value: STATS.worldCompletionPct + '%', label: 'World Completion' },
-    { icon: '❖', value: STATS.totalAdventurers.toLocaleString(), label: 'Adventurers Enshrined' },
+    { icon: '✦', value: STATS.unlockedByYou, label: '달성한 업적' },
+    { icon: '⚔', value: STATS.totalPointsEarned.toLocaleString(), label: '획득한 유산 점수' },
+    { icon: '☾', value: '#' + STATS.legendsRank.toLocaleString(), label: '전설 중 순위' },
+    { icon: '⟡', value: STATS.currentStreakDays + ' days', label: '현재 달성 연속' },
+    { icon: '◈', value: STATS.worldCompletionPct + '%', label: '세계 완성도' },
+    { icon: '❖', value: STATS.totalAdventurers.toLocaleString(), label: '기려진 모험가' },
   ];
   statSlabs.forEach(s => {
     const div = document.createElement('div');
