@@ -1,0 +1,2854 @@
+[
+ [
+  "A vast gothic cathedral ruined by time and dark magic. Contains 4 sprawling floors, a hidden catacomb, and a massive boss arena at the summit. Optimized for low draw calls.",
+  "시간과 어두운 마법에 의해 폐허가 된 광대한 고딕 성당. 4개의 펼쳐진 층, 숨겨진 지하 묘지, 그리고 정상의 거대한 보스 아레나 포함. 낮은 드로우 콜에 최적화됨."
+ ],
+ [
+  "A towering troll warlord wearing scavenged armor. Includes 24 custom attack animations, idle loops, and 3 phases of combat logic.",
+  "약탈한 갑옷을 입은 거대한 트롤 전왕. 24개의 커스텀 공격 애니메이션, 대기 루프, 3단계 전투 로직 포함."
+ ],
+ [
+  "Every collectible ever discovered across countless open-world adventures has been catalogued, cleaned, and set upon its pedestal.",
+  "수많은 오픈 월드 모험에서 발견된 모든 수집품이 분류되고, 청소되어, 그 받침대 위에 올려졌습니다."
+ ],
+ [
+  "A 20-page interactive UI book containing the complete history of the First Era. Easily integrated into your quest system.",
+  "제1시대의 완전한 역사가 담긴 20페이지 인터랙티브 UI 책. 퀘스트 시스템에 손쉽게 통합됩니다."
+ ],
+ [
+  "Its roots drink from every hall below. Each bough holds the light of a thousand deeds — touch a branch to walk its path.",
+  "그 뿌리는 아래의 모든 전당에서 물을 빨아들입니다. 각 가지에는 수천 행위의 빛이 담겨 있어요 — 가지를 만져 그 길을 걸어보세요."
+ ],
+ [
+  "A high-poly glass flask filled with churning magical fire. The liquid sloshes dynamically based on character movement.",
+  "휘몰아치는 마법의 불이 담긴 하이폴리 유리 플라스크. 캐릭터 움직임에 따라 액체가 역동적으로 출렁입니다."
+ ],
+ [
+  "Forged from the spine of a firedrake. The blade constantly emits a subtle heat distortion. Fully rigged and animated.",
+  "화룡의 척추로 벼려졌습니다. 칼날은 끊임없이 미묘한 열 왜곡을 방출합니다. 완전히 리깅되고 애니메이션 처리됨."
+ ],
+ [
+  "140+ individual props to clutter up wizard towers and apothecaries. Mortars, pestles, scales, and glowing liquids.",
+  "140개 이상의 개별 소품으로 마법사 탑과 약제상을 채웁니다. 막자, 막자사발, 저울, 빛나는 액체 등."
+ ],
+ [
+  "This entry remains a rumour. Its silhouette is logged, but the artifact itself has never been recovered.",
+  "이 항목은 소문으로만 남아 있습니다. 실루엣은 기록되었지만, 유물 자체는 아직 회수된 적이 없습니다."
+ ],
+ [
+  "Hundreds of tablets, each one a life's deed carved in stone. As you climb, the wall remembers with you.",
+  "수백 개의 석판, 각각은 돌에 새겨진 한 생애의 행위. 당신이 오를수록, 벽은 당신과 함께 기억합니다."
+ ],
+ [
+  "Every deed you have done now lives here, carved in stone and gold, where history remembers heroes.",
+  "당신이 행한 모든 업적이 이제 여기, 돌과 금 속에 새겨져, 역사가 영웅을 기억하는 그곳에 살아 있습니다."
+ ],
+ [
+  "A highly customizable portal shader that bends local light and space. Drag and drop onto any quad.",
+  "국소 빛과 공간을 휘게 하는 고도로 사용자 정의 가능한 포털 셰이더. 모든 쿼드에 끌어다 놓으세요."
+ ],
+ [
+  "An ethereal enemy that floats above the ground. Features an incredible flowing cloth simulation.",
+  "공중을 떠다니는 천상의 적. 놀라운 흐르는 천 시뮬레이션을 특징으로 합니다."
+ ],
+ [
+  "Seven boughs. Seven callings. Every hero's path begins at the root and climbs toward the light.",
+  "일곱 개의 가지. 일곱 가지의 사명. 모든 영웅의 길은 뿌리에서 시작해 빛을 향해 올라갑니다."
+ ],
+ [
+  "Speak your desire or write it upon the parchment, and the archives shall reveal what is hidden.",
+  "원하는 것을 말하거나 양피지 위에 적으세요. 그러면 기록 보관소가 숨겨진 것을 드러낼 것입니다."
+ ],
+ [
+  "A 4km x 4km coastal region featuring jagged cliffs, shipwrecks, and a haunted fishing village.",
+  "4km x 4km 해안 지역으로, 들쭉날쭉한 절벽, 난파선, 귀신 들린 어촌이 있습니다."
+ ],
+ [
+  "discover maps, relics, and lost knowledge left by adventurers from every corner of the realm.",
+  "왕국의 모든 구석을 누비던 모험가들이 남긴 지도, 유물, 잊혀진 지식을 발견하세요."
+ ],
+ [
+  "The Curator’s Vault · Guild Treasury & Archive · All artifacts mocked for demonstration.",
+  "큐레이터의 금고 · 길드 금고 및 기록 보관소 · 모든 유물은 데모용 모의 데이터입니다."
+ ],
+ [
+  "발견 maps, relics, and lost knowledge left by adventurers from every corner of the realm.",
+  "왕국의 모든 구석을 누비던 모험가들이 남긴 지도, 유물, 잊혀진 지식을 발견하세요."
+ ],
+ [
+  "A heavy mechanical crossbow with animated gears, string tension, and reload states.",
+  "애니메이션 톱니바퀴, 줄 장력, 재장전 상태가 포함된 묵직한 기계식 석궁."
+ ],
+ [
+  "The cartographers stopped drawing borders and started drawing your route instead.",
+  "지도 제작자들은 더 이상 국경을 그리지 않고, 대신 당신의 경로를 그리기 시작했습니다."
+ ],
+ [
+  "No relics answer to that search. Try another name, or clear the rune filters.",
+  "그 검색에 응답하는 유물이 없습니다. 다른 이름을 시도하거나 룬 필터를 초기화하세요."
+ ],
+ [
+  "No artifacts match your search. Adjust the collector’s tools and try again.",
+  "검색에 일치하는 유물이 없습니다. 수집가의 도구를 조정하고 다시 시도하세요."
+ ],
+ [
+  "Three scholars died certain it was untranslatable. You made it a footnote.",
+  "세 학자는 번역 불가능하다고 확신하며 죽었습니다. 당신은 그것을 각주로 만들었습니다."
+ ],
+ [
+  "Two hundred small rescues rarely feel like a legend. They are one anyway.",
+  "두백 번의 작은 구조는 전설처럼 느껴지지 않습니다. 그런데 그것은 어쨌든 하나의 전설입니다."
+ ],
+ [
+  "Read all 212 tomes in the Sunken Library without triggering its guardian.",
+  "침묵의 도서관의 수호자를 깨우지 않고 그곳의 책 212권을 모두 읽음."
+ ],
+ [
+  "It has told this story to no one. It has no mouths left to tell it with.",
+  "이것은 아무에게도 이 이야기를 전하지 않았습니다. 그것은 전할 입이 더는 남아 있지 않기 때문입니다."
+ ],
+ [
+  "A frozen province of dragons, ancient barrows, and whispered prophecies.",
+  "용과 고대 무덤, 그리고 속삭이는 예언으로 가득한 얼어붙은 지방."
+ ],
+ [
+  "A cartographer's note marks this place with three urgent strokes of ink.",
+  "지도 제작자의 메모가 이 장소를 먹물 세 획의 다급한 표시로 남겨두었습니다."
+ ],
+ [
+  "The banner still carries your guild's colors into every hall it enters.",
+  "깃발은 들어서는 모든 전당에 당신 길드의 색을 여전히 실어 나릅니다."
+ ],
+ [
+  "There's a particular satisfaction in a shelf with nothing left to give.",
+  "더 이상 줄 것이 없는 선반에는 특별한 만족감이 있습니다."
+ ],
+ [
+  "Trade routes rewrote themselves the day you finished the final plank.",
+  "당신이 마지막 판자를 끝낸 날, 무역로가 스스로 다시 쓰여졌습니다."
+ ],
+ [
+  "History doesn't usually get a second draft. You wrote it one anyway.",
+  "역사는 보통 두 번째 초고를 받지 않습니다. 그런데 당신은 그것을 썼습니다."
+ ],
+ [
+  "The walls stopped hiding things from you around the second region.",
+  "벽들은 두 번째 지역쯤부터 당신에게 무엇인가를 숨기는 일을 그만두었습니다."
+ ],
+ [
+  "Floating isles bound by star-bridges—mapped by the Sanctum itself.",
+  "별의 다리로 연결된 부유 섬들 — 신전 자체가 지도화했습니다."
+ ],
+ [
+  "Cabinets closest to completion — light every gem to earn a ribbon.",
+  "완성에 가장 가까운 캐비넷 — 모든 보석을 밝혀 리본을 받으세요."
+ ],
+ [
+  "A few of them are legends now too. That part was always the plan.",
+  "그들 중 몇 명은 이제 전설이기도 합니다. 그 부분은 항상 계획이었습니다."
+ ],
+ [
+  "War-torn kingdoms, haunted woods, and contracts written in blood.",
+  "전쟁에 찢긴 왕국, 귀신 들린 숲, 그리고 피로 쓰여진 계약들."
+ ],
+ [
+  "Volcanic shores, glass deserts, and cities built in cooled magma.",
+  "화산의 해안, 유리 사막, 그리고 식은 용암 위에 세워진 도시들."
+ ],
+ [
+  "Knowledge hidden is knowledge lost. Leave your map, take a blade.",
+  "숨겨진 지식은 잃어버린 지식입니다. 지도를 두고, 칼날을 가져가세요."
+ ],
+ [
+  "Artifacts deemed exceptional by the Grandmasters of the Exchange.",
+  "교역소의 대장장이들에 의해 탁월함이 인정된 유물들."
+ ],
+ [
+  "Small deeds, repeated, start to look a great deal like heroism.",
+  "작은 행위가 반복되면 영웅 숭배와 매우 닮아 보이기 시작합니다."
+ ],
+ [
+  "No one else was left to tell it, so the stone tells it instead.",
+  "이를 전해줄 다른 이는 남아 있지 않아, 대신 돌이 전하고 있습니다."
+ ],
+ [
+  "Block-born continents, deep dark cities, and player-made myths.",
+  "블록으로 태어난 대륙, 깊고 어두운 도시, 그리고 플레이어가 만든 신화."
+ ],
+ [
+  "An unfinished sketch in the margins suggests a second entrance.",
+  "여백에 그려진 미완성 스케치가 두 번째 입구를 암시합니다."
+ ],
+ [
+  "Locals speak of lights beneath the water when the moon is thin.",
+  "현지인들은 달이 얇을 때 물 아래 빛에 대해 이야기합니다."
+ ],
+ [
+  "The final page of the bestiary still waits, blank and patient.",
+  "도감의 마지막 장은 여전히, 백지인 채 인내하며 기다리고 있습니다."
+ ],
+ [
+  "Sky islands, depths, and a kingdom rewritten by ancient power.",
+  "하늘의 섬들, 심연, 그리고 고대의 힘으로 다시 쓰여진 왕국."
+ ],
+ [
+  "Echoes answer twice—once from stone, once from something else.",
+  "메아리가 두 번 응답합니다 — 한 번은 돌에서, 한 번은 다른 무언가에서."
+ ],
+ [
+  "Touch a floating seal upon the table to open its stone tablet.",
+  "양피지 위에 떠 있는 인장을 만져 그 석판을 열어보세요."
+ ],
+ [
+  "Not all monuments are made of stone. Some are made of people.",
+  "모든 기념물이 돌로 만들어지는 것은 아닙니다. 어떤 것은 사람으로 만들어집니다."
+ ],
+ [
+  "History owes you a great many thank-yous it will never speak.",
+  "역사는 결코 말하지 않을, 셀 수 없는 감사 인사를 당신에게 빚지고 있습니다."
+ ],
+ [
+  "The scale you carry still remembers the heat of its own fire.",
+  "당신이 지니고 다니는 그 비늘은 여전히 자신의 불꽃의 열기를 기억합니다."
+ ],
+ [
+  "Complete a bridge connecting two previously unlinked regions.",
+  "이전에는 연결되지 않았던 두 지역을 잇는 다리 완성."
+ ],
+ [
+  "Stories told around fires tend to travel further than swords.",
+  "모닥불 주변에서 들려주는 이야기는 보통 검보다 멀리 여행합니다."
+ ],
+ [
+  "The map stains dark where blood was spilled in the third age.",
+  "제3시대에 피가 흘렸던 자리에 지도가 어둡게 얼룩져 있습니다."
+ ],
+ [
+  "The Hall itself seems to be waiting to see if you'll finish.",
+  "전당 자체가 당신이 끝낼지를 지켜보고 있는 듯합니다."
+ ],
+ [
+  "Prevent the Convergence catastrophe from unmaking the realm.",
+  "융합 재앙이 왕국을 소멸시키는 것을 막음."
+ ],
+ [
+  "A wild kingdom reborn—towers, shrines, and endless horizons.",
+  "다시 태어난 야생의 왕국 — 탑, 신사, 그리고 끝없는 지평선."
+ ],
+ [
+  "Collect one item of every known rarity in a single sitting.",
+  "한 자리에서 모든 알려진 등급의 아이템을 하나씩 수집."
+ ],
+ [
+  "Each roof was raised by hands that remembered the last one.",
+  "지붕마다 마지막 지붕을 기억하는 손에 의해 세워졌습니다."
+ ],
+ [
+  "A shattered realm ruled by demigods, grace, and golden rot.",
+  "신들과 신성, 그리고 황금의 부패가 다스리는 산산조각 난 영역."
+ ],
+ [
+  "Wind-swept islands, fox shrines, and the path of the ghost.",
+  "바람에 휩쓸린 섬들, 여우 신사, 그리고 유령의 길."
+ ],
+ [
+  "Frontier wilderness, dying outlaws, and maps drawn in dust.",
+  "변방의 황야, 죽어가는 무법자, 그리고 먼지 위에 그려진 지도."
+ ],
+ [
+  "Infinite stars, procedural shores, and the atlas interface.",
+  "무한한 별들, 절차적으로 생성된 해안, 그리고 지도책 인터페이스."
+ ],
+ [
+  "Community scouts report rare flora along the eastern ridge.",
+  "커뮤니티 정찰병들이 동쪽 능선에서 희귀 식물군을 보고했습니다."
+ ],
+ [
+  "Achieve 100% completion across every category in the Hall.",
+  "전당의 모든 카테고리에서 100% 완수."
+ ],
+ [
+  "Your boots have worn thinner than most kingdoms' patience.",
+  "당신의 부츠는 대부분의 왕국의 인내보다 더 얇아졌습니다."
+ ],
+ [
+  "Medieval Bohemia without magic—only mud, steel, and honor.",
+  "마법 없는 중세 보헤미아 — 진흙, 강철, 명예만이 있을 뿐."
+ ],
+ [
+  "/* ---------------- The elder's house ---------------- */",
+  "/* ---------------- 장로의 집 ---------------- */"
+ ],
+ [
+  "They speak to you now in a register the wind can't carry.",
+  "그들은 이제 바람이 실어 나를 수 없는 음역으로 당신에게 말합니다."
+ ],
+ [
+  "Neon cartography of a city that never sleeps—or forgives.",
+  "잠들지 않고, 용서하지도 않는 도시의 네온 지도학."
+ ],
+ [
+  "성, forbidden forests, and maps that rearrange themselves.",
+  "성, 금지된 숲, 그리고 스스로 재배열되는 지도."
+ ],
+ [
+  "Recovered from a vault untouched for three hundred years.",
+  "300년 동안 손대지 않은 금고에서 회수되었습니다."
+ ],
+ [
+  "Six answer to your touch. The seventh is still deciding.",
+  "여섯 개는 당신의 손길에 응답합니다. 일곱 번째는 여전히 결정 중입니다."
+ ],
+ [
+  "Sleep returned to three provinces the week you finished.",
+  "당신이 끝낸 그 주에 세 개 주에서 잠이 돌아왔습니다."
+ ],
+ [
+  "Uncover every hidden lore fragment in the Elven Archive.",
+  "엘프 기록 보관소의 모든 숨겨진 로어 파편 발견."
+ ],
+ [
+  "일반 to mythic, laid out like a sentence finally finished.",
+  "일반부터 신화까지, 마침내 완성된 한 문장처럼 늘어놓았습니다."
+ ],
+ [
+  "Pawns, wyverns, and a world that remembers your choices.",
+  "사환, 와이번, 그리고 당신의 선택을 기억하는 세계."
+ ],
+ [
+  "Survey rods still stand where the old expedition camped.",
+  "옛 탐험대가 야영했던 자리에 측량 막대가 여전히 서 있습니다."
+ ],
+ [
+  "Collect a trophy from every creature type in the realm.",
+  "왕국의 모든 생물 유형에서 트로피 수집."
+ ],
+ [
+  "Defeat the Hydra without it regenerating a single head.",
+  "하이드라가 단 하나의 머리도 재생하지 못하게 막고 처치."
+ ],
+ [
+  "Visit every settlement, ruin, and outpost in the realm.",
+  "왕국의 모든 정착지, 폐허, 전초기지를 방문."
+ ],
+ [
+  "Some caves you found. Some caves, it's said, found you.",
+  "어떤 동굴은 당신이 발견했습니다. 어떤 동굴은, 소문으로는, 당신을 발견했다고 합니다."
+ ],
+ [
+  "Speedrunners favor the northern ledge for a clean drop.",
+  "스피드러너들은 깔끔한 낙하를 위해 북쪽 선반을 선호합니다."
+ ],
+ [
+  "Every keeper who catalogued it recorded the same dream.",
+  "이를 정리한 모든 수호자가 같은 꿈을 기록했습니다."
+ ],
+ [
+  "The gates still bear the dent where you held the line.",
+  "성문에는 당신이 진형을 지킨 자리의 흠집이 아직 남아 있습니다."
+ ],
+ [
+  "The mortar set harder each time the walls were tested.",
+  "성벽이 시험받을 때마다 회반죽은 더 단단히 굳어갔습니다."
+ ],
+ [
+  "They call it a win streak. You call it a promise kept.",
+  "그들은 이것을 연승이라 부릅니다. 당신은 지켜낸 약속이라 부릅니다."
+ ],
+ [
+  "Build a fortress that withstands five separate sieges.",
+  "다섯 번의 별도 공성전에서 버티는 요새 건설."
+ ],
+ [
+  "Photographers gather at dusk for the gold-hour cliffs.",
+  "사진작가들이 황금빛 시간 절벽을 위해 황혼에 모여듭니다."
+ ],
+ [
+  "/* ---------------- The map table ---------------- */",
+  "/* ---------------- 지도 테이블 ---------------- */"
+ ],
+ [
+  "Others pass through the world. You leave it standing.",
+  "다른 이들은 세계를 지나갑니다. 당신은 그것을 세워둔 채 떠납니다."
+ ],
+ [
+  "The realm ran out of small problems for you to solve.",
+  "왕국은 당신이 해결할 작은 문제를 더 이상 남기지 않았습니다."
+ ],
+ [
+  "Solve all environmental puzzles across three regions.",
+  "세 지역에 걸친 모든 환경 퍼즐 해결."
+ ],
+ [
+  "Viking afterlife—biomes ring the world-tree's shadow.",
+  "바이킹의 이승 — 바이옴들은 세계수 그림자를 둘러쌉니다."
+ ],
+ [
+  "Knowledge outlives kingdoms. You outlive forgetting.",
+  "지식은 왕국보다 오래 살아남습니다. 당신은 잊혀지는 것보다 오래 남습니다."
+ ],
+ [
+  "Defeat every named nightmare boss in a single cycle.",
+  "한 사이클 안에 이름 붙은 모든 나이트메어 보스 처치."
+ ],
+ [
+  "Numbers, too, can be sacred — when they are earned.",
+  "숫자도 신성할 수 있습니다 — 정당하게 얻어진 것이라면."
+ ],
+ [
+  "The frost never melted where you stood your ground.",
+  "당신이 자리를 지킨 곳의 서리란 결코 녹지 않았습니다."
+ ],
+ [
+  "Every legend begins with a single, trembling swing.",
+  "모든 전설은 단 한 번의 떨리는 일격에서 시작됩니다."
+ ],
+ [
+  "Lead your guild to victory in the Grand Tournament.",
+  "그랜드 토너먼트에서 길드를 승리로 이끔."
+ ],
+ [
+  "A merchant caravan vanished here in the last frost.",
+  "지난 서리철에 상인 캐러밴이 여기서 사라졌습니다."
+ ],
+ [
+  "보물 hunters left empty chests and one sealed letter.",
+  "보물 사냥꾼들이 빈 상자와 봉인된 편지 한 통을 남겼습니다."
+ ],
+ [
+  "/* ---------------- Full study ---------------- */",
+  "/* ---------------- 전체 서재 ---------------- */"
+ ],
+ [
+  "The census-takers have started running out of ink.",
+  "인구 조사관들이 잉크가 떨어지기 시작했습니다."
+ ],
+ [
+  "Clear 100 monster dens threatening local villages.",
+  "마을을 위협하는 몬스터 소굴 100개 소탕."
+ ],
+ [
+  "Guide 25 new adventurers through their first year.",
+  "새 모험가 25명의 첫 해를 안내."
+ ],
+ [
+  "Aegean isles, oracles, and eagle-eyed cartography.",
+  "에게 해의 섬들, 신탁, 그리고 매의 눈 같은 지도 제작술."
+ ],
+ [
+  "Once carried by a king who vanished without trace.",
+  "한때 흔적도 없이 사라진 왕이 지니고 있었습니다."
+ ],
+ [
+  "The Collector’s Orb · brightens as the vault fills",
+  "수집가의 오브 · 금고가 채워질수록 밝아집니다"
+ ],
+ [
+  "The seventh style has no name. You gave it yours.",
+  "일곱 번째 검술에는 이름이 없습니다. 당신은 그것에 당신의 이름을 주었습니다."
+ ],
+ [
+  "The wilds keep a tally too. Yours is the longest.",
+  "야지 역시 기록을 남깁니다. 당신의 기록이 가장 깁니다."
+ ],
+ [
+  "It's crooked. It's yours. It's the first of many.",
+  "그것은 삐뚫어져 있습니다. 그것은 당신의 것. 그것은 많은 것의 첫 번째입니다."
+ ],
+ [
+  "A handwritten warning: do not follow the singing.",
+  "손글씨 경고: 노래를 따라가지 말 것."
+ ],
+ [
+  "<em>From the game ${escapeHtml(world.game)}.</em>",
+  "<em>게임: ${escapeHtml(world.game)}</em>"
+ ],
+ [
+  "The sun rose to find you already waiting for it.",
+  "태양은 당신이 이미 자신을 기다리고 있는 것을 발견하고 떠올랐습니다."
+ ],
+ [
+  "Learn every regional folk tale from a named NPC.",
+  "이름 있는 NPC로부터 모든 지역의 민담을 습득."
+ ],
+ [
+  "Win a battle after your entire party has fallen.",
+  "파티 전원이 쓰러진 뒤 전투에서 승리."
+ ],
+ [
+  "Pilgrims leave wax seals on the standing stones.",
+  "순례자들이 세워진 돌에 밀납 인장을 남깁니다."
+ ],
+ [
+  "The vaults have started naming rooms after you.",
+  "금고는 당신의 이름을 따서 방 이름을 붙이기 시작했습니다."
+ ],
+ [
+  "Each one hums faintly when the others are near.",
+  "각각은 다른 것들이 가까이 있을 때 희미하게 윙윙거립니다."
+ ],
+ [
+  "Wind carries the smell of iron and old incense.",
+  "바람이 철과 오래된 향의 냄새를 실어 나릅니다."
+ ],
+ [
+  "The last of its kind, its twin lost to the sea.",
+  "그 종의 마지막으로, 쌍둥이가 바다에 잃어버렸습니다."
+ ],
+ [
+  "Every treasure has a story. You keep them all.",
+  "모든 보물에는 이야기가 있습니다. 당신은 그것을 모두 간직합니다."
+ ],
+ [
+  "Complete the hidden ancestor-spirit questline.",
+  "숨겨진 조상 정령 퀘스트라인 완수."
+ ],
+ [
+  "Reach the summit of Skyreach Peak before dawn.",
+  "새벽 전 스카이리치 봉우리 정상 도달."
+ ],
+ [
+  "Its origin predates the founding of the guild.",
+  "그 기원은 길드 창설 이전으로 거슬러 올라갑니다."
+ ],
+ [
+  "Catalogued, cleaned and set upon its pedestal.",
+  "분류되고, 청소되어, 받침대 위에 올려졌습니다."
+ ],
+ [
+  "${n.completedCollections} collections complete",
+  "${n.completedCollections}개 컬렉션 완수"
+ ],
+ [
+  "The sea let you pass. It rarely explains why.",
+  "바다가 당신을 지나가게 했습니다. 바다가 왜인지를 설명하는 경우는 드뭅니다."
+ ],
+ [
+  "Defend Silverwood from three separate sieges.",
+  "실버우드를 세 번의 별도 공성전에서 방어."
+ ],
+ [
+  "Each category has its own place in the vault.",
+  "각 카테고리는 금고 안에서 자신의 자리를 가지고 있습니다."
+ ],
+ [
+  "The dark has learned to fear your footsteps.",
+  "어둠은 당신의 발자국을 두려워하는 법을 배웠습니다."
+ ],
+ [
+  "It noticed you. It simply chose not to mind.",
+  "그것은 당신을 알아차렸습니다. 다만 개의치 않기로 했을 뿐입니다."
+ ],
+ [
+  "Complete 1,000 side quests across the realm.",
+  "왕국 전역에서 1,000개의 사이드 퀘스트 완수."
+ ],
+ [
+  "Grow a single settlement to 1,000 residents.",
+  "단일 정착지를 주민 1,000명 규모로 성장."
+ ],
+ [
+  "Survive 50 consecutive duels without defeat.",
+  "50번 연속 결투에서 패배 없이 생존."
+ ],
+ [
+  "The ground here is warmer than it should be.",
+  "이곳의 땅은 마땅히 그래야 할 때보다 따뜻합니다."
+ ],
+ [
+  "The trees remember which side you stood on.",
+  "나무들은 당신이 어느 편에 섰는지를 기억합니다."
+ ],
+ [
+  "Warm to the touch, as though recently held.",
+  "만지면 따뜻하다, 마치 최근에 쥐었던 것처럼."
+ ],
+ [
+  "Community Hero category, view achievements",
+  "커뮤니티 영웅 카테고리, 업적 보기"
+ ],
+ [
+  "Monster Slayer category, view achievements",
+  "몬스터 슬레이어 카테고리, 업적 보기"
+ ],
+ [
+  "✦ THE HALL OF 전설 REMEMBERS ALL WHO ENTER ✦",
+  "✦ 전설의 전당에 들어오는 모든 이를 기억합니다 ✦"
+ ],
+ [
+  "The archive doesn't creak for just anyone.",
+  "기록 보관소가 휘적거리는 것은 그저 누구에게나 그런 것이 아닙니다."
+ ],
+ [
+  "Amass one million gold in personal wealth.",
+  "개인 자산으로 금화 백만 축적."
+ ],
+ [
+  "Assist 200 fellow adventurers in distress.",
+  "위기에 처한 동료 모험가 200명 지원."
+ ],
+ [
+  "Said to hum faintly when the moon is full.",
+  "달이 가득 찼을 때 희미하게 윙�거린다고."
+ ],
+ [
+  "There is nowhere left for you to be lost.",
+  "이제 당신이 길을 잃을 수 있는 곳은 남아 있지 않습니다."
+ ],
+ [
+  "Construct 10 fully-furnished settlements.",
+  "완전히 가구 배치된 정착지 10곳 건설."
+ ],
+ [
+  "name: \"Chronicles of Ashmere (Fictional)\"",
+  "name: \"애시미어 연대기 (가상)\""
+ ],
+ [
+  "game: \"Chronicles of Ashmere (Fictional)\"",
+  "game: \"애시미어 연대기 (가상)\""
+ ],
+ [
+  "Sealed incantations and maps of the mind.",
+  "봉인된 주문과 마음의 지도."
+ ],
+ [
+  "A map this complete borders on prophecy.",
+  "이렇게 완전한 지도는 예언에 거의 가깝습니다."
+ ],
+ [
+  "Cross the Sunken Straits without a boat.",
+  "배 없이 침몰해안 횡단."
+ ],
+ [
+  "Slay the Leviathan of the Sunken Trench.",
+  "침몰 해구의 리바이어던 학살."
+ ],
+ [
+  "<span className=\"ic\">🧙‍♂️</span> Profile",
+  "<span className=\"ic\">🧙‍♂️</span> 프로필"
+ ],
+ [
+  "Defeat 500 monsters across every biome.",
+  "모든 바이옴에서 몬스터 500마리 처치."
+ ],
+ [
+  "Fully excavate five lost civilizations.",
+  "사라진 문명 다섯 곳을 완전히 발굴."
+ ],
+ [
+  "Wax set. Scroll placed in your satchel.",
+  "봉인 완료. 두루마리가 가방에 담겼습니다."
+ ],
+ [
+  "Blades, bows and instruments of legend.",
+  "전설의 검, 활, 도구."
+ ],
+ [
+  "137 / 247 artifacts catalogued · 55% 완성",
+  "137 / 247 유물 기록됨 · 55% 완성"
+ ],
+ [
+  "Fell an elder dragon in single combat.",
+  "일기토에서 장로 드래곤을 쓰러뜨림."
+ ],
+ [
+  "Wax seal: verified by three explorers.",
+  "밀납 인장: 세 탐험가에 의해 검증됨."
+ ],
+ [
+  "Forged in a fire that no longer burns.",
+  "더 이상 타오르지 않는 불에서 벼려짐."
+ ],
+ [
+  "Collector category, view achievements",
+  "수집가 카테고리, 업적 보기"
+ ],
+ [
+  "Build your first permanent structure.",
+  "첫 영구 구조물 건축."
+ ],
+ [
+  "Recover all seven Sundered Artifacts.",
+  "단절된 유물 일곱 개 모두 회수."
+ ],
+ [
+  "로어keeper category, view achievements",
+  "로어키퍼 카테고리, 업적 보기"
+ ],
+ [
+  "The tide has been calmer ever since.",
+  "그 이후로 밀물은 한결 잔잔해졌습니다."
+ ],
+ [
+  "Complete every regional map to 100%.",
+  "모든 지역 지도를 100%까지 완성."
+ ],
+ [
+  "Decipher the full Old Tongue cipher.",
+  "옛 언어 암호 전체 해독."
+ ],
+ [
+  "Sketch attached—see community layer.",
+  "스케치 첨부 — 커뮤니티 레이어 참조."
+ ],
+ [
+  "The ink settles. The atlas breathes.",
+  "먹물이 가라앉고, 지도책이 숨 쉬기 시작합니다."
+ ],
+ [
+  "Plate, mail and enchanted vestments.",
+  "판갑, 사슬갑, 마법의 예복."
+ ],
+ [
+  "Charts to places that may not exist.",
+  "존재하지 않을지도 모르는 곳의 해도."
+ ],
+ [
+  "Builder category, view achievements",
+  "장인 카테고리, 업적 보기"
+ ],
+ [
+  "Prevent the fall of a capital city.",
+  "수도의 함락을 방지."
+ ],
+ [
+  "<span className=\"ic\">🪙</span> Vault",
+  "<span className=\"ic\">🪙</span> 금고"
+ ],
+ [
+  "Win the Northern Reach tournament.",
+  "북방 도달지 토너먼트 우승."
+ ],
+ [
+  "Honours earned as the vault grows.",
+  "금고가 자라면서 얻는 영예."
+ ],
+ [
+  "className=\"k\">Guild Exchange</div>",
+  "className=\"k\">위대한 길드 교역소</div>"
+ ],
+ [
+  "발견 every region on the continent.",
+  "대륙의 모든 지역을 발견."
+ ],
+ [
+  "Route inked across the living map",
+  "살아있는 지도 위에 경로가 그려졌습니다"
+ ],
+ [
+  "Cut light and crystallised power.",
+  "빛을 자르고 결정화된 힘."
+ ],
+ [
+  "Preserved echoes of tamed beasts.",
+  "길들인 짐승의 보존된 메아리."
+ ],
+ [
+  "Hoarded gold and priceless finds.",
+  "축적된 금과 값진 보물."
+ ],
+ [
+  "Bound knowledge of the old world.",
+  "옛 세계의 묶인 지식."
+ ],
+ [
+  "Find and chart 100 hidden caves.",
+  "숨겨진 동굴 100개를 찾아 지도에 기록."
+ ],
+ [
+  "<div className=\"cn\">Thorin</div>",
+  "<div className=\"cn\">토린</div>"
+ ],
+ [
+  "Objects older than the kingdoms.",
+  "왕국보다 오래된 물건."
+ ],
+ [
+  "Entrance to the Hall of Legends",
+  "전설의 전당 입구"
+ ],
+ [
+  "탐험가 category, view achievements",
+  "탐험가 카테고리, 업적 보기"
+ ],
+ [
+  "Stormfront rolls across the ink",
+  "먹물 위로 폭풍 전선이 지나갑니다"
+ ],
+ [
+  "Charms humming with raw arcana.",
+  "날것의 아르카나로 윙윙거리는 부적."
+ ],
+ [
+  "Distilled miracles and poisons.",
+  "증류된 기적과 독."
+ ],
+ [
+  "전사 category, view achievements",
+  "전사 카테고리, 업적 보기"
+ ],
+ [
+  "Fill every vault slot you own.",
+  "소유한 금고 슬롯을 모두 채움."
+ ],
+ [
+  "Master all seven sword styles.",
+  "일곱 가지 검술 모두 마스터."
+ ],
+ [
+  "High fantasy, castles, knights",
+  "하이 판타지, 성, 기사"
+ ],
+ [
+  "Bookmark driven into the atlas",
+  "지도책에 책갈피 박힘"
+ ],
+ [
+  "THE HALL OF 전설 — Design Tokens",
+  "전설의 전당 — 디자인 토큰"
+ ],
+ [
+  "<div className=\"cn\">Lyra</div>",
+  "<div className=\"cn\">리라</div>"
+ ],
+ [
+  "${n.found} artifacts recovered",
+  "${n.found}개 유물 회수"
+ ],
+ [
+  "name: \"Aetherion (Fictional)\"",
+  "name: \"에테리온 (가상)\""
+ ],
+ [
+  "Pin lifted from the parchment",
+  "양피지에서 핀이 뽑힘"
+ ],
+ [
+  "copied to the courier's slate",
+  "급사의 석판에 복사됨"
+ ],
+ [
+  "game: \"Aetherion (Fictional)\"",
+  "game: \"에테리온 (가상)\""
+ ],
+ [
+  "Etched syllables of creation.",
+  "창조의 새겨진 음절."
+ ],
+ [
+  "Devices of forgotten purpose.",
+  "잊혀진 목적의 도구."
+ ],
+ [
+  "142 active scholars exploring",
+  "142명의 활동 학자 탐험 중"
+ ],
+ [
+  "Elven forests, ancient magic",
+  "엘프의 숲, 고대의 마법"
+ ],
+ [
+  "No kingdoms answer that name",
+  "그 이름에 응답하는 왕국이 없습니다"
+ ],
+ [
+  "Searching deeper archives...",
+  "더 깊은 기록 보관소를 탐색 중..."
+ ],
+ [
+  "Added 2 moons ago • Ver 1.04",
+  "2달 전에 추가됨 • Ver 1.04"
+ ],
+ [
+  "title: \"Age of Kings 로어book\"",
+  "title: \"왕들의 시대 로어북\""
+ ],
+ [
+  "title: \"Wyrmbone Greatsword\"",
+  "title: \"용뼈 대검\""
+ ],
+ [
+  "title: 'Wyrmbone Greatsword'",
+  "title: '용뼈 대검'"
+ ],
+ [
+  "title: 'Age of Kings 로어book'",
+  "title: '왕들의 시대 로어북'"
+ ],
+ [
+  "That which opens the sealed.",
+  "봉인된 것을 여는 것."
+ ],
+ [
+  "✦ 전설의 전당에 들어오는 모든 이를 기억합니다 ✦",
+  "✦ 전설의 전당에 들어오는 모든 이를 기억합니다 ✦"
+ ],
+ [
+  "${n.pct}% overall completion",
+  "전체 완성도 ${n.pct}%"
+ ],
+ [
+  "aria-label=\"Search results\"",
+  "aria-label=\"검색 결과\""
+ ],
+ [
+  "Scroll sealed and delivered",
+  "두루마리 봉인되어 전달됨"
+ ],
+ [
+  "Skies clear above the table",
+  "탁자 위로 하늘이 개입니다"
+ ],
+ [
+  "name: \"Age of Kings 로어book\"",
+  "name: \"왕들의 시대 로어북\""
+ ],
+ [
+  "name: \"Wyrmbone Greatsword\"",
+  "name: \"용뼈 대검\""
+ ],
+ [
+  "title: 'The Silent Citadel'",
+  "title: '침묵의 성채'"
+ ],
+ [
+  "Faces of rite and disguise.",
+  "의식과 변장의 얼굴들."
+ ],
+ [
+  "Every artifact in the vault",
+  "금고 안의 모든 유물"
+ ],
+ [
+  "Acquire 50 ancient relics.",
+  "고대 유물 50개 획득."
+ ],
+ [
+  "여행 10,000 leagues on foot.",
+  "도보로 10,000리 여행."
+ ],
+ [
+  "Moonlight washes the atlas",
+  "달빛이 지도책을 씻어냅니다"
+ ],
+ [
+  "THE CARTOGRAPHER'S SANCTUM",
+  "지도사의 신전"
+ ],
+ [
+  "Tome returned to the shelf",
+  "책이 선반으로 돌아갔습니다"
+ ],
+ [
+  "Seek forgotten kingdoms...",
+  "잊혀진 왕국을 찾아서..."
+ ],
+ [
+  "name: \"The Silent Citadel\"",
+  "name: \"침묵의 성채\""
+ ],
+ [
+  "title: \"Ironwood Crossbow\"",
+  "title: \"철목 석궁\""
+ ],
+ [
+  "title: 'Ironwood Crossbow'",
+  "title: '철목 석궁'"
+ ],
+ [
+  "title: 'The Drowned Coast'",
+  "title: '침몰 해안'"
+ ],
+ [
+  "${n.rareFound} rare+ finds",
+  "희귀+ 발견 ${n.rareFound}"
+ ],
+ [
+  "Master of Forgotten Ruins",
+  "잊혀진 폐허의 대가"
+ ],
+ [
+  "Deserts, ruins, scorpions",
+  "사막, 폐허, 전갈"
+ ],
+ [
+  "name: \"The Lands Between\"",
+  "name: \"사이의 땅\""
+ ],
+ [
+  "Acquired ${viewing.title}",
+  "${viewing.title} 획득"
+ ],
+ [
+  "Link copied to parchment.",
+  "링크가 양피지에 복사되었습니다."
+ ],
+ [
+  "name: \"The Drowned Coast\"",
+  "name: \"침몰 해안\""
+ ],
+ [
+  "title: \"Troll King Skarn\"",
+  "title: \"트롤왕 스카른\""
+ ],
+ [
+  "title: \"Void Rift Shader\"",
+  "title: \"공허 균열 셰이더\""
+ ],
+ [
+  "name: \"Ironwood Crossbow\"",
+  "name: \"철목 석궁\""
+ ],
+ [
+  "title: 'Troll King Skarn'",
+  "title: '트롤왕 스카른'"
+ ],
+ [
+  "title: 'Void Rift Shader'",
+  "title: '공허 균열 셰이더'"
+ ],
+ [
+  "active scholars exploring",
+  "활동 학자 탐험 중"
+ ],
+ [
+  "`Favourite collection: ${",
+  "`인기 컬렉션: ${"
+ ],
+ [
+  "${cat.name} achievements",
+  "${cat.name} 업적"
+ ],
+ [
+  "name: \"Historical Earth\"",
+  "name: \"역사적 지구\""
+ ],
+ [
+  "Removed from compendium.",
+  "도감에서 제거되었습니다."
+ ],
+ [
+  "name: \"Master Alchemist\"",
+  "name: \"대연금술사\""
+ ],
+ [
+  "name: \"Troll King Skarn\"",
+  "name: \"트롤왕 스카른\""
+ ],
+ [
+  "name: \"Void Rift Shader\"",
+  "name: \"공허 균열 셰이더\""
+ ],
+ [
+  "title: 'Spectral Wraith'",
+  "title: '스펙트럴 레이스'"
+ ],
+ [
+  "rank: 'Master Alchemist'",
+  "rank: '대연금술사'"
+ ],
+ [
+  "Guild Treasury & Archive",
+  "길드 금고 및 기록 보관소"
+ ],
+ [
+  "Lost Magic Items of Vael",
+  "바엘의 잃어버린 마법 아이템"
+ ],
+ [
+  " artifacts catalogued · ",
+  " 개의 유물 기록됨 · "
+ ],
+ [
+  "Statistics of the Realm",
+  "왕국의 통계"
+ ],
+ [
+  "Whisper of the Ancients",
+  "고대의 속삭임"
+ ],
+ [
+  "rarity.label + ' Relic'",
+  "등급.label + ' 유물'"
+ ],
+ [
+  "Frozen tundras, vikings",
+  "얼어붙은 툰드라, 바이킹"
+ ],
+ [
+  "name: \"The Tenth World\"",
+  "name: \"제10세계\""
+ ],
+ [
+  "name: \"위처 3: Wild Hunt\"",
+  "name: \"위처 3: 야생의 사냥\""
+ ],
+ [
+  "name: \"Grand Architect\"",
+  "name: \"대건축가\""
+ ],
+ [
+  "name: \"Spectral Wraith\"",
+  "name: \"스펙트럴 레이스\""
+ ],
+ [
+  "name: \"Weaver of Light\"",
+  "name: \"빛의 직조자\""
+ ],
+ [
+  "game: \"위처 3: Wild Hunt\"",
+  "game: \"위처 3: 야생의 사냥\""
+ ],
+ [
+  "rank: 'Grand Architect'",
+  "rank: '대건축가'"
+ ],
+ [
+  "rank: 'Weaver of Light'",
+  "rank: '빛의 직조자'"
+ ],
+ [
+  "`유물 lit: ${names.join(\"",
+  "`유물 켜짐: ${names.join(\""
+ ],
+ [
+  "Collections in Progress",
+  "진행 중인 컬렉션"
+ ],
+ [
+  "Explore the collections",
+  "컬렉션을 탐험하세요"
+ ],
+ [
+  "COMPENDIUM OF KNOWLEDGE",
+  "지식의 도감"
+ ],
+ [
+  "Achievement Categories",
+  "업적 카테고리"
+ ],
+ [
+  "Guardian of the Forest",
+  "숲의 수호자"
+ ],
+ [
+  "Cartographer's Sanctum",
+  "지도사의 신전"
+ ],
+ [
+  "Collections and worlds",
+  "컬렉션과 세계"
+ ],
+ [
+  "aria-label=\"Community\"",
+  "aria-label=\"커뮤니티\""
+ ],
+ [
+  "name: \"Hyrule & Skies\"",
+  "name: \"하일룰과 하늘\""
+ ],
+ [
+  "Chamber breathes again",
+  "방이 다시 숨 쉬기 시작합니다"
+ ],
+ [
+  "유물 lit: ${names.join('",
+  "유물 켜짐: ${names.join('"
+ ],
+ [
+  "Remove from Compendium",
+  "도감에서 제거"
+ ],
+ [
+  "title: \"Sunfire Flask\"",
+  "title: \"태양불 플라스크\""
+ ],
+ [
+  "name: \"Community Hero\"",
+  "name: \"커뮤니티 영웅\""
+ ],
+ [
+  "aria-label=\"Hero Wall\"",
+  "aria-label=\"영웅의 벽\""
+ ],
+ [
+  "title: 'Sunfire Flask'",
+  "title: '태양불 플라스크'"
+ ],
+ [
+  "author: 'Archmage Sol'",
+  "author: '대마법사 솔'"
+ ],
+ [
+  ">Skip to main content<",
+  ">본문으로 건너뛰기<"
+ ],
+ [
+  "Guild of Cartographers",
+  "지도 제작자 길드"
+ ],
+ [
+  "complete what remains.",
+  "남은 것을 완수하세요."
+ ],
+ [
+  "Lost Artifacts of Vael",
+  "바엘의 잃어버린 유물"
+ ],
+ [
+  "Favourite collection: ",
+  "가장 좋아하는 컬렉션: "
+ ],
+ [
+  "${n.streak}-day streak",
+  "${n.streak}일 연속"
+ ],
+ [
+  "Carved Into the Floor",
+  "바닥에 새겨진"
+ ],
+ [
+  "— relics catalogued —",
+  "— 개의 유물이 기록됨 —"
+ ],
+ [
+  "Champion of the North",
+  "북방의 챔피언"
+ ],
+ [
+  "Bridge Between Worlds",
+  "세계 사이의 다리"
+ ],
+ [
+  "The Hydra's Reckoning",
+  "하이드라의 심판"
+ ],
+ [
+  "Achievements Unlocked",
+  "달성한 업적"
+ ],
+ [
+  "Current Unlock Streak",
+  "현재 달성 연속"
+ ],
+ [
+  "Adventurers Enshrined",
+  "기려진 모험가"
+ ],
+ [
+  "title=\"Reduce motion\"",
+  "title=\"모션 줄이기\""
+ ],
+ [
+  "Farm route clockwise.",
+  "농장 경로는 시계 방향."
+ ],
+ [
+  "name: \"America, 1899\"",
+  "name: \"아메리카, 1899\""
+ ],
+ [
+  "name: \"Euclid Galaxy\"",
+  "name: \"유클리드 은하\""
+ ],
+ [
+  "name: \"The Continent\"",
+  "name: \"대륙\""
+ ],
+ [
+  "name: \"The Highlands\"",
+  "name: \"고지대\""
+ ],
+ [
+  "name: \"Drogor Wastes\"",
+  "name: \"드로고르 황무지\""
+ ],
+ [
+  "name: \"Sunfire Flask\"",
+  "name: \"태양불 플라스크\""
+ ],
+ [
+  "author: 'Scribe Vane'",
+  "author: '기록관 베인'"
+ ],
+ [
+  "name: 'Drogor Wastes'",
+  "name: '드로고르 황무지'"
+ ],
+ [
+  "aria-label=\"Bookmark\"",
+  "aria-label=\"책갈피\""
+ ],
+ [
+  "Undiscovered Artifact",
+  "미발견 유물"
+ ],
+ [
+  "Favourite collection:",
+  "가장 좋아하는 컬렉션:"
+ ],
+ [
+  "The Royal Armory Vol ",
+  "왕립 병기고 제"
+ ],
+ [
+  "The Relic Has Awoken",
+  "유물이 깨어났다"
+ ],
+ [
+  "Win your first duel.",
+  "첫 결투에서 승리."
+ ],
+ [
+  "Cartographer Supreme",
+  "최고의 지도 제작자"
+ ],
+ [
+  "Thornfield Reckoning",
+  "가시 들판의 심판"
+ ],
+ [
+  "Legacy Points Earned",
+  "획득한 유산 점수"
+ ],
+ [
+  "Difficulty carved as",
+  "난이도 각인:"
+ ],
+ [
+  "Remove parchment pin",
+  "양피지 핀 제거"
+ ],
+ [
+  "Saved to compendium.",
+  "도감에 저장되었습니다."
+ ],
+ [
+  "name: \"Archmage Sol\"",
+  "name: \"대마법사 솔\""
+ ],
+ [
+  "name: 'Archmage Sol'",
+  "name: '대마법사 솔'"
+ ],
+ [
+  "aria-label=\"Applaud\"",
+  "aria-label=\"박수\""
+ ],
+ [
+  "Gilded Bazaar of Qar",
+  "도금된 카르의 시장"
+ ],
+ [
+  "The Order of Keepers",
+  "수호자들의 기사단"
+ ],
+ [
+  "Search the catalogue",
+  "카탈로그 검색"
+ ],
+ [
+  "Related Collectibles",
+  "관련 수집품"
+ ],
+ [
+  "Lost Potions of Vael",
+  "바엘의 잃어버린 물약"
+ ],
+ [
+  "Lost Weapons of Vael",
+  "바엘의 잃어버린 무기"
+ ],
+ [
+  "The Lost Magic Items",
+  "잃어버린 마법 아이템"
+ ],
+ [
+  "Search achievements",
+  "업적 검색"
+ ],
+ [
+  "Candlelight returns",
+  "촛불이 돌아옴"
+ ],
+ [
+  "Search the archives",
+  "기록 보관소 검색"
+ ],
+ [
+  "Acquired ${d.title}",
+  "${d.title} 획득"
+ ],
+ [
+  "name: \"Forgemaster\"",
+  "name: \"대장장이\""
+ ],
+ [
+  "name: \"Scribe Vane\"",
+  "name: \"기록관 베인\""
+ ],
+ [
+  "Chronicles of Aldar",
+  "알다르 연대기"
+ ],
+ [
+  "THE CURATOR’S VAULT",
+  "큐레이터의 금고"
+ ],
+ [
+  "The Curator’s Vault",
+  "큐레이터의 금고"
+ ],
+ [
+  "Tithe (Low to High)",
+  "헌금 (낮은순)"
+ ],
+ [
+  "Tithe (High to Low)",
+  "헌금 (높은순)"
+ ],
+ [
+  "Guild Armor Archive",
+  "길드 갑옷 기록 보관소"
+ ],
+ [
+  "Lost Relics of Vael",
+  "바엘의 잃어버린 유물"
+ ],
+ [
+  "Lost Masks of Aldar",
+  "알다르의 잃어버린 가면"
+ ],
+ [
+  "Scribe's ink forms:",
+  "기록관의 먹물이 형태를 만듭니다:"
+ ],
+ [
+  "Search the relics…",
+  "유물 검색…"
+ ],
+ [
+  "Section navigation",
+  "섹션 탐색"
+ ],
+ [
+  "aria-label=\"Close\"",
+  "aria-label=\"닫기\""
+ ],
+ [
+  "Salt Road Wanderer",
+  "소금길 방랑자"
+ ],
+ [
+  "Sable Crest Bearer",
+  "검빛 문장 보유자"
+ ],
+ [
+  "Bronzeframe Legacy",
+  "청동틀의 유산"
+ ],
+ [
+  "Deepwrit Chronicle",
+  "심연 기록 연대기"
+ ],
+ [
+  "Mossbound Sentinel",
+  "이끼 묶인 파수꾼"
+ ],
+ [
+  "Cragmere Reckoning",
+  "벼랑 호수의 심판"
+ ],
+ [
+  " relics catalogued",
+  " 유물 기록됨"
+ ],
+ [
+  "Rank Among Legends",
+  "전설 중 순위"
+ ],
+ [
+  "Hidden ledge west.",
+  "서쪽에 숨겨진 선반."
+ ],
+ [
+  "name: \"Aethelgard\"",
+  "name: \"에셀가드\""
+ ],
+ [
+  "author: 'Eldarion'",
+  "author: '엘다리온'"
+ ],
+ [
+  "name: 'Aethelgard'",
+  "name: '에셀가드'"
+ ],
+ [
+  "Ruins of Old Aldar",
+  "옛 알다르의 폐허"
+ ],
+ [
+  "The Guild Treasury",
+  "길드 금고"
+ ],
+ [
+  "RECENT DISCOVERIES",
+  "최근 발견"
+ ],
+ [
+  "The Masks of Aldar",
+  "알다르의 가면들"
+ ],
+ [
+  "Lost Runes of Vael",
+  "바엘의 잃어버린 룬"
+ ],
+ [
+  "— and 남은 것을 완수하세요.",
+  "— 남은 것을 완수하세요."
+ ],
+ [
+  "Artifacts of Aldar",
+  "알다르의 유물"
+ ],
+ [
+  "The Lost Artifacts",
+  "잃어버린 유물"
+ ],
+ [
+  "� Lost Magic Items",
+  "✦ 잃어버린 마법 아이템"
+ ],
+ [
+  "Sort achievements",
+  "업적 정렬"
+ ],
+ [
+  "Kingdom Protector",
+  "왕국의 수호자"
+ ],
+ [
+  "The Mentor's Path",
+  "멘토의 길"
+ ],
+ [
+  "Rootdeep Wanderer",
+  "깊은뿌리 방랑자"
+ ],
+ [
+  "Driftwood Requiem",
+  "유목의 진혼곡"
+ ],
+ [
+  "Wyrmscale Tribute",
+  "용비늘 공물"
+ ],
+ [
+  "Global Completion",
+  "전체 달성률"
+ ],
+ [
+  "Dorian Sealwright",
+  "도리안 인장장이"
+ ],
+ [
+  "Kael the Surveyor",
+  "측량사 카엘"
+ ],
+ [
+  "name: \"Aetherion\"",
+  "name: \"에테리온\""
+ ],
+ [
+  "Soft mist returns",
+  "부드러운 안개가 돌아옵니다"
+ ],
+ [
+  "Add to Compendium",
+  "도감에 추가"
+ ],
+ [
+  "name: \"Sylphwood\"",
+  "name: \"실프우드\""
+ ],
+ [
+  "name: 'Sylphwood'",
+  "name: '실프우드'"
+ ],
+ [
+  "name: \"Collector\"",
+  "name: \"수집가\""
+ ],
+ [
+  "Guild Recognition",
+  "길드 인정"
+ ],
+ [
+  "The relic unlocks",
+  "유물이 깨어납니다"
+ ],
+ [
+  "Aethelgard Region",
+  "에셀가드 지역"
+ ],
+ [
+  "Ancient Treasures",
+  "고대의 보물들"
+ ],
+ [
+  "Category Alcoves",
+  "카테고리 벽감"
+ ],
+ [
+  "Filter by rarity",
+  "등급별 필터"
+ ],
+ [
+  "100 Hidden Caves",
+  "숨겨진 동굴 100개"
+ ],
+ [
+  "Wayfinder's Oath",
+  "길잡이의 맹세"
+ ],
+ [
+  "Master Architect",
+  "건축의 대가"
+ ],
+ [
+  "Foundation Stone",
+  "초석"
+ ],
+ [
+  "Bane of the Deep",
+  "심연의 재앙"
+ ],
+ [
+  "Emberkeep Warden",
+  "잿불 요새의 수호자"
+ ],
+ [
+  "Starfall Witness",
+  "별 falling 목격자"
+ ],
+ [
+  "Coldharbor Stand",
+  "차가운 항만의 저항"
+ ],
+ [
+  "Frostbound Crest",
+  "서리에 묶인 문장"
+ ],
+ [
+  "Amberlight Vigil",
+  "호박빛 파수"
+ ],
+ [
+  "Stormrest Banner",
+  "폭풍쉼터 깃발"
+ ],
+ [
+  "Thistlegate Oath",
+  "가시문 맹세"
+ ],
+ [
+  "Runeforge Legacy",
+  "룬 대장간 유산"
+ ],
+ [
+  "World Completion",
+  "세계 완성도"
+ ],
+ [
+  "Map layer relics",
+  "지도 레이어 유물"
+ ],
+ [
+  "Watch the ridge.",
+  "능선을 살피라."
+ ],
+ [
+  "name: \"Tsushima\"",
+  "name: \"쓰시마\""
+ ],
+ [
+  "Claim Free Relic",
+  "무료 유물 수령"
+ ],
+ [
+  "name: \"Eldarion\"",
+  "name: \"엘다리온\""
+ ],
+ [
+  "name: \"The Pale\"",
+  "name: \"창백의 땅\""
+ ],
+ [
+  "author: 'Grukza'",
+  "author: '그루자'"
+ ],
+ [
+  "name: 'The Pale'",
+  "name: '창백의 땅'"
+ ],
+ [
+  "name: \"로어keeper\"",
+  "name: \"로어키퍼\""
+ ],
+ [
+  "Kingdoms of Vael",
+  "바엘의 왕국"
+ ],
+ [
+  "Display Cabinets",
+  "전시 캐비넷"
+ ],
+ [
+  "Weapons of Aldar",
+  "알다르의 무기"
+ ],
+ [
+  "The Lost Potions",
+  "잃어버린 물약"
+ ],
+ [
+  "The Lost Weapons",
+  "잃어버린 무기"
+ ],
+ [
+  "✦ Lost Artifacts",
+  "✦ 잃어버린 유물"
+ ],
+ [
+  "name:\"Artifacts\"",
+  "name:\"유물\""
+ ],
+ [
+  "name:\"Treasures\"",
+  "name:\"보물들\""
+ ],
+ [
+  "name:\"Creatures\"",
+  "name:\"생물들\""
+ ],
+ [
+  "Lost Magic Items",
+  "잃어버린 마법 아이템"
+ ],
+ [
+  "The Centerpiece",
+  "핵심 조형물"
+ ],
+ [
+  "The Long Memory",
+  "오랜 기억"
+ ],
+ [
+  "Skip to content",
+  "본문으로 건너뛰기"
+ ],
+ [
+  "name: \"Builder\"",
+  "name: \"장인\""
+ ],
+ [
+  "Relic Collector",
+  "유물 수집가"
+ ],
+ [
+  "Artifact Hunter",
+  "유물 사냥꾼"
+ ],
+ [
+  "Hoarder's Vault",
+  "보물 수집가의 금고"
+ ],
+ [
+  "Ashfall Veteran",
+  "재폭풍의 베테랑"
+ ],
+ [
+  "Hollowmere Rite",
+  "공동 호숫제의"
+ ],
+ [
+  "Gilded Sentinel",
+  "도금된 파수꾼"
+ ],
+ [
+  "Highspire Watch",
+  "첨탑 파수"
+ ],
+ [
+  "Graywater Trial",
+  "창백한 물의 시험"
+ ],
+ [
+  "Hallowed Ledger",
+  "성스러운 장부"
+ ],
+ [
+  "Sunspire Ascent",
+  "태양 첨탑 등반"
+ ],
+ [
+  "Longshadow Pact",
+  "긴 그림자의 계약"
+ ],
+ [
+  "Quietfall Watch",
+  "조용한 폭포의 파수"
+ ],
+ [
+  "Ferncrown Trial",
+  "고사리 왕관의 시험"
+ ],
+ [
+  "Duskmere Ledger",
+  "황혼늪 장부"
+ ],
+ [
+  "Palewind Ascent",
+  "창백한 바람의 등반"
+ ],
+ [
+  "Silverreach Vow",
+  "은빛 도달의 맹세"
+ ],
+ [
+  "Windward Ledger",
+  "바람 방향 장부"
+ ],
+ [
+  "Brother Compass",
+  "컴퍼스 형제"
+ ],
+ [
+  "Community Atlas",
+  "커뮤니티 지도집"
+ ],
+ [
+  "Thorn Mapwright",
+  "가시 지도제작자"
+ ],
+ [
+  "name: \"Ashmere\"",
+  "name: \"애시미어\""
+ ],
+ [
+  "name: \"Gransys\"",
+  "name: \"그랜시스\""
+ ],
+ [
+  "\">Cartographer<",
+  "\">지도사<"
+ ],
+ [
+  "\">Collectibles<",
+  "\">수집품<"
+ ],
+ [
+  "Profile opened.",
+  "프로필이 열렸습니다."
+ ],
+ [
+  "Renown granted!",
+  "명성이 부여되었습니다!"
+ ],
+ [
+  ">Acquisitions</",
+  ">획득</"
+ ],
+ [
+  "Rune of Ashfall",
+  "재의 룬"
+ ],
+ [
+  "Enter the Vault",
+  "금고로 입장"
+ ],
+ [
+  "Every treasure,",
+  "모든 보물,"
+ ],
+ [
+  "carefully kept.",
+  "정성껏 보존됩니다."
+ ],
+ [
+  "`Runes of Vael`",
+  "`바엘의 �`"
+ ],
+ [
+  "COMMUNITY HERO",
+  "커뮤니티 영웅"
+ ],
+ [
+  "The World Tree",
+  "세계수"
+ ],
+ [
+  "Recent Unlocks",
+  "최근 달성"
+ ],
+ [
+  "Most Difficult",
+  "가장 어려운"
+ ],
+ [
+  "MONSTER SLAYER",
+  "몬스터 슬레이어"
+ ],
+ [
+  "Oral Tradition",
+  "구전 전통"
+ ],
+ [
+  "Monster Slayer",
+  "몬스터 슬레이어"
+ ],
+ [
+  "Guild Champion",
+  "길드 챔피언"
+ ],
+ [
+  "name: \"Greece\"",
+  "name: \"그리스\""
+ ],
+ [
+  "name: \"Hyrule\"",
+  "name: \"하일룰\""
+ ],
+ [
+  "Search cleared",
+  "검색이 초기화되었습니다"
+ ],
+ [
+  "name: \"Thorin\"",
+  "name: \"토린\""
+ ],
+ [
+  "name: \"Grukza\"",
+  "name: \"그루자\""
+ ],
+ [
+  "Recently Found",
+  "최근 발견"
+ ],
+ [
+  "GUILD EXCHANGE",
+  "위대한 길드 교역소"
+ ],
+ [
+  "Vault</button>",
+  "금고</button>"
+ ],
+ [
+  "10 Tomes Found",
+  "10권의 발견된 책"
+ ],
+ [
+  "Masks of Aldar",
+  "알다르의 가면들"
+ ],
+ [
+  ">Delve Deeper<",
+  ">더 깊이 탐구<"
+ ],
+ [
+  "The Lost Runes",
+  "잃어버린 룬"
+ ],
+ [
+  "The Lost Masks",
+  "잃어버린 가면"
+ ],
+ [
+  "✦ Lost Potions",
+  "✦ 잃어버린 물약"
+ ],
+ [
+  "✦ Lost Weapons",
+  "✦ 잃어버린 무기"
+ ],
+ [
+  "name:\"Weapons\"",
+  "name:\"무기\""
+ ],
+ [
+  "name:\"Potions\"",
+  "name:\"물약\""
+ ],
+ [
+  "name:\"Statues\"",
+  "name:\"조각상\""
+ ],
+ [
+  "name:\"Gallery\"",
+  "name:\"전시관\""
+ ],
+ [
+  "name:\"Scrolls\"",
+  "name:\"두루마리들\""
+ ],
+ [
+  "Lost Artifacts",
+  "잃어버린 유물"
+ ],
+ [
+  "The Hero Wall",
+  "영웅의 벽"
+ ],
+ [
+  "Your progress",
+  "당신의 진행도"
+ ],
+ [
+  "Dragon Slayer",
+  "드래곤 슬레이어"
+ ],
+ [
+  "Unbroken Line",
+  "끊기지 않은 흐름"
+ ],
+ [
+  "Curator's Eye",
+  "큐레이터의 눈"
+ ],
+ [
+  "Completionist",
+  "완성주의자"
+ ],
+ [
+  "Moonlit Vigil",
+  "달빛 파수"
+ ],
+ [
+  "Duskbound Vow",
+  "황혼에 묶인 맹세"
+ ],
+ [
+  "밤glass Seeker",
+  "밤유리 추적자"
+ ],
+ [
+  "Ivory Bastion",
+  "상아 요새"
+ ],
+ [
+  " relics shown",
+  " 유물 표시"
+ ],
+ [
+  "Best at dawn.",
+  "새벽이 가장 좋다."
+ ],
+ [
+  "Elandra Quill",
+  "엘란드라 깃펜"
+ ],
+ [
+  "Ivy Wayfinder",
+  "아이비 길잡이"
+ ],
+ [
+  "Nessa Deepink",
+  "네사 짙은먹물"
+ ],
+ [
+  "Sister Vellum",
+  "벨룸 자매"
+ ],
+ [
+  "\">Collection<",
+  "\">컬렉션<"
+ ],
+ [
+  "Vault locked.",
+  "금고가 잠겼습니다."
+ ],
+ [
+  ">THE HALL<br>",
+  ">전당<br>"
+ ],
+ [
+  "모든 레이어 awaken",
+  "모든 레이어 깨어남"
+ ],
+ [
+  ">전당<br>OF 전설<",
+  ">전설의 전당<"
+ ],
+ [
+  "Still Missing",
+  "아직 미발견"
+ ],
+ [
+  "All Artifacts",
+  "모든 유물"
+ ],
+ [
+  "The Catalogue",
+  "카탈로그"
+ ],
+ [
+  "Most Renowned",
+  "가장 명성 높은"
+ ],
+ [
+  "MOST RENOWNED",
+  "가장 명성 높은"
+ ],
+ [
+  "${d.title} 획득",
+  "${d.title} 획득"
+ ],
+ [
+  "Artifact Wall",
+  "유물 벽"
+ ],
+ [
+  "Armor Archive",
+  "갑옷 기록 보관소"
+ ],
+ [
+  "name: \"Masks\"",
+  "name: \"가면들\""
+ ],
+ [
+  "name:\"Jewels\"",
+  "name:\"보석\""
+ ],
+ [
+  "name:\"Museum\"",
+  "name:\"박물관\""
+ ],
+ [
+  "Completion %",
+  "완성도 %"
+ ],
+ [
+  "Keeper of 비밀",
+  "비밀의 수호자"
+ ],
+ [
+  "Pest Control",
+  "해충 박멸"
+ ],
+ [
+  "Quest Master",
+  "퀘스트 마스터"
+ ],
+ [
+  "World Savior",
+  "세계의 구원자"
+ ],
+ [
+  "Widow's Pass",
+  "과부의 고개"
+ ],
+ [
+  "Verdant Oath",
+  "신록의 맹세"
+ ],
+ [
+  ">Difficulty<",
+  ">난이도<"
+ ],
+ [
+  "Mira Inkhand",
+  "미라 먹손"
+ ],
+ [
+  "Close scroll",
+  "두루마리 닫기"
+ ],
+ [
+  "Grant Renown",
+  "명성 부여"
+ ],
+ [
+  "name: \"Kael\"",
+  "name: \"카엘\""
+ ],
+ [
+  "name: \"Lyra\"",
+  "name: \"리라\""
+ ],
+ [
+  ">Aethelgard<",
+  ">에셀가드<"
+ ],
+ [
+  "Rarest First",
+  "가장 희귀한 순"
+ ],
+ [
+  "All Rarities",
+  "모든 등급"
+ ],
+ [
+  "Display mode",
+  "표시 모드"
+ ],
+ [
+  "14,204 발견ies",
+  "14,204 발견"
+ ],
+ [
+  "Acquisitions",
+  "획득"
+ ],
+ [
+  "RARE + FINDS",
+  "희귀+ 발견"
+ ],
+ [
+  "Scribe's ink",
+  "기록관의 먹물"
+ ],
+ [
+  "Delve Deeper",
+  "더 깊이 탐구"
+ ],
+ [
+  "Guild Honors",
+  "길드의 영예"
+ ],
+ [
+  "큐레이터's Picks",
+  "큐레이터의 선택"
+ ],
+ [
+  "✦ Lost Runes",
+  "✦ 잃어버린 룬"
+ ],
+ [
+  "큐레이터's Picks",
+  "큐레이터의 선택"
+ ],
+ [
+  "name:\"Masks\"",
+  "name:\"가면\""
+ ],
+ [
+  "name:\"Runes\"",
+  "name:\"룬\""
+ ],
+ [
+  "name:\"Shelf\"",
+  "name:\"선반\""
+ ],
+ [
+  "name:\"Flora\"",
+  "name:\"식물군\""
+ ],
+ [
+  "name:\"Books\"",
+  "name:\"책들\""
+ ],
+ [
+  "Lost Potions",
+  "잃어버린 물약"
+ ],
+ [
+  "Lost Weapons",
+  "잃어버린 무기"
+ ],
+ [
+  "First Blood",
+  "첫 피"
+ ],
+ [
+  "Blademaster",
+  "검의 대가"
+ ],
+ [
+  "First Light",
+  "첫 빛"
+ ],
+ [
+  "Codebreaker",
+  "암호 해독자"
+ ],
+ [
+  "Cinder Ward",
+  "재빛 수호"
+ ],
+ [
+  "— not yet —",
+  "— 아직 미해제 —"
+ ],
+ [
+  "Lysa 밤chart",
+  "리사 밤해도"
+ ],
+ [
+  "\">Whispers<",
+  "\">속삭임<"
+ ],
+ [
+  "\">Bookmark<",
+  "\">책갈피<"
+ ],
+ [
+  "밤mare's End",
+  "악몽의 끝"
+ ],
+ [
+  "2 moons ago",
+  "2달 전"
+ ],
+ [
+  "전체 Rarities",
+  "모든 등급"
+ ],
+ [
+  "전당<br>OF 전설",
+  "전설의 전당"
+ ],
+ [
+  "Acquired ${",
+  "획득한 ${"
+ ],
+ [
+  "Ledger List",
+  "원장 목록"
+ ],
+ [
+  "MAGIC ITEMS",
+  "마법 아이템"
+ ],
+ [
+  "Tomes Found",
+  "발견된 책"
+ ],
+ [
+  "TRANSLUCENT",
+  "반투명"
+ ],
+ [
+  "Magic Items",
+  "마법 아이템"
+ ],
+ [
+  "✦ The Masks",
+  "✦ 가면"
+ ],
+ [
+  "name:\"Keys\"",
+  "name:\"열쇠\""
+ ],
+ [
+  "name:\"Maps\"",
+  "name:\"지도\""
+ ],
+ [
+  "LOREKEEPER",
+  "로어키퍼"
+ ],
+ [
+  "Master 탐험가",
+  "대탐험가"
+ ],
+ [
+  "Tidewalker",
+  "밀물 위를 걷는 자"
+ ],
+ [
+  "% complete",
+  "% 완성"
+ ],
+ [
+  ">Unlocked<",
+  ">달성일<"
+ ],
+ [
+  "Old Cartos",
+  "옛 카르토스"
+ ],
+ [
+  "\">Margins<",
+  "\">여백<"
+ ],
+ [
+  "\">Applaud<",
+  "\">박수<"
+ ],
+ [
+  ">License</",
+  ">라이선스</"
+ ],
+ [
+  ">THE HALL<",
+  ">전당<"
+ ],
+ [
+  "Royal Free",
+  "왕실 무료"
+ ],
+ [
+  "Royal Free",
+  "왕실 무료 라이선스"
+ ],
+ [
+  "1 week ago",
+  "1주일 전"
+ ],
+ [
+  "3 days ago",
+  "3일 전"
+ ],
+ [
+  "Most Loved",
+  "가장 사랑받은"
+ ],
+ [
+  "Collection",
+  "컬렉션"
+ ],
+ [
+  "Discovered",
+  "발견됨"
+ ],
+ [
+  "Popularity",
+  "인기도"
+ ],
+ [
+  "> Profile<",
+  "> 프로필<"
+ ],
+ [
+  "희귀st First",
+  "가장 희귀한 순"
+ ],
+ [
+  "COMPLETION",
+  "완성도"
+ ],
+ [
+  "BOSS-ARENA",
+  "보스 아레나"
+ ],
+ [
+  "CONSUMABLE",
+  "소모품"
+ ],
+ [
+  "MECHANISMS",
+  "메커니즘"
+ ],
+ [
+  "} of Vael`",
+  "} - 바엘`"
+ ],
+ [
+  "Boss Drops",
+  "보스 드롭"
+ ],
+ [
+  "Lost Runes",
+  "잃어버린 룬"
+ ],
+ [
+  "Lost Masks",
+  "잃어버린 가면"
+ ],
+ [
+  "COLLECTOR",
+  "수집가"
+ ],
+ [
+  "탐험가 of 비밀",
+  "비밀의 탐험가"
+ ],
+ [
+  "Iron Oath",
+  "철의 맹세"
+ ],
+ [
+  " rarity, ",
+  " 등급, "
+ ],
+ [
+  ">Origin</",
+  ">원산지</"
+ ],
+ [
+  ">Renown</",
+  ">명성</"
+ ],
+ [
+  ">Acquire<",
+  ">획득<"
+ ],
+ [
+  "Pay Tithe",
+  "헌금 지불"
+ ],
+ [
+  "Collected",
+  "수집됨"
+ ],
+ [
+  "28 GUILDS",
+  "28개 길드"
+ ],
+ [
+  "28 Guilds",
+  "28개 길드"
+ ],
+ [
+  "COLLECTED",
+  "수집됨"
+ ],
+ [
+  "REMAINING",
+  "남은 수"
+ ],
+ [
+  "SETS DONE",
+  "완성된 세트"
+ ],
+ [
+  "ARTIFACTS",
+  "유물"
+ ],
+ [
+  "PBR READY",
+  "PBR 준비"
+ ],
+ [
+  "HIGH-POLY",
+  "고폴리"
+ ],
+ [
+  "weeks ago",
+  "주 전"
+ ],
+ [
+  "Favourite",
+  "인기"
+ ],
+ [
+  "Find more",
+  "더 보기"
+ ],
+ [
+  "`Guild ${",
+  "`길드 ${"
+ ],
+ [
+  "Emberfall",
+  "잿불낙수"
+ ],
+ [
+  "recovered",
+  "회수됨"
+ ],
+ [
+  "Members:",
+  "팀원:"
+ ],
+ [
+  "Featured",
+  "추천"
+ ],
+ [
+  "EXPLORER",
+  "탐험가"
+ ],
+ [
+  ">Points<",
+  ">점수<"
+ ],
+ [
+  "Added ${",
+  "추가됨 ${"
+ ],
+ [
+  "COMPLETE",
+  "완료"
+ ],
+ [
+  "Category",
+  "카테고리"
+ ],
+ [
+  "Found At",
+  "발견 장소"
+ ],
+ [
+  "acquired",
+  "획득"
+ ],
+ [
+  "> Vault<",
+  "> 금고<"
+ ],
+ [
+  "ANIMATED",
+  "애니메이션"
+ ],
+ [
+  "LOW POLY",
+  "저폴리"
+ ],
+ [
+  "2-HANDED",
+  "양손"
+ ],
+ [
+  "FIRE-DMG",
+  "화염 피해"
+ ],
+ [
+  "FLOATING",
+  "공중부양"
+ ],
+ [
+  "days ago",
+  "일 전"
+ ],
+ [
+  "`Lost ${",
+  "`잃어버린 ${"
+ ],
+ [
+  "of Aldar",
+  "알다르의"
+ ],
+ [
+  "BUILDER",
+  "장인"
+ ],
+ [
+  "WARRIOR",
+  "전사"
+ ],
+ [
+  ">Enter<",
+  ">입장<"
+ ],
+ [
+  "침묵의 도서관",
+  "침묵의 도서관"
+ ],
+ [
+  "relic${",
+  "유물${"
+ ],
+ [
+  "' Relic",
+  "' 유물"
+ ],
+ [
+  ">Stats<",
+  ">통계<"
+ ],
+ [
+  "\">NPCs<",
+  "\">NPC<"
+ ],
+ [
+  "\">Tags<",
+  "\">태그<"
+ ],
+ [
+  "Title: ",
+  "제목: "
+ ],
+ [
+  "발견ed by",
+  "발견자:"
+ ],
+ [
+  "Curator",
+  "큐레이터"
+ ],
+ [
+  "DELETED",
+  "삭제됨"
+ ],
+ [
+  "License",
+  "라이선스"
+ ],
+ [
+  "POTIONS",
+  "물약"
+ ],
+ [
+  "WEAPONS",
+  "무기"
+ ],
+ [
+  "DUNGEON",
+  "던전"
+ ],
+ [
+  "COMPUTE",
+  "컴퓨트"
+ ],
+ [
+  "CLUTTER",
+  "잡동사니"
+ ],
+ [
+  "BOTTLES",
+  "병"
+ ],
+ [
+  "of Vael",
+  "바엘의"
+ ],
+ [
+  "Ancient",
+  "고대"
+ ],
+ [
+  "완전한 도감",
+  "완전한 도감"
+ ],
+ [
+  "영원한 요새",
+  "영원한 요새"
+ ],
+ [
+  "전설의 도시",
+  "전설의 도시"
+ ],
+ [
+  "희망의 등불",
+  "희망의 등불"
+ ],
+ [
+  "Team: ",
+  "팀: "
+ ],
+ [
+  "Code: ",
+  "코드: "
+ ],
+ [
+  "Escape",
+  "Esc"
+ ],
+ [
+  "Origin",
+  "원산지"
+ ],
+ [
+  "Origin",
+  "원산지"
+ ],
+ [
+  "Renown",
+  "명성"
+ ],
+ [
+  "STREAK",
+  "연속"
+ ],
+ [
+  "RELICS",
+  "유물"
+ ],
+ [
+  ">Free<",
+  ">무료<"
+ ],
+ [
+  "GOTHIC",
+  "고딕"
+ ],
+ [
+  "RIGGED",
+  "리깅됨"
+ ],
+ [
+  "PORTAL",
+  "포털"
+ ],
+ [
+  "TABLES",
+  "테이블"
+ ],
+ [
+  "RANGED",
+  "원거리"
+ ],
+ [
+  "UNDEAD",
+  "언데드"
+ ],
+ [
+  "Hidden",
+  "숨겨진"
+ ],
+ [
+  "Relic",
+  "유물"
+ ],
+ [
+  "of ${",
+  "/ ${"
+ ],
+ [
+  "발견ies",
+  "발견"
+ ],
+ [
+  "Notes",
+  "노트"
+ ],
+ [
+  "ARMOR",
+  "갑옷"
+ ],
+ [
+  "MASKS",
+  "가면"
+ ],
+ [
+  "RUNES",
+  "룬"
+ ],
+ [
+  "Aldar",
+  "알다르"
+ ],
+ [
+  "Flora",
+  "식물군"
+ ],
+ [
+  "Books",
+  "책들"
+ ],
+ [
+  "SETS",
+  "세트"
+ ],
+ [
+  "BOSS",
+  "보스"
+ ],
+ [
+  "GLOW",
+  "빛남"
+ ],
+ [
+  "Vael",
+  "바엘"
+ ],
+ [
+  "A–Z",
+  "가나다순"
+ ],
+ [
+  "VFX",
+  "VFX"
+ ]
+]
