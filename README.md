@@ -30,7 +30,7 @@
 
 > 아침 안개가 걷히면, 고대 왕국이 당신을 기다립니다.
 
-![시네마틱 랜딩](./docs-shot-landing.png)
+![시네마틱 랜딩](./public/docs/docs-shot-landing.png)
 
 Three.js + React Three Fiber로 만든 부유하는 섬의 시네마틱 리빌. 스크롤하면 카메라가 3D 마을과 고대 서재로 내려가고, 사운드 토글, 낮/밤, 인트로 스킵 기능까지 갖춘 인터랙티브 무드 페이지입니다.
 
@@ -38,7 +38,7 @@ Three.js + React Three Fiber로 만든 부유하는 섬의 시네마틱 리빌. 
 
 > 양피지가 찢어집니다. 먹물 속으로 발을 딛다.
 
-![지도사의 신전](./docs-shot-sanctum.png)
+![지도사의 신전](./public/docs/docs-shot-sanctum.png)
 
 양피지/잉크/촛불 컨셉의 인터랙티브 � 뷰어. Skyrim·Elden Ring·The Witcher 3 등 인기 게임들의 세계를 전환하며 핀을 찍고, 양피지 검색(`/`)으로 잊혀진 왕국·동굴·용·폐허를 찾고, **로어/스탯/노트/커뮤니티** 4탭 위키를 펼칠 수 있어요.
 
@@ -46,19 +46,19 @@ Three.js + React Three Fiber로 만든 부유하는 섬의 시네마틱 리빌. 
 
 > THE RELIC HAS AWOKEN. Every deed you have done now lives here, carved in stone and gold.
 
-![전설의 전당](./docs-shot-achievements.png)
+![전설의 전당](./public/docs/docs-shot-achievements.png)
 
 Cinzel Decorative 디자인 폰트로 새겨진 Cinzel+한글의 콜라보. 6개 카테고리(전사·탐험가·마법사·도적·외교관·장인)의 업적을 **세계수 모뉴먼트** 형태로 시각화하고, 등급(일반/희귀/에픽/전설/신화)에 따라 보석이 빛나요.
 
 ### 🏛️ 위대한 길드 교역소 — 아티팩트 마켓
 
-![위대한 길드 교역소](./docs-shot-guild.png)
+![위대한 길드 교역소](./public/docs/docs-shot-guild.png)
 
 기록 보관소 컨셉의 다이지틱 UI. 5개 카테고리(지도/생물/무기/유물/연금술/셰이더/로어) 아티팩트를 카드 형태로 탐색하고, 가격·다운로드수·평점·태그로 필터링하는 마켓플레이스입니다.
 
 ### 💎 큐레이터의 금고 — 수집가의 오브
 
-![큐레이터의 금고](./docs-shot-vault.png)
+![큐레이터의 금고](./public/docs/docs-shot-vault.png)
 
 `THE CURATOR'S VAULT` — 길드 금고 컨셉의 컬렉션 트래커. 6개 카테고리 × 5단계 등급의 수집품을 진열장/박물관/선반/유물벽/원장 5가지 보기 모드로 감상하고, 진행도에 따라 빛나는 **수집가의 오브**가 채워져요.
 
