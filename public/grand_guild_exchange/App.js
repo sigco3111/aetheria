@@ -3,14 +3,14 @@ const { useState, useEffect, useRef, useMemo } = React;
 // --- DATA ---
 
 const RELIC_FILTERS = [
-  { id: 'all', label: 'Everything', icon: '🪬' },
-  { id: 'maps', label: 'Maps', icon: '🧭' },
-  { id: 'creatures', label: 'Creatures', icon: '🐉' },
-  { id: 'weapons', label: 'Weapons', icon: '⚔️' },
-  { id: 'props', label: 'Relics', icon: '🛡️' },
-  { id: 'potions', label: 'Alchemy', icon: '🧪' },
-  { id: 'runes', label: 'Shaders', icon: '🔮' },
-  { id: 'scrolls', label: 'Lore', icon: '📜' },
+  { id: 'all', label: '전체', icon: '🪬' },
+  { id: 'maps', label: '지도', icon: '🧭' },
+  { id: 'creatures', label: '생물', icon: '🐉' },
+  { id: 'weapons', label: '무기', icon: '⚔️' },
+  { id: 'props', label: '유물', icon: '🛡️' },
+  { id: 'potions', label: '연금술', icon: '🧪' },
+  { id: 'runes', label: '셰이더', icon: '🔮' },
+  { id: 'scrolls', label: '로어', icon: '📜' },
 ];
 
 const DISCOVERIES = [
@@ -21,7 +21,7 @@ const DISCOVERIES = [
   { id: 5, title: 'Alchemist\'s Set', author: 'Nyx', cat: 'props', price: 15, dls: '18k', rating: '4.7', tags: ['clutter','bottles','tables'], imgColor: '#3d291e', artType: 'prop', desc: '140+ individual props to clutter up wizard towers and apothecaries. Mortars, pestles, scales, and glowing liquids.' },
   { id: 6, title: 'The Drowned Coast', author: 'Eldarion', cat: 'maps', price: 65, dls: '8k', rating: '4.8', tags: ['region','ocean','ruins'], imgColor: '#263b4a', artType: 'map', desc: 'A 4km x 4km coastal region featuring jagged cliffs, shipwrecks, and a haunted fishing village.' },
   { id: 7, title: 'Sunfire Flask', author: 'Nyx', cat: 'potions', price: 0, dls: '55k', rating: '4.9', tags: ['consumable','animated','glow'], imgColor: '#4a3b1a', artType: 'potion', desc: 'A high-poly glass flask filled with churning magical fire. The liquid sloshes dynamically based on character movement.' },
-  { id: 8, title: 'Age of Kings Lorebook', author: 'Scribe Vane', cat: 'scrolls', price: 5, dls: '40k', rating: '4.6', tags: ['ui','text','history'], imgColor: '#473d2b', artType: 'scroll', desc: 'A 20-page interactive UI book containing the complete history of the First Era. Easily integrated into your quest system.' },
+  { id: 8, title: 'Age of Kings 로어book', author: 'Scribe Vane', cat: 'scrolls', price: 5, dls: '40k', rating: '4.6', tags: ['ui','text','history'], imgColor: '#473d2b', artType: 'scroll', desc: 'A 20-page interactive UI book containing the complete history of the First Era. Easily integrated into your quest system.' },
   { id: 9, title: 'Ironwood Crossbow', author: 'Kael', cat: 'weapons', price: 25, dls: '11k', rating: '4.7', tags: ['ranged','mechanisms'], imgColor: '#2f2c25', artType: 'weapon', desc: 'A heavy mechanical crossbow with animated gears, string tension, and reload states.' },
   { id: 10, title: 'Spectral Wraith', author: 'Archmage Sol', cat: 'creatures', price: 35, dls: '14k', rating: '4.8', tags: ['undead','floating','translucent'], imgColor: '#243236', artType: 'creature', desc: 'An ethereal enemy that floats above the ground. Features an incredible flowing cloth simulation.' },
 ];
@@ -177,7 +177,7 @@ window.GuildExchange = function GuildExchange() {
         <div className="door r"></div>
         <div className="passage-core">
           <div className="sigil">🗝️</div>
-          <h1>The Grand Guild Exchange</h1>
+          <h1>위대한 길드 교역소</h1>
           <p>Where the world's knowledge is stored</p>
           <div className="enter-btn">
             <button className="btn btn-rune" onClick={() => {
@@ -186,7 +186,7 @@ window.GuildExchange = function GuildExchange() {
                 document.getElementById('passage')?.classList.add('gone');
                 setEntered(true);
               }, 1200);
-            }}>Enter the Archives</button>
+            }}>기록 보관소에 입장</button>
           </div>
         </div>
       </div>
@@ -223,7 +223,7 @@ window.GuildExchange = function GuildExchange() {
           <div className="crest">🦅</div>
           <div className="brand">
             <div className="k">Guild Exchange</div>
-            <div className="s">Imperial Archives</div>
+            <div className="s">제국 기록 보관소</div>
           </div>
           <div className="topbar-spacer"></div>
           <div className="topbar-actions">
@@ -241,8 +241,8 @@ window.GuildExchange = function GuildExchange() {
         
         {/* HERO MAP TABLE */}
         <section className="hero">
-          <h1>The Archives</h1>
-          <p className="lede">Discover maps, relics, and lost knowledge left by adventurers from every corner of the realm.</p>
+          <h1>기록 보관소</h1>
+          <p className="lede">발견 maps, relics, and lost knowledge left by adventurers from every corner of the realm.</p>
           
           <div className="maptable">
             <div className="rim"></div>
@@ -267,7 +267,7 @@ window.GuildExchange = function GuildExchange() {
               <div className="kd">142 active scholars exploring</div>
             </div>
             <div className="map-stats">
-              <span className="chip">14,204 Discoveries</span>
+              <span className="chip">14,204 발견ies</span>
               <span className="chip">28 Guilds</span>
             </div>
           </div>
@@ -329,10 +329,10 @@ window.GuildExchange = function GuildExchange() {
           </div>
 
           <div className="filter-bar">
-            <div className="result-count">{filtered.length} Discoveries</div>
+            <div className="result-count">{filtered.length} 발견ies</div>
             <select className="sort-select" value={sortBy} onChange={e => setSortBy(e.target.value)} aria-label="Sort by">
               <option value="popular">Most Renowned</option>
-              <option value="new">Recently Discovered</option>
+              <option value="new">최근 발견</option>
               <option value="price_asc">Tithe (Low to High)</option>
               <option value="price_desc">Tithe (High to Low)</option>
             </select>
@@ -351,7 +351,7 @@ window.GuildExchange = function GuildExchange() {
                 </div>
                 <div className="body">
                   <h3 className="title">{d.title}</h3>
-                  <div className="by">Discovered by {d.author}</div>
+                  <div className="by">발견ed by {d.author}</div>
                   <div className="meta">
                     <span><b className="stars">★★★★★</b> {d.rating}</span>
                     <span><b>{d.dls}</b> acquired</span>
@@ -517,7 +517,7 @@ window.GuildExchange = function GuildExchange() {
                 </div>
 
                 <div className="detail-section">
-                  <h4>Scribe Notes</h4>
+                  <h4>Scribe 노트</h4>
                   <ul className="versions">
                     <li><span className="vtag">v1.04</span> Restored missing textures on the pommel.</li>
                     <li><span className="vtag">v1.03</span> Added blood variants.</li>
@@ -540,7 +540,7 @@ window.GuildExchange = function GuildExchange() {
                 </div>
                 
                 <div className="detail-section">
-                  <h4>Similar Relics</h4>
+                  <h4>Similar 유물</h4>
                   <div className="related-row">
                     <div className="rel"><CanvasArt type="weapon" color="#2b2b2b" id={99} /><div className="rn">Steel Mace</div></div>
                     <div className="rel"><CanvasArt type="weapon" color="#3a2a2a" id={98} /><div className="rn">Dagger</div></div>

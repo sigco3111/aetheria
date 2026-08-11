@@ -1,23 +1,23 @@
 // ============================================================
-// THE HALL OF LEGENDS — Mock Data
-// All content below is sample/fictional, for demonstration only.
+// THE HALL OF 전설 — Mock Data
+// 전체 content below is sample/fictional, for demonstration only.
 // ============================================================
 
 const RARITY = {
-  common:    { label: "Common",    color: "#9ca3a8", globalMin: 40, globalMax: 90 },
-  rare:      { label: "Rare",      color: "#5b8fb0", globalMin: 15, globalMax: 40 },
-  epic:      { label: "Epic",      color: "#a561c2", globalMin: 4,  globalMax: 15 },
-  legendary: { label: "Legendary", color: "#d9b23e", globalMin: 0.5,globalMax: 4 },
-  mythic:    { label: "Mythic",    color: "#e2536b", globalMin: 0.02,globalMax: 0.5 },
+  common:    { label: "일반",    color: "#9ca3a8", globalMin: 40, globalMax: 90 },
+  rare:      { label: "희귀",      color: "#5b8fb0", globalMin: 15, globalMax: 40 },
+  epic:      { label: "에픽",      color: "#a561c2", globalMin: 4,  globalMax: 15 },
+  legendary: { label: "전설", color: "#d9b23e", globalMin: 0.5,globalMax: 4 },
+  mythic:    { label: "신화",    color: "#e2536b", globalMin: 0.02,globalMax: 0.5 },
 };
 
 // icon glyph -> difficulty label mapping (flavor, not mechanical)
 const DIFFICULTY_BY_RARITY = {
-  common: "Modest",
-  rare: "Challenging",
-  epic: "Arduous",
-  legendary: "Punishing",
-  mythic: "Near Impossible",
+  common: "겸손",
+  rare: "도전적",
+  epic: "고된",
+  legendary: "가혹",
+  mythic: "불가능에 가까운",
 };
 
 function mk(name, desc, categoryId, rarity, icon, completion, unlockDate, points, lore, globalPct) {
@@ -38,10 +38,10 @@ function mk(name, desc, categoryId, rarity, icon, completion, unlockDate, points
 const CATEGORIES = [
   {
     id: "warrior",
-    name: "Warrior",
+    name: "전사",
     glyph: "⚔",
     color: "#e2536b",
-    description: "Forged in battle. Measured in scars.",
+    description: "전투 속에서 벼려졌고, 흉터로 측량된다.",
     achievements: [
       mk("Dragon Slayer", "Fell an elder dragon in single combat.", "warrior", "legendary", "sword", 100, "2024-11-02", 500,
         "The scale you carry still remembers the heat of its own fire.", 2.1),
@@ -53,7 +53,7 @@ const CATEGORIES = [
         "They call it a win streak. You call it a promise kept.", 4.3),
       mk("Guardian of the Forest", "Defend Silverwood from three separate sieges.", "warrior", "rare", "shield", 100, "2024-06-19", 150,
         "The trees remember which side you stood on.", 21.9),
-      mk("The Last Stand", "Win a battle after your entire party has fallen.", "warrior", "mythic", "sword", 0, "", 800,
+      mk("최후의 저항", "Win a battle after your entire party has fallen.", "warrior", "mythic", "sword", 0, "", 800,
         "No one else was left to tell it, so the stone tells it instead.", 0.09),
       mk("Blademaster", "Master all seven sword styles.", "warrior", "epic", "sword", 85, "", 280,
         "The seventh style has no name. You gave it yours.", 5.2),
@@ -63,24 +63,24 @@ const CATEGORIES = [
   },
   {
     id: "explorer",
-    name: "Explorer",
+    name: "탐험가",
     glyph: "⟡",
     color: "#5b8fb0",
-    description: "Where the map ends, your footprints begin.",
+    description: "지도가 끝나는 곳에서 당신의 발자국이 시작된다.",
     achievements: [
-      mk("Master Explorer", "Discover every region on the continent.", "explorer", "legendary", "compass", 100, "2024-12-01", 500,
+      mk("Master 탐험가", "발견 every region on the continent.", "explorer", "legendary", "compass", 100, "2024-12-01", 500,
         "The cartographers stopped drawing borders and started drawing your route instead.", 1.8),
       mk("100 Hidden Caves", "Find and chart 100 hidden caves.", "explorer", "epic", "compass", 100, "2024-08-14", 260,
         "Some caves you found. Some caves, it's said, found you.", 5.5),
       mk("Cartographer Supreme", "Complete every regional map to 100%.", "explorer", "legendary", "compass", 71, "", 480,
         "A map this complete borders on prophecy.", 1.2),
-      mk("The Last Wanderer", "Visit every settlement, ruin, and outpost in the realm.", "explorer", "mythic", "compass", 100, "2025-01-11", 900,
+      mk("마지막 방랑자", "Visit every settlement, ruin, and outpost in the realm.", "explorer", "mythic", "compass", 100, "2025-01-11", 900,
         "There is nowhere left for you to be lost.", 0.14),
       mk("First Light", "Reach the summit of Skyreach Peak before dawn.", "explorer", "rare", "compass", 100, "2024-05-02", 140,
         "The sun rose to find you already waiting for it.", 18.3),
       mk("Tidewalker", "Cross the Sunken Straits without a boat.", "explorer", "epic", "compass", 40, "", 240,
         "The sea let you pass. It rarely explains why.", 6.9),
-      mk("Wayfinder's Oath", "Travel 10,000 leagues on foot.", "explorer", "rare", "compass", 88, "", 130,
+      mk("Wayfinder's Oath", "여행 10,000 leagues on foot.", "explorer", "rare", "compass", 88, "", 130,
         "Your boots have worn thinner than most kingdoms' patience.", 24.0),
       mk("Master of Forgotten Ruins", "Fully excavate five lost civilizations.", "explorer", "epic", "tablet", 100, "2024-10-22", 270,
         "History owes you a great many thank-yous it will never speak.", 4.8),
@@ -95,30 +95,30 @@ const CATEGORIES = [
     achievements: [
       mk("Relic Collector", "Acquire 50 ancient relics.", "collector", "rare", "crystal", 100, "2024-07-04", 160,
         "Each one hums faintly when the others are near.", 19.6),
-      mk("Treasure King", "Amass one million gold in personal wealth.", "collector", "epic", "chalice", 100, "2024-09-15", 300,
+      mk("보물 King", "Amass one million gold in personal wealth.", "collector", "epic", "chalice", 100, "2024-09-15", 300,
         "The vaults have started naming rooms after you.", 5.9),
       mk("Artifact Hunter", "Recover all seven Sundered Artifacts.", "collector", "mythic", "crystal", 43, "", 950,
         "Six answer to your touch. The seventh is still deciding.", 0.05),
       mk("Curator's Eye", "Collect one item of every known rarity in a single sitting.", "collector", "epic", "crystal", 100, "2024-04-01", 220,
-        "Common to mythic, laid out like a sentence finally finished.", 4.1),
+        "일반 to mythic, laid out like a sentence finally finished.", 4.1),
       mk("Hoarder's Vault", "Fill every vault slot you own.", "collector", "common", "chalice", 100, "2023-08-19", 20,
         "There's a particular satisfaction in a shelf with nothing left to give.", 61.2),
-      mk("The Complete Bestiary", "Collect a trophy from every creature type in the realm.", "collector", "legendary", "crest", 90, "", 520,
+      mk("완전한 도감", "Collect a trophy from every creature type in the realm.", "collector", "legendary", "crest", 90, "", 520,
         "The final page of the bestiary still waits, blank and patient.", 1.6),
     ],
   },
   {
     id: "lorekeeper",
-    name: "Lorekeeper",
+    name: "로어keeper",
     glyph: "✦",
     color: "#a561c2",
     description: "Knowledge outlives kingdoms. You outlive forgetting.",
     achievements: [
-      mk("Keeper of Secrets", "Uncover every hidden lore fragment in the Elven Archive.", "lorekeeper", "epic", "tome", 100, "2024-06-30", 260,
+      mk("Keeper of 비밀", "Uncover every hidden lore fragment in the Elven Archive.", "lorekeeper", "epic", "tome", 100, "2024-06-30", 260,
         "The archive doesn't creak for just anyone.", 4.9),
-      mk("Explorer of Secrets", "Solve all environmental puzzles across three regions.", "lorekeeper", "rare", "tome", 100, "2024-05-20", 140,
+      mk("탐험가 of 비밀", "Solve all environmental puzzles across three regions.", "lorekeeper", "rare", "tome", 100, "2024-05-20", 140,
         "The walls stopped hiding things from you around the second region.", 20.4),
-      mk("The Silent Library", "Read all 212 tomes in the Sunken Library without triggering its guardian.", "lorekeeper", "legendary", "tome", 76, "", 540,
+      mk("침묵의 도서관", "Read all 212 tomes in the Sunken Library without triggering its guardian.", "lorekeeper", "legendary", "tome", 76, "", 540,
         "It noticed you. It simply chose not to mind.", 1.1),
       mk("Oral Tradition", "Learn every regional folk tale from a named NPC.", "lorekeeper", "common", "tome", 100, "2023-05-11", 15,
         "Stories told around fires tend to travel further than swords.", 82.0),
@@ -139,11 +139,11 @@ const CATEGORIES = [
         "Each roof was raised by hands that remembered the last one.", 5.7),
       mk("Foundation Stone", "Build your first permanent structure.", "builder", "common", "tablet", 100, "2023-02-09", 10,
         "It's crooked. It's yours. It's the first of many.", 88.1),
-      mk("The Eternal Keep", "Build a fortress that withstands five separate sieges.", "builder", "legendary", "crest", 100, "2024-12-19", 500,
+      mk("영원한 요새", "Build a fortress that withstands five separate sieges.", "builder", "legendary", "crest", 100, "2024-12-19", 500,
         "The mortar set harder each time the walls were tested.", 1.5),
       mk("Bridge Between Worlds", "Complete a bridge connecting two previously unlinked regions.", "builder", "rare", "tablet", 100, "2024-03-27", 150,
         "Trade routes rewrote themselves the day you finished the final plank.", 22.7),
-      mk("City of Legend", "Grow a single settlement to 1,000 residents.", "builder", "mythic", "crest", 12, "", 900,
+      mk("전설의 도시", "Grow a single settlement to 1,000 residents.", "builder", "mythic", "crest", 12, "", 900,
         "The census-takers have started running out of ink.", 0.06),
     ],
   },
@@ -158,7 +158,7 @@ const CATEGORIES = [
         "The wilds keep a tally too. Yours is the longest.", 23.5),
       mk("Bane of the Deep", "Slay the Leviathan of the Sunken Trench.", "monster-slayer", "legendary", "crystal", 100, "2024-10-05", 520,
         "The tide has been calmer ever since.", 1.3),
-      mk("Nightmare's End", "Defeat every named nightmare boss in a single cycle.", "monster-slayer", "mythic", "constellation", 8, "", 920,
+      mk("밤mare's End", "Defeat every named nightmare boss in a single cycle.", "monster-slayer", "mythic", "constellation", 8, "", 920,
         "Sleep returned to three provinces the week you finished.", 0.04),
       mk("Pest Control", "Clear 100 monster dens threatening local villages.", "monster-slayer", "common", "sword", 100, "2023-09-30", 15,
         "Small deeds, repeated, start to look a great deal like heroism.", 74.6),
@@ -175,7 +175,7 @@ const CATEGORIES = [
     achievements: [
       mk("Guild Champion", "Lead your guild to victory in the Grand Tournament.", "community", "epic", "banner", 100, "2024-11-14", 260,
         "The banner still carries your guild's colors into every hall it enters.", 4.6),
-      mk("Beacon of Hope", "Assist 200 fellow adventurers in distress.", "community", "rare", "banner", 100, "2024-02-25", 140,
+      mk("희망의 등불", "Assist 200 fellow adventurers in distress.", "community", "rare", "banner", 100, "2024-02-25", 140,
         "Two hundred small rescues rarely feel like a legend. They are one anyway.", 19.9),
       mk("Quest Master", "Complete 1,000 side quests across the realm.", "community", "epic", "tablet", 91, "", 240,
         "The realm ran out of small problems for you to solve.", 5.3),
@@ -202,7 +202,7 @@ const STATS = {
   legendsRank: 1342,
   totalAdventurers: 284917,
   worldCompletionPct: 38,
-  rarestOwned: "The Last Wanderer",
+  rarestOwned: "마지막 방랑자",
   currentStreakDays: 47,
 };
 
@@ -210,7 +210,7 @@ const STATS = {
 const WALL_FILLER_NAMES = [
   "Ashfall Veteran","Moonlit Vigil","Iron Oath","Salt Road Wanderer","Cinder Ward",
   "Hollowmere Rite","Gilded Sentinel","Widow's Pass","Emberkeep Warden","Duskbound Vow",
-  "Thornfield Reckoning","Highspire Watch","Graywater Trial","Sable Crest Bearer","Nightglass Seeker",
+  "Thornfield Reckoning","Highspire Watch","Graywater Trial","Sable Crest Bearer","밤glass Seeker",
   "Rootdeep Wanderer","Starfall Witness","Coldharbor Stand","Verdant Oath","Bronzeframe Legacy",
   "Hallowed Ledger","Driftwood Requiem","Sunspire Ascent","Frostbound Crest","Wyrmscale Tribute",
   "Longshadow Pact","Amberlight Vigil","Stormrest Banner","Deepwrit Chronicle","Ivory Bastion",

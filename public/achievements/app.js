@@ -1,5 +1,5 @@
 // ============================================================
-// THE HALL OF LEGENDS — Application Logic
+// THE HALL OF 전설 — Application Logic
 // ============================================================
 
 (function () {
@@ -77,7 +77,7 @@
       case 'recent':
         return arr.sort((a, b) => (b.unlockDate || '').localeCompare(a.unlockDate || ''));
       case 'difficulty': {
-        const order = { 'Near Impossible': 5, 'Punishing': 4, 'Arduous': 3, 'Challenging': 2, 'Modest': 1 };
+        const order = { '불가능에 가까운': 5, '가혹': 4, '고된': 3, '도전적': 2, '겸손': 1 };
         return arr.sort((a, b) => order[b.difficulty] - order[a.difficulty]);
       }
       case 'rarest':
@@ -233,7 +233,7 @@
   modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
 
   // ---------- Tree node clicks -> filter to category ----------
-  document.querySelectorAll('.tree-node-group').forEach(g => {
+  document.querySelector전체('.tree-node-group').forEach(g => {
     const go = () => {
       const catId = g.dataset.category;
       rarityFilter.value = '';
@@ -305,7 +305,7 @@
   });
 
   // ---------- Progress rail active state ----------
-  const railButtons = document.querySelectorAll('#progress-rail button');
+  const railButtons = document.querySelector전체('#progress-rail button');
   const sections = Array.from(railButtons).map(b => document.querySelector(b.dataset.target));
   railButtons.forEach(b => {
     b.addEventListener('click', () => {

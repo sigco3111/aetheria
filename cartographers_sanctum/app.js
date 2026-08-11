@@ -1,4 +1,4 @@
-/* The Cartographer's Sanctum — ceremonial interaction layer */
+/* 지도사의 신전 — ceremonial interaction layer */
 (function () {
   "use strict";
 
@@ -10,16 +10,16 @@
 
   const state = {
     worldId: D.WORLDS[0].id,
-    activeRelics: new Set(["all"]),
+    active유물: new Set(["all"]),
     activeCollection: null,
     selectedId: null,
     focusedPinIndex: -1,
     bookmarks: new Set(loadJson("sanctum_bookmarks", [])),
     routes: [],
     atlasTab: "lore",
-    isNight: false,
+    is밤: false,
     weather: "mist", // mist | clear | storm
-    reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    reduce모션: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     searchQuery: "",
     searchIndex: 0,
     pan: { x: 0, y: 0 },
@@ -75,9 +75,9 @@
   }
 
   function activeTags() {
-    if (state.activeRelics.has("all") || state.activeRelics.size === 0) return null;
+    if (state.active유물.has("all") || state.active유물.size === 0) return null;
     const tags = new Set();
-    state.activeRelics.forEach((id) => {
+    state.active유물.forEach((id) => {
       const r = D.RELICS.find((x) => x.id === id);
       if (r && r.tags) r.tags.forEach((t) => tags.add(t));
     });
@@ -168,7 +168,7 @@
 
     resize();
     spawn();
-    if (!state.reduceMotion) frame();
+    if (!state.reduce모션) frame();
     window.addEventListener("resize", () => {
       if (state.entered) return;
       resize();
@@ -201,7 +201,7 @@
     const root = els.constellation;
     if (!root) return;
     root.innerHTML = "";
-    const n = state.reduceMotion ? 24 : 60;
+    const n = state.reduce모션 ? 24 : 60;
     for (let i = 0; i < n; i++) {
       const s = document.createElement("span");
       s.className = "star";
@@ -219,7 +219,7 @@
 
   function buildDust() {
     const root = els.dust;
-    if (!root || state.reduceMotion) return;
+    if (!root || state.reduce모션) return;
     root.innerHTML = "";
     for (let i = 0; i < 28; i++) {
       const m = document.createElement("span");
@@ -252,14 +252,14 @@
         state.activeCollection = state.activeCollection === c.id ? null : c.id;
         if (state.activeCollection) {
           // clear "all" exclusive feel — collection acts as soft filter
-          state.activeRelics.delete("all");
-          if (state.activeRelics.size === 0) state.activeRelics.add("all");
+          state.active유물.delete("all");
+          if (state.active유물.size === 0) state.active유물.add("all");
           toast(`Tome drawn: ${c.name}`);
         } else {
           toast("Tome returned to the shelf");
         }
         renderCollections();
-        renderRelics();
+        render유물();
         renderPins();
         updateLegend();
         renderAtlas();
@@ -313,14 +313,14 @@
     rippleAt(50, 50);
   }
 
-  function renderRelics() {
+  function render유물() {
     const ring = els.relicRing;
     ring.innerHTML = "";
     D.RELICS.forEach((r) => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "relic" + (state.activeRelics.has(r.id) ? " is-active" : "");
-      btn.setAttribute("aria-pressed", state.activeRelics.has(r.id) ? "true" : "false");
+      btn.className = "relic" + (state.active유물.has(r.id) ? " is-active" : "");
+      btn.setAttribute("aria-pressed", state.active유물.has(r.id) ? "true" : "false");
       btn.title = `Layer: ${r.name}`;
       btn.innerHTML = `<span class="relic-sym" aria-hidden="true">${r.symbol}</span><span class="relic-name">${escapeHtml(r.name)}</span>`;
       btn.addEventListener("click", () => toggleRelic(r.id));
@@ -330,18 +330,18 @@
 
   function toggleRelic(id) {
     if (id === "all") {
-      state.activeRelics = new Set(["all"]);
+      state.active유물 = new Set(["all"]);
     } else {
-      state.activeRelics.delete("all");
-      if (state.activeRelics.has(id)) state.activeRelics.delete(id);
-      else state.activeRelics.add(id);
-      if (state.activeRelics.size === 0) state.activeRelics.add("all");
+      state.active유물.delete("all");
+      if (state.active유물.has(id)) state.active유물.delete(id);
+      else state.active유물.add(id);
+      if (state.active유물.size === 0) state.active유물.add("all");
     }
-    renderRelics();
+    render유물();
     renderPins();
     updateLegend();
-    const names = [...state.activeRelics].map((i) => D.RELICS.find((r) => r.id === i)?.name || i);
-    toast(names.includes("All") ? "All layers awaken" : `Relics lit: ${names.join(", ")}`);
+    const names = [...state.active유물].map((i) => D.RELICS.find((r) => r.id === i)?.name || i);
+    toast(names.includes("전체") ? "모든 레이어 awaken" : `유물 lit: ${names.join(", ")}`);
   }
 
   /* ---------- Living map canvas ---------- */
@@ -389,7 +389,7 @@
     drawForests(ctx, w, h, pal, rng);
     drawRivers(ctx, w, h, pal, rng);
     drawRoads(ctx, w, h, rng);
-    drawCitiesGlow(ctx, w, h, rng);
+    draw도시Glow(ctx, w, h, rng);
 
     // compass rose
     drawCompass(ctx, w - 54, h - 54, 28);
@@ -428,7 +428,7 @@
     ctx.font = "italic 12px 'IM Fell English', serif";
     ctx.fillText(world.name, 28, 46);
 
-    if (state.isNight) {
+    if (state.is밤) {
       ctx.fillStyle = "rgba(10, 18, 35, 0.28)";
       ctx.fillRect(0, 0, w, h);
       // moon glints
@@ -569,7 +569,7 @@
     ctx.setLineDash([]);
   }
 
-  function drawCitiesGlow(ctx, w, h, rng) {
+  function draw도시Glow(ctx, w, h, rng) {
     for (let i = 0; i < 10; i++) {
       const x = w * (0.2 + rng() * 0.6);
       const y = h * (0.25 + rng() * 0.5);
@@ -675,7 +675,7 @@
       });
       btn.addEventListener("focus", () => {
         state.focusedPinIndex = filteredLocations().findIndex((l) => l.id === loc.id);
-        [...root.querySelectorAll(".map-pin")].forEach((p) => p.classList.remove("is-focused"));
+        [...root.querySelector전체(".map-pin")].forEach((p) => p.classList.remove("is-focused"));
         btn.classList.add("is-focused");
       });
       root.appendChild(btn);
@@ -757,15 +757,15 @@
       <span>${escapeHtml(loc.coords)}</span>`;
     els.tabletDesc.textContent = loc.description;
     els.tabletGrid.innerHTML = `
-      <div class="cell"><b>Quests</b><span>${loc.quests} nearby</span></div>
+      <div class="cell"><b>퀘스트</b><span>${loc.quests} nearby</span></div>
       <div class="cell"><b>Collectibles</b><span>${loc.collectibles}</span></div>
       <div class="cell"><b>NPCs</b><span>${loc.npcs}</span></div>
-      <div class="cell"><b>Secrets</b><span>${loc.secrets}</span></div>
+      <div class="cell"><b>비밀</b><span>${loc.secrets}</span></div>
       <div class="cell"><b>Cartographer</b><span>${escapeHtml(loc.creator)}</span></div>
       <div class="cell"><b>Tags</b><span>${loc.tags.join(", ")}</span></div>`;
     els.tabletBookmark.textContent = state.bookmarks.has(loc.id)
       ? "Remove parchment pin"
-      : "Drive pin into parchment";
+      : "양피지에 핀 박기";
   }
 
   function closeTablet() {
@@ -810,10 +810,10 @@
         <div class="stat-grid">
           <div class="stat-cell"><b>Rating</b><span>★ ${loc.rating}</span></div>
           <div class="stat-cell"><b>Sealed scrolls</b><span>${loc.downloads.toLocaleString()}</span></div>
-          <div class="stat-cell"><b>Quests</b><span>${loc.quests}</span></div>
+          <div class="stat-cell"><b>퀘스트</b><span>${loc.quests}</span></div>
           <div class="stat-cell"><b>Collectibles</b><span>${loc.collectibles}</span></div>
           <div class="stat-cell"><b>NPCs</b><span>${loc.npcs}</span></div>
-          <div class="stat-cell"><b>Secrets</b><span>${loc.secrets}</span></div>
+          <div class="stat-cell"><b>비밀</b><span>${loc.secrets}</span></div>
           <div class="stat-cell"><b>Creator</b><span>${escapeHtml(loc.creator)}</span></div>
           <div class="stat-cell"><b>World size</b><span>${escapeHtml(world.size)}</span></div>
         </div>
@@ -858,7 +858,7 @@
           <div class="stat-cell"><b>Realm</b><span>${escapeHtml(world.realm)}</span></div>
           <div class="stat-cell"><b>Rating</b><span>★ ${world.rating}</span></div>
           <div class="stat-cell"><b>Size</b><span>${escapeHtml(world.size)}</span></div>
-          <div class="stat-cell"><b>Discoveries</b><span>${world.discoveries}</span></div>
+          <div class="stat-cell"><b>발견ies</b><span>${world.discoveries}</span></div>
           <div class="stat-cell"><b>Completion</b><span>${world.completion}%</span></div>
           <div class="stat-cell"><b>Markers here</b><span>${locs.length}</span></div>
         </div>`;
@@ -931,7 +931,7 @@
         </button>`;
       })
       .join("");
-    box.querySelectorAll(".search-result[data-id]").forEach((btn) => {
+    box.querySelector전체(".search-result[data-id]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const id = btn.getAttribute("data-id");
         const loc = D.LOCATIONS.find((l) => l.id === id);
@@ -961,9 +961,9 @@
       const c = D.COLLECTIONS.find((x) => x.id === state.activeCollection);
       els.layerStatus.textContent = c ? `Collection: ${c.name}` : "Collection";
     } else if (!tags) {
-      els.layerStatus.textContent = "All layers";
+      els.layerStatus.textContent = "모든 레이어";
     } else {
-      els.layerStatus.textContent = [...state.activeRelics]
+      els.layerStatus.textContent = [...state.active유물]
         .map((id) => D.RELICS.find((r) => r.id === id)?.name)
         .filter(Boolean)
         .join(" · ");
@@ -1023,13 +1023,13 @@
     }, 2000);
   }
 
-  function shareDiscovery() {
+  function share발견y() {
     if (!state.selectedId) return;
     const loc = D.LOCATIONS.find((l) => l.id === state.selectedId);
-    const text = `Discovered ${loc.name} in the Cartographer's Sanctum (${currentWorld().name})`;
+    const text = `발견ed ${loc.name} in the Cartographer's Sanctum (${currentWorld().name})`;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(
-        () => toast("Discovery copied to the courier's slate"),
+        () => toast("발견y copied to the courier's slate"),
         () => toast(text)
       );
     } else {
@@ -1056,14 +1056,14 @@
 
   /* ---------- Day/night weather motion ---------- */
   function applyAtmosphere() {
-    els.mapStage.classList.toggle("is-night", state.isNight);
+    els.mapStage.classList.toggle("is-night", state.is밤);
     els.mapStage.classList.remove("weather-mist", "weather-clear", "weather-storm");
     els.mapStage.classList.add("weather-" + state.weather);
-    els.btnDaynight.setAttribute("aria-pressed", state.isNight ? "true" : "false");
-    els.btnDaynight.querySelector(".relic-icon").textContent = state.isNight ? "☀" : "☾";
-    els.btnDaynight.querySelector(".relic-label").textContent = state.isNight ? "Day" : "Night";
-    document.body.classList.toggle("reduce-motion", state.reduceMotion);
-    els.btnMotion.setAttribute("aria-pressed", state.reduceMotion ? "true" : "false");
+    els.btnDaynight.setAttribute("aria-pressed", state.is밤 ? "true" : "false");
+    els.btnDaynight.querySelector(".relic-icon").textContent = state.is밤 ? "☀" : "☾";
+    els.btnDaynight.querySelector(".relic-label").textContent = state.is밤 ? "Day" : "밤";
+    document.body.classList.toggle("reduce-motion", state.reduce모션);
+    els.btn모션.setAttribute("aria-pressed", state.reduce모션 ? "true" : "false");
     drawMap();
   }
 
@@ -1111,7 +1111,7 @@
 
     // search results nav
     if (!els.searchResults.hidden && (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter")) {
-      const items = [...els.searchResults.querySelectorAll(".search-result[data-id]")];
+      const items = [...els.searchResults.querySelector전체(".search-result[data-id]")];
       if (!items.length) return;
       if (e.key === "ArrowDown") {
         e.preventDefault();
@@ -1213,8 +1213,8 @@
     els.btnDownload = $("btn-download");
     els.btnShare = $("btn-share");
     els.btnDaynight = $("btn-daynight");
-    els.btnWeather = $("btn-weather");
-    els.btnMotion = $("btn-motion");
+    els.btn날씨 = $("btn-weather");
+    els.btn모션 = $("btn-motion");
     els.tablet = $("tablet");
     els.tabletClose = $("tablet-close");
     els.tabletWorld = $("tablet-world");
@@ -1244,9 +1244,9 @@
       }
     });
 
-    document.querySelectorAll(".atlas-tab").forEach((tab) => {
+    document.querySelector전체(".atlas-tab").forEach((tab) => {
       tab.addEventListener("click", () => {
-        document.querySelectorAll(".atlas-tab").forEach((t) => {
+        document.querySelector전체(".atlas-tab").forEach((t) => {
           t.classList.remove("is-active");
           t.setAttribute("aria-selected", "false");
         });
@@ -1258,11 +1258,11 @@
     });
 
     els.btnDaynight.addEventListener("click", () => {
-      state.isNight = !state.isNight;
+      state.is밤 = !state.is밤;
       applyAtmosphere();
-      toast(state.isNight ? "Moonlight washes the atlas" : "Candlelight returns");
+      toast(state.is밤 ? "Moonlight washes the atlas" : "Candlelight returns");
     });
-    els.btnWeather.addEventListener("click", () => {
+    els.btn날씨.addEventListener("click", () => {
       const order = ["mist", "clear", "storm"];
       state.weather = order[(order.indexOf(state.weather) + 1) % order.length];
       applyAtmosphere();
@@ -1274,21 +1274,21 @@
             : "Soft mist returns"
       );
     });
-    els.btnMotion.addEventListener("click", () => {
-      state.reduceMotion = !state.reduceMotion;
+    els.btn모션.addEventListener("click", () => {
+      state.reduce모션 = !state.reduce모션;
       applyAtmosphere();
-      if (state.reduceMotion) {
+      if (state.reduce모션) {
         els.dust.innerHTML = "";
       } else {
         buildDust();
         buildStars();
       }
-      toast(state.reduceMotion ? "Motion stilled" : "Chamber breathes again");
+      toast(state.reduce모션 ? "모션 stilled" : "Chamber breathes again");
     });
 
     els.btnBookmark.addEventListener("click", () => toggleBookmark());
     els.btnDownload.addEventListener("click", sealScroll);
-    els.btnShare.addEventListener("click", shareDiscovery);
+    els.btnShare.addEventListener("click", share발견y);
     els.tabletClose.addEventListener("click", closeTablet);
     els.tablet.addEventListener("click", (e) => {
       // backdrop is ::before on tablet; clicks on empty chrome close
@@ -1308,13 +1308,13 @@
 
   function boot() {
     cacheEls();
-    if (state.reduceMotion) document.body.classList.add("reduce-motion");
+    if (state.reduce모션) document.body.classList.add("reduce-motion");
     initPortalInk();
     buildStars();
     buildDust();
     renderCollections();
     renderWorlds();
-    renderRelics();
+    render유물();
     // map sized after layout
     requestAnimationFrame(() => {
       drawMap();

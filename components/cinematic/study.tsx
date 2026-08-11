@@ -364,7 +364,7 @@ function WallArms({ position }: { position: [number, number, number] }) {
   )
 }
 
-function TreasureChest({ position, rotation = 0 }: { position: [number, number, number]; rotation?: number }) {
+function 보물Chest({ position, rotation = 0 }: { position: [number, number, number]; rotation?: number }) {
   const coins = useMemo(() => {
     const rnd = mulberry32(101)
     return Array.from({ length: 14 }, () => ({
@@ -659,7 +659,7 @@ export function AncientStudy({ progress }: { progress: MutableRefObject<{ value:
       <ArmorStand position={[9.2, 0, 6.8]} rotation={-0.7} />
       <ArmorStand position={[-9.4, 0, 9.2]} rotation={0.9} />
       <WallArms position={[5.5, 5, 10.6]} />
-      <TreasureChest position={[8.6, 0, 1.6]} rotation={-0.5} />
+      <보물Chest position={[8.6, 0, 1.6]} rotation={-0.5} />
       <SideDesk position={[-7.8, 0, 1.8]} rotation={1.5} />
       <ParchmentBarrel position={[3.9, 0, 9.6]} />
 

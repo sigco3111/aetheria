@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hall of Legends</title>
+<title>전설의 전당</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   THE HALL OF LEGENDS — Design Tokens
+   THE HALL OF 전설 — Design Tokens
    Palette:
      --void:        #0a0806  (the dark beyond the arches)
      --stone-deep:  #1c1712  (primary architecture)
@@ -30,11 +30,11 @@
    Type:
      Display (carved/engraved): Cinzel Decorative — used sparingly, large
      Heading:                    Cinzel — category names, monument labels
-     Body / Lore:                Crimson Pro (italic for lore fragments)
+     Body / 로어:                Crimson Pro (italic for lore fragments)
      UI / Utility labels:        EB Garamond, small-caps, tracked out
-   Signature: The World Tree of Legends — central procedural monument,
+   Signature: 전설의 세계수 — central procedural monument,
      roots feeding the Hero Wall floor, branches holding category
-     constellations. Everything else stays quiet stone around it.
+     constellations. 전체 else stays quiet stone around it.
    ============================================================ */
 
 :root{
@@ -654,7 +654,7 @@ body.reduced-motion *{
 <canvas class="dust-layer" id="dust-canvas" aria-hidden="true"></canvas>
 
 <nav id="progress-rail" aria-label="Section navigation">
-  <button data-target="#gate" class="active" aria-label="The Gate"></button>
+  <button data-target="#gate" class="active" aria-label="입구"></button>
   <button data-target="#monument" aria-label="The World Tree"></button>
   <button data-target="#categories" aria-label="Category Alcoves"></button>
   <button data-target="#heroes" aria-label="Hero Wall"></button>
@@ -679,7 +679,7 @@ body.reduced-motion *{
 
     <div class="gate-content">
       <div class="gate-eyebrow">The Relic Has Awoken</div>
-      <h1 class="gate-title">THE HALL<br>OF LEGENDS</h1>
+      <h1 class="gate-title">THE HALL<br>OF 전설</h1>
       <p class="gate-sub">Every deed you have done now lives here, carved in stone and gold, where history remembers heroes.</p>
       <div class="gate-descend">
         <span>Enter</span>
@@ -691,13 +691,13 @@ body.reduced-motion *{
   <section id="monument" aria-labelledby="monument-title">
     <div class="monument-intro">
       <div class="section-eyebrow">The Centerpiece</div>
-      <h2 class="section-title" id="monument-title">The World Tree of Legends</h2>
+      <h2 class="section-title" id="monument-title">전설의 세계수</h2>
       <p class="section-lede">Its roots drink from every hall below. Each bough holds the light of a thousand deeds — touch a branch to walk its path.</p>
     </div>
 
     <div class="tree-stage">
       <div class="tree-root-glow" aria-hidden="true"></div>
-      <svg class="tree-svg" viewBox="0 0 900 800" preserveAspectRatio="xMidYMax meet" role="img" aria-label="The World Tree of Legends, an interactive monument whose branches represent achievement categories">
+      <svg class="tree-svg" viewBox="0 0 900 800" preserveAspectRatio="xMidYMax meet" role="img" aria-label="전설의 세계수, 가지가 업적 카테고리를 상징하는 인터랙티브 기념물">
         <defs>
           <linearGradient id="bark" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#3a2c1e"/>
@@ -762,11 +762,11 @@ body.reduced-motion *{
 
         <!-- interactive category nodes -->
         <g class="tree-nodes">
-          <g class="tree-node-group" tabindex="0" data-category="warrior" role="button" aria-label="Warrior category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="warrior" role="button" aria-label="전사 category, view achievements">
             <circle class="tree-node" cx="110" cy="150" r="12" fill="#e2536b" style="color:#e2536b"/>
             <text class="tree-node-label" x="110" y="128" text-anchor="middle">WARRIOR</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="explorer" role="button" aria-label="Explorer category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="explorer" role="button" aria-label="탐험가 category, view achievements">
             <circle class="tree-node" cx="60" cy="370" r="13" fill="#5b8fb0" style="color:#5b8fb0"/>
             <text class="tree-node-label" x="60" y="396" text-anchor="middle">EXPLORER</text>
           </g>
@@ -774,7 +774,7 @@ body.reduced-motion *{
             <circle class="tree-node" cx="760" cy="145" r="12" fill="#d9b23e" style="color:#d9b23e"/>
             <text class="tree-node-label" x="760" y="123" text-anchor="middle">COLLECTOR</text>
           </g>
-          <g class="tree-node-group" tabindex="0" data-category="lorekeeper" role="button" aria-label="Lorekeeper category, view achievements">
+          <g class="tree-node-group" tabindex="0" data-category="lorekeeper" role="button" aria-label="로어keeper category, view achievements">
             <circle class="tree-node" cx="440" cy="20" r="13" fill="#a561c2" style="color:#a561c2"/>
             <text class="tree-node-label" x="440" y="0" text-anchor="middle">LOREKEEPER</text>
           </g>
@@ -814,18 +814,18 @@ body.reduced-motion *{
       <div class="toolbar-controls">
         <input class="rune-search" id="relic-search" type="search" placeholder="Search the relics…" aria-label="Search achievements">
         <select class="rune-select" id="rarity-filter" aria-label="Filter by rarity">
-          <option value="">All Rarities</option>
-          <option value="common">Common</option>
-          <option value="rare">Rare</option>
-          <option value="epic">Epic</option>
-          <option value="legendary">Legendary</option>
-          <option value="mythic">Mythic</option>
+          <option value="">전체 Rarities</option>
+          <option value="common">일반</option>
+          <option value="rare">희귀</option>
+          <option value="epic">에픽</option>
+          <option value="legendary">전설</option>
+          <option value="mythic">신화</option>
         </select>
         <select class="rune-select" id="sort-order" aria-label="Sort achievements">
           <option value="featured">Featured</option>
           <option value="recent">Recent Unlocks</option>
           <option value="difficulty">Most Difficult</option>
-          <option value="rarest">Rarest First</option>
+          <option value="rarest">희귀st First</option>
           <option value="completion">Completion %</option>
         </select>
       </div>
@@ -858,7 +858,7 @@ body.reduced-motion *{
     <div class="stats-floor" id="stats-floor"></div>
   </section>
 
-  <div class="footer-note">✦ THE HALL OF LEGENDS REMEMBERS ALL WHO ENTER ✦</div>
+  <div class="footer-note">✦ THE HALL OF 전설 REMEMBERS ALL WHO ENTER ✦</div>
 
 </main>
 

@@ -10,9 +10,9 @@ const cinzel = Cinzel({
 })
 
 export const metadata: Metadata = {
-  title: 'Aetheria Isle — A Cinematic Reveal',
+  title: '에테리아 섬 — 시네마틱 리빌',
   description:
-    'A breathtaking cinematic landing experience. Watch a medieval fantasy island emerge from the morning mist, surrounded by an endless crystal-blue ocean.',
+    '숨 막힐 듯한 시네마틱 착륙 체험. 수정처럼 푸른 끝없는 바다 위로 아침 안개 속에서 중세 판타지 섬이 모습을 드러냅니다.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -45,14 +45,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${cinzel.variable} bg-background`}>
+    <html lang="ko" className={`${cinzel.variable} bg-background`}>
       <body className="antialiased overflow-hidden">
         {children}
         <footer className="fixed bottom-0 w-full bg-black/50 backdrop-blur-sm text-white/80 py-2 px-4 text-xs flex flex-wrap justify-between items-center z-50 font-sans">
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             <span>Team: <strong>AA-OG's</strong></span>
             <span>Code: <strong>GAM-03</strong></span>
-            <span className="hidden sm:inline">Title: <strong>Interactive Open-World Game Companion App</strong></span>
+            <span className="hidden sm:inline">Title: <strong>인터랙티브 오픈 월드 게임 동반 앱</strong></span>
           </div>
           <div className="mt-1 sm:mt-0">
             <span>Members: <strong>Govind Jindal, Aaradhya Khanna</strong></span>

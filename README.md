@@ -1,4 +1,4 @@
-# 🏰 AETHERIA
+# 🏰 에테리아
 
 > An immersive, interactive open-world game companion app built for explorers, legends, and collectors.
 
@@ -8,9 +8,9 @@
 
 ## 📖 Project Overview
 
-AETHERIA is a cinematic open-world game companion web application, originally built as part of a team effort for a frontend competition. It serves as a unified portal where players can discover maps across different games, surface hidden easter eggs, and share reusable artifacts with other players—alongside tracking multiple characters, legends, and achievements.
+에테리아 is a cinematic open-world game companion web application, originally built as part of a team effort for a frontend competition. It serves as a unified portal where players can discover maps across different games, surface hidden easter eggs, and share reusable artifacts with other players—alongside tracking multiple characters, legends, and achievements.
 
-The core idea behind AETHERIA is to provide a breathtaking, immersive fantasy experience right from the browser. Rather than a standard dashboard, users land on a 3D cinematic reveal of a floating medieval island. From this atmospheric entry point, explorers can delve into various rich, domain-specific modules.
+The core idea behind 에테리아 is to provide a breathtaking, immersive fantasy experience right from the browser. Rather than a standard dashboard, users land on a 3D cinematic reveal of a floating medieval island. From this atmospheric entry point, explorers can delve into various rich, domain-specific modules.
 
 The project is structured with a unique micro-frontend architecture. A central Next.js application drives the 3D cinematic landing page, while the individual interactive modules (such as the map viewer, marketplace, and vaults) are served as completely independent static web applications. This separation ensures specialized tech stacks for each domain without complex build step integrations.
 
@@ -47,7 +47,7 @@ The project is structured with a unique micro-frontend architecture. A central N
 ## 📂 Project Structure
 
 ```text
-AETHERIA/
+에테리아/
 ├── app/                      # Next.js App Router root containing the cinematic landing page
 ├── components/               # Shared UI components and complex 3D cinematic scenes
 ├── public/                   # Static assets and independent micro-frontend modules
@@ -69,7 +69,7 @@ AETHERIA/
 
 ## 🏗 Architecture
 
-AETHERIA employs a creative monolithic repository with a micro-frontend style delivery:
+에테리아 employs a creative monolithic repository with a micro-frontend style delivery:
 - The **main landing experience** is built using Next.js to leverage robust server-side rendering and handle the heavy React Three Fiber 3D environment.
 - The **independent modules** are built with vanilla web technologies (HTML, CSS, JS, and CDN-loaded React/Tailwind) and are served directly as static applications from the `public` directory.
 - **Navigation transitions** users seamlessly from the highly immersive Next.js landing page to the individual, domain-focused modules via standard anchor links, avoiding a bloated single-page application bundle.
@@ -85,7 +85,7 @@ Make sure you have Node.js and a package manager like `npm` or `pnpm` installed.
 
 ```bash
 git clone <your-repository-url>
-cd AETHERIA
+cd 에테리아
 ```
 
 ---

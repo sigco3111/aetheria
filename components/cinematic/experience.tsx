@@ -6,10 +6,10 @@ import { AmbientAudio } from './ambient-audio'
 import { CinematicScene, type JourneyUiRefs } from './scene'
 
 const NAV_LINKS = [
-  { label: 'The Isle', href: '/cartographers_sanctum/index.html' },
-  { label: 'Legends', href: '/achievements/index.html' },
-  { label: 'The Keep', href: '/curators_vault/index.html' },
-  { label: 'Gallery', href: '#' },
+  { label: '섬', href: '/cartographers_sanctum/index.html' },
+  { label: '전설', href: '/achievements/index.html' },
+  { label: '금고', href: '/curators_vault/index.html' },
+  { label: '갤러리', href: '#' },
 ] as const
 
 /** Total scrollable length of the journey. Longer = slower, more cinematic. */
@@ -98,7 +98,7 @@ export function CinematicExperience() {
         />
       </Canvas>
 
-      <h1 className="sr-only">Aetheria Isle — a floating medieval fantasy island revealed from the morning mist</h1>
+      <h1 className="sr-only">에테리아 섬 — 아침 안개 속으로 드러나는 중세 판타지 부유 섬</h1>
 
       {/* ---- Invisible scroll track: native wheel/trackpad/touch momentum ---- */}
       <div
@@ -108,7 +108,7 @@ export function CinematicExperience() {
           revealed ? '' : 'pointer-events-none'
         }`}
         style={{ scrollbarWidth: 'none' }}
-        aria-label="Scroll to journey through the island"
+        aria-label="스크롤하여 섬을 여행하세요"
       >
         <div style={{ height: `${SCROLL_LENGTH_VH}vh` }} aria-hidden="true" />
       </div>
@@ -127,7 +127,7 @@ export function CinematicExperience() {
           aria-label="Main"
         >
           <a href="#" className="font-serif text-lg font-semibold tracking-[0.22em] text-parchment drop-shadow-[0_2px_10px_rgba(20,30,50,0.55)] md:text-xl">
-            AETHERIA
+            에테리아
           </a>
           <ul className="hidden items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => (
@@ -145,7 +145,7 @@ export function CinematicExperience() {
             href="/grand_guild_exchange/index.html"
             className="rounded-full border border-gold/70 bg-abyss/40 px-5 py-2 font-serif text-xs tracking-[0.2em] text-gold backdrop-blur-sm transition-colors hover:bg-gold hover:text-abyss md:text-sm"
           >
-            BEGIN JOURNEY
+            여행 시작
           </a>
         </nav>
       </header>
@@ -159,18 +159,18 @@ export function CinematicExperience() {
       >
         <div ref={titleRef} className="flex flex-col items-center gap-3 px-6 text-center">
           <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
-            BEYOND THE ENDLESS SEA
+            끝없는 바다 너머
           </p>
           <p className="text-balance font-serif text-3xl font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-5xl">
-            AETHERIA ISLE
+            에테리아 섬
           </p>
           <p className="max-w-md text-pretty font-serif text-xs leading-relaxed tracking-wider text-parchment/85 drop-shadow-[0_2px_10px_rgba(20,30,50,0.7)] md:text-sm">
-            {'Where the morning mist parts, an ancient kingdom waits.'}
+            {'아침 안개가 걷히면, 고대 왕국이 당신을 기다립니다.'}
           </p>
           {/* Scroll hint */}
           <div ref={hintRef} className="mt-4 flex flex-col items-center gap-1.5">
             <p className="font-serif text-[10px] tracking-[0.4em] text-parchment/75 drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)]">
-              SCROLL TO DESCEND
+              스크롤하여 내려가기
             </p>
             <span className="block h-7 w-px animate-pulse bg-parchment/60" aria-hidden="true" />
           </div>
@@ -184,10 +184,10 @@ export function CinematicExperience() {
         aria-hidden="true"
       >
         <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(20,30,50,0.7)] md:text-xs">
-          SCENE II
+          장면 II
         </p>
         <p className="text-balance font-serif text-2xl font-semibold tracking-[0.14em] text-parchment drop-shadow-[0_4px_18px_rgba(20,30,50,0.65)] md:text-4xl">
-          THE LIVING VILLAGE
+          살아있는 마을
         </p>
       </div>
 
@@ -198,10 +198,10 @@ export function CinematicExperience() {
         aria-hidden="true"
       >
         <p className="font-serif text-[10px] tracking-[0.5em] text-gold drop-shadow-[0_2px_8px_rgba(255,171,82,0.4)] md:text-xs">
-          SCENE III
+          장면 III
         </p>
         <p className="text-balance font-serif text-2xl font-semibold tracking-[0.14em] text-[#e8d5b0] drop-shadow-[0_4px_18px_rgba(0,0,0,0.8)] md:text-4xl">
-          THE ANCIENT STUDY
+          고대의 서재
         </p>
       </div>
 
@@ -219,7 +219,7 @@ export function CinematicExperience() {
           onClick={() => setSkipRequested(true)}
           className="absolute bottom-6 right-6 z-30 rounded-full border border-parchment/40 bg-abyss/30 px-4 py-2 font-serif text-xs tracking-[0.2em] text-parchment/90 backdrop-blur-sm transition-colors hover:border-parchment hover:text-parchment"
         >
-          SKIP INTRO
+          인트로 건너뛰기
         </button>
       )}
 
@@ -234,7 +234,7 @@ export function CinematicExperience() {
           className={`inline-block h-2 w-2 rounded-full ${soundOn ? 'bg-gold' : 'bg-parchment/40'}`}
           aria-hidden="true"
         />
-        {soundOn ? 'SOUND ON' : 'ENABLE SOUND'}
+        {soundOn ? '사운드 켜짐' : '사운드 켜기'}
       </button>
     </main>
   )
