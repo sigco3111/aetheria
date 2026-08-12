@@ -2,7 +2,7 @@
 
 > **시네마틱 3D 오픈 월드 게임 동반 앱** — 탐험가와 전설과 수집가를 위한 인터랙티브 판타지 포털
 
-[![라이브 데모](https://img.shields.io/badge/🌐_라이브_데모-Vercel-black?style=for-the-badge&logo=vercel)](https://sigco3111-aetheria.vercel.app)
+[![라이브 데모](https://img.shields.io/badge/🌐_라이브_데모-Vercel-black?style=for-the-badge&logo=vercel)](https://sigco3111.github.io/aetheria)
 [![GitHub](https://img.shields.io/badge/GitHub-sigco3111%2Faetheria-181717?style=for-the-badge&logo=github)](https://github.com/sigco3111/aetheria)
 [![한국어화](https://img.shields.io/badge/한국어화-100%25-blue?style=for-the-badge)](#-한국어화)
 
@@ -12,15 +12,15 @@
 
 ## ✨ 라이브 데모
 
-🔗 **https://sigco3111-aetheria.vercel.app** — 클릭하면 바로 Vercel에 배포된 라이브 버전을 볼 수 있어요.
+🔗 **https://sigco3111.github.io/aetheria** — 클릭하면 바로 Vercel에 배포된 라이브 버전을 볼 수 있어요.
 
 | 모듈 | URL | 설명 |
 |------|-----|------|
-| 🏝️ 시네마틱 �딩 | [`/`](https://sigco3111-aetheria.vercel.app) | 부유하는 중세 섬의 3D 시네마틱 리빌 |
-| 🗺️ 지도사의 신전 | [`/cartographers_sanctum/`](https://sigco3111-aetheria.vercel.app/cartographers_sanctum/index.html) | 인터랙티브 마법 지도 + 양피지 검색 |
-| 🏆 전설의 전당 | [`/achievements/`](https://sigco3111-aetheria.vercel.app/achievements/index.html) | 세계수 모뉴먼트로 보는 업적 컬렉션 |
-| 🏛️ 위대한 길드 교역소 | [`/grand_guild_exchange/`](https://sigco3111-aetheria.vercel.app/grand_guild_exchange/index.html) | 아티팩트 공유 마켓플레이스 |
-| 💎 큐레이터의 금고 | [`/curators_vault/`](https://sigco3111-aetheria.vercel.app/curators_vault/index.html) | 수집품/이스터에그/카탈로그 |
+| 🏝️ 시네마틱 �딩 | [`/`](https://sigco3111.github.io/aetheria) | 부유하는 중세 섬의 3D 시네마틱 리빌 |
+| 🗺️ 지도사의 신전 | [`/cartographers_sanctum/`](https://sigco3111.github.io/aetheria/cartographers_sanctum/index.html) | 인터랙티브 마법 지도 + 양피지 검색 |
+| 🏆 전설의 전당 | [`/achievements/`](https://sigco3111.github.io/aetheria/achievements/index.html) | 세계수 모뉴먼트로 보는 업적 컬렉션 |
+| 🏛️ 위대한 길드 교역소 | [`/grand_guild_exchange/`](https://sigco3111.github.io/aetheria/grand_guild_exchange/index.html) | 아티팩트 공유 마켓플레이스 |
+| 💎 큐레이터의 금고 | [`/curators_vault/`](https://sigco3111.github.io/aetheria/curators_vault/index.html) | 수집품/이스터에그/카탈로그 |
 
 ---
 
@@ -342,7 +342,7 @@ vercel --prod
 | 라이선스 | 원본에 명시 없음 (저장소 root에 LICENSE 파일 없음) |
 | 한국어화 저장소 | [sigco3111/aetheria](https://github.com/sigco3111/aetheria) |
 | 한국어화 일자 | 2026-08-11 |
-| 라이브 데모 | https://sigco3111-aetheria.vercel.app |
+| 라이브 데모 | https://sigco3111.github.io/aetheria |
 
 ---
 
@@ -387,6 +387,6 @@ vercel --prod
 
 **한국어화 클론**: [sigco3111](https://github.com/sigco3111) · 2026-08-11
 
-🌐 [라이브 데모 보기](https://sigco3111-aetheria.vercel.app)
+🌐 [라이브 데모 보기](https://sigco3111.github.io/aetheria)
 
 </div>
