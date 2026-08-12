@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>지도사의 신전</title>
+  <meta name="description" content="알려진 모든 세계가 지도화된 전설의 전당으로 들어오세요.">
+  <script
+    src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.0/dist/index.global.js"
+    integrity="sha384-nWTzRTCY/9V4Bo352ehygr1c4cnst4XN6lMR3fipakEQrhVpc0hEM5Dii3Amz0sT"
+    crossorigin="anonymous"
+  ></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+  </style>
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-dvh overflow-hidden text-sm antialiased">
+  <a class="skip-link" href="#main-stage">신전으로 건너뛰기</a>
+
+  <!-- 포털 / ENTRY -->
+  <div id="portal" class="portal" role="dialog" aria-modal="true" aria-labelledby="portal-title">
+    <canvas id="ink-canvas" aria-hidden="true"></canvas>
+    <div class="portal-veil"></div>
+    <div class="portal-content">
+      <p class="portal-eyebrow">양피지가 찢어집니다</p>
+      <h1 id="portal-title" class="portal-title">지도사의 신전</h1>
+      <p class="portal-sub">세계를 지도화한 모든 탐험가의 본부.</p>
+      <button type="button" id="enter-btn" class="enter-btn" autofocus>
+        <span class="enter-btn-glow"></span>
+        <span class="enter-btn-label">먹물 속으로 발을 딛다</span>
+      </button>
+      <p class="portal-hint">Enter · Esc는 의식을 건너뜁니다</p>
+    </div>
+    <div class="portal-tear" aria-hidden="true"></div>
+  </div>
+
+  <!-- AMBIENT LAYER -->
+  <div id="sanctum" class="sanctum is-hidden" aria-hidden="true">
+    <div class="chamber-bg" aria-hidden="true">
+      <div class="stone-wall"></div>
+      <div class="celestial-ceiling"></div>
+      <div class="constellation" id="constellation"></div>
+      <div class="dust" id="dust"></div>
+      <div class="candle-glow candle-l"></div>
+      <div class="candle-glow candle-r"></div>
+      <div class="candle-glow candle-c"></div>
+      <div class="shelf shelf-l"></div>
+      <div class="shelf shelf-r"></div>
+      <div class="beams"></div>
+    </div>
+
+    <!-- TOP RITUAL BAR -->
+    <header class="ritual-bar" role="banner">
+      <div class="brand-mark">
+        <span class="compass-mini" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="28" height="28"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M20 4 L23 20 L20 36 L17 20 Z" fill="currentColor" opacity=".85"/><circle cx="20" cy="20" r="2.5" fill="#c9a227"/></svg>
+        </span>
+        <div>
+          <p class="brand-kicker">전설의 전당</p>
+          <h1 class="brand-title">지도사의 신전</h1>
+        </div>
+      </div>
+
+      <div class="search-parchment" role="search">
+        <label for="search-input" class="sr-only">잊혀진 왕국을 검색</label>
+        <span class="search-quill" aria-hidden="true">❧</span>
+        <input
+          id="search-input"
+          type="search"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="잊혀진 왕국, 동굴, 용, 폐허를 검색…"
+          aria-describedby="search-status"
+        />
+        <kbd class="search-kbd" aria-hidden="true">/</kbd>
+        <div id="search-ink" class="search-ink" aria-hidden="true"></div>
+        <div id="search-results" class="search-results" hidden role="listbox" aria-label="검색 결과"></div>
+      </div>
+
+      <div class="ritual-actions">
+        <button type="button" id="btn-daynight" class="icon-relic" aria-pressed="false" title="낮과 밤 전환" aria-label="지도집의 낮과 밤 전환">
+          <span class="relic-icon" aria-hidden="true">☾</span>
+          <span class="relic-label">밤</span>
+        </button>
+        <button type="button" id="btn-weather" class="icon-relic" title="날씨 순환" aria-label="지도 날씨 순환">
+          <span class="relic-icon" aria-hidden="true">☁</span>
+          <span class="relic-label">날씨</span>
+        </button>
+        <button type="button" id="btn-motion" class="icon-relic" aria-pressed="false" title="모션 줄이기" aria-label="모션 줄이기">
+          <span class="relic-icon" aria-hidden="true">✦</span>
+          <span class="relic-label">모션</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-stage" class="main-stage">
+      <!-- LEFT: 컬렉션 shelves + trending -->
+      <aside class="wing wing-left" aria-label="컬렉션과 세계">
+        <section class="panel-card collections-panel">
+          <header class="panel-head">
+            <h2>가죽 컬렉션</h2>
+            <p>책장에서 한 권을 꺼내세요</p>
+          </header>
+          <ul id="collections-list" class="book-shelf" role="list"></ul>
+        </section>
+
+        <section class="panel-card worlds-panel">
+          <header class="panel-head">
+            <h2>인기 세계</h2>
+            <p>최근 탐험한 영역</p>
+          </header>
+          <div id="worlds-rail" class="worlds-rail" role="listbox" aria-label="게임 세계"></div>
+        </section>
+      </aside>
+
+      <!-- CENTER: Magical map table -->
+      <section class="map-table-wrap" aria-label="마법 지도 테이블">
+        <div class="table-pedestal">
+          <div class="table-rim"></div>
+          <div class="table-brass"></div>
+          <div id="map-stage" class="map-stage" tabindex="0" role="application" aria-label="살아있는 세계 지도. 방향키로 이동, +/-로 확대·축소, Enter로 핀 선택.">
+            <canvas id="map-canvas" width="900" height="620" aria-hidden="true"></canvas>
+            <div id="map-pins" class="map-pins"></div>
+            <div id="map-threads" class="map-threads" aria-hidden="true"></div>
+            <div id="map-fog" class="map-fog" aria-hidden="true"></div>
+            <div id="map-ripple" class="map-ripple" aria-hidden="true"></div>
+            <div class="map-vignette" aria-hidden="true"></div>
+            <div class="map-breath" aria-hidden="true"></div>
+          </div>
+          <div class="table-legs" aria-hidden="true"></div>
+        </div>
+
+        <!-- 유물 filters around the table -->
+        <nav class="relic-ring" aria-label="지도 레이어 유물" id="relic-ring"></nav>
+
+        <div class="map-legend" aria-live="polite">
+          <span id="active-world-name">탐레일 — 스카이림</span>
+          <span class="dot">·</span>
+          <span id="pin-count">0 마커</span>
+          <span class="dot">·</span>
+          <span id="layer-status">모든 레이어</span>
+        </div>
+      </section>
+
+      <!-- RIGHT: 찬란한 지도책 book -->
+      <aside class="wing wing-right" aria-label="찬란한 지도책">
+        <div class="atlas-book" id="atlas-book">
+          <div class="atlas-cover-edge" aria-hidden="true"></div>
+          <div class="atlas-pages">
+            <div class="atlas-page left-page" aria-hidden="true">
+              <div class="page-stain"></div>
+            </div>
+            <div class="atlas-page right-page" id="atlas-content">
+              <div class="page-stain"></div>
+              <div class="atlas-inner" id="atlas-inner">
+                <!-- filled by JS -->
+              </div>
+            </div>
+          </div>
+          <div class="atlas-tabs" role="tablist" aria-label="지도책 섹션">
+            <button type="button" class="atlas-tab is-active" role="tab" aria-selected="true" data-tab="lore">로어</button>
+            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="stats">통계</button>
+            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="notes">노트</button>
+            <button type="button" class="atlas-tab" role="tab" aria-selected="false" data-tab="community">Community</button>
+          </div>
+        </div>
+
+        <div class="quick-satchel" aria-label="탐험가 actions">
+          <button type="button" id="btn-bookmark" class="satchel-btn" disabled>
+            <span aria-hidden="true">📌</span> 책갈피 핀 꽂기
+          </button>
+          <button type="button" id="btn-download" class="satchel-btn" disabled>
+            <span aria-hidden="true">📜</span> 두루마리 봉인
+          </button>
+          <button type="button" id="btn-share" class="satchel-btn" disabled>
+            <span aria-hidden="true">🕯</span> 발견 공유
+          </button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Floating stone tablet (location detail) -->
+    <div id="tablet" class="stone-tablet" hidden role="dialog" aria-modal="true" aria-labelledby="tablet-title">
+      <button type="button" class="tablet-close" id="tablet-close" aria-label="석판 닫기">✕</button>
+      <div class="tablet-carving">
+        <p class="tablet-kicker" id="tablet-world"></p>
+        <h2 id="tablet-title"></h2>
+        <div class="tablet-meta" id="tablet-meta"></div>
+        <p class="tablet-desc" id="tablet-desc"></p>
+        <div class="tablet-grid" id="tablet-grid"></div>
+        <div class="tablet-actions">
+          <button type="button" class="tablet-btn" id="tablet-bookmark">양피지에 핀 박기</button>
+          <button type="button" class="tablet-btn ghost" id="tablet-route">경로 그리기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll seal download overlay -->
+    <div id="scroll-seal" class="scroll-seal" hidden aria-live="polite">
+      <div class="scroll-body">
+        <div class="scroll-roll"></div>
+        <p id="scroll-msg">두루마리를 봉인하는 중…</p>
+      </div>
+    </div>
+
+    <!-- Toast / ceremonial notices -->
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <p id="search-status" class="sr-only" aria-live="polite"></p>
+
+    <footer class="sanctum-foot">
+      <span>따뜻한 촛불 · 차분한 달빛 · 손으로 만든 양피지</span>
+      <span class="foot-sep">·</span>
+      <span id="focus-hint">유물 사이를 Tab으로 이동 · 핀 클릭 · / 로 검색</span>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
