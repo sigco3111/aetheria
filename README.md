@@ -398,6 +398,7 @@ vercel --prod
 | README 잔존 Vercel (정직함 단서 외) | ✅ 0건 |
 | `next.config.mjs` basePath | ✅ `/aetheria` (다음 빌드 안전망) |
 | `output: 'export'` | ✅ 적용 (정적 export) |
+| **basePath 빌드 재배포 (19:57)** | ✅ gh-pages에 basePath 적용 빌드 푸시 — 옛 hash (basePath 누락 빌드) 30+ 파일 삭제 + 새 hash (basePath 박힌 빌드) 추가 + `.nojekyll` 추가. **근본 원인**: 옛 gh-pages 빌드는 `/_next/...` root context 절대경로 → 사용자 브라우저에서 cascade 404 → React 미실행 → 흰 화면 + h1만. **수정 후**: `src="/aetheria/_next/..."` 정상 서빙 + 모든 asset 200 + 5개 라우트 200 |
 
 ## 📝 변경 이력
 
@@ -410,6 +411,7 @@ vercel --prod
   - L382 배포 링크: `[Vercel](vercel.com)` → `GitHub Pages (정적 export, Vercel 사용 이력 — 2026-08 전환)`
   - `next.config.mjs`: `output: 'export' + basePath: '/aetheria' + trailingSlash: true` 추가 (다음 빌드 안전망)
   - GitHub repo About > Website: `sigco3111-aetheria.vercel.app` → `https://sigco3111.github.io/aetheria/`
+  - **2026-08-13 19:57 — basePath 빌드 재배포**: gh-pages에 `output: 'export' + basePath: '/aetheria'` 적용 빌드 푸시 (옛 hash 30+ 파일 삭제 + 새 hash 추가 + `.nojekyll` 추가). 사용자 보고 → "렌더링 안 됨, 3D 섬 출력 안 됨" 진단 → root context `/_next/...` cascade 404 확인 → basePath 적용 빌드로 재교체. **근본 원인**: gh-pages 옛 빌드는 basePath 없이 빌드됨 → asset 경로 root context → Pages cascade 404 → 흰 화면
 
 ---
 
