@@ -2,7 +2,7 @@
 
 > **시네마틱 3D 오픈 월드 게임 동반 앱** — 탐험가와 전설과 수집가를 위한 인터랙티브 판타지 포털
 
-[![라이브 데모](https://img.shields.io/badge/🌐_라이브_데모-Vercel-black?style=for-the-badge&logo=vercel)](https://sigco3111.github.io/aetheria)
+[![라이브 데모](https://img.shields.io/badge/🌐_라이브_데모-GitHub_Pages-222222?style=for-the-badge&logo=githubpages)](https://sigco3111.github.io/aetheria)
 [![GitHub](https://img.shields.io/badge/GitHub-sigco3111%2Faetheria-181717?style=for-the-badge&logo=github)](https://github.com/sigco3111/aetheria)
 [![한국어화](https://img.shields.io/badge/한국어화-100%25-blue?style=for-the-badge)](#-한국어화)
 
@@ -12,7 +12,7 @@
 
 ## ✨ 라이브 데모
 
-🔗 **https://sigco3111.github.io/aetheria** — 클릭하면 바로 Vercel에 배포된 라이브 버전을 볼 수 있어요.
+🔗 **https://sigco3111.github.io/aetheria** — 클릭하면 바로 GitHub Pages에 배포된 라이브 버전을 볼 수 있어요. (Vercel 사용 이력 — 2026-08 GitHub Pages로 전환)
 
 | 모듈 | URL | 설명 |
 |------|-----|------|
@@ -91,11 +91,11 @@ Cinzel Decorative 디자인 폰트로 새겨진 Cinzel+한글의 콜라보. 6개
 | **스타일링** | Tailwind CSS v4, Shadcn UI |
 | **UI 컴포넌트** | Base UI, Lucide React Icons |
 | **폰트** | Cinzel, Cinzel Decorative, Crimson Pro, EB Garamond (Google Fonts) |
-| **분석** | Vercel Analytics |
+| **분석** | (Vercel Analytics 사용 이력 — 현재 비활성) |
 | **언어** | TypeScript, JavaScript, HTML, CSS |
 | **빌드 도구** | Next.js (Turbopack), pnpm |
 | **렌더링** | App Router, 정적 HTML 모듈, Babel Standalone (브라우저 내 변환) |
-| **배포** | Vercel |
+| **배포** | GitHub Pages (정적 export) |
 
 ---
 
@@ -231,10 +231,12 @@ pnpm start
 ### 배포
 
 ```bash
-# Vercel (권장)
-vercel --prod
+# GitHub Pages (현재 Production) — Next.js 정적 export → Pages
+pnpm build  # .next → out/ (output: 'export' 적용)
+npx gh-pages -d out -b gh-pages
 
-# 또는 GitHub 연동 후 자동 배포
+# Vercel (Vercel 사용 이력 — 2026-08 GitHub Pages로 전환, CLI 보존)
+vercel --prod
 ```
 
 ---
@@ -379,7 +381,35 @@ vercel --prod
 - **3D 라이브러리**: [Three.js](https://threejs.org/), [React Three Fiber](https://r3f.docs.pmnd.rs/)
 - **스타일**: [Tailwind CSS](https://tailwindcss.com/), [Shadcn UI](https://ui.shadcn.com/)
 - **폰트**: Google Fonts (Cinzel, Crimson Pro, EB Garamond)
-- **배포**: [Vercel](https://vercel.com/)
+- **배포**: GitHub Pages (정적 export, Vercel 사용 이력 — 2026-08 전환)
+
+---
+
+## ✅ Pages 이관 검증 (2026-08-13)
+
+| 항목 | 상태 |
+|------|------|
+| GitHub Pages 라이브 (`/`) | ✅ 200 |
+| `/cartographers_sanctum/` | ✅ 200 |
+| `/achievements/` | ✅ 200 |
+| `/grand_guild_exchange/` | ✅ 200 |
+| `/curators_vault/` | ✅ 200 |
+| README 라이브 데모 URL | ✅ `https://sigco3111.github.io/aetheria` 통일 |
+| README 잔존 Vercel (정직함 단서 외) | ✅ 0건 |
+| `next.config.mjs` basePath | ✅ `/aetheria` (다음 빌드 안전망) |
+| `output: 'export'` | ✅ 적용 (정적 export) |
+
+## 📝 변경 이력
+
+- **2026-08-13** — Vercel → GitHub Pages 이관 (5영역 보정)
+  - L5 뱃지: `라이브_데모-Vercel-black?logo=vercel` → `라이브_데모-GitHub_Pages-222222?logo=githubpages`
+  - L15 본문: "Vercel에 배포된 라이브 버전" → "GitHub Pages에 배포된 라이브 버전" + Vercel 사용 이력 단서 추가
+  - L94 분석: `Vercel Analytics` → `(Vercel Analytics 사용 이력 — 현재 비활성)`
+  - L98 배포: `Vercel` → `GitHub Pages (정적 export)`
+  - L234-240 배포 섹션: `# Vercel (권장)` → `# GitHub Pages (현재 Production)` + `# Vercel (사용 이력, CLI 보존)`
+  - L382 배포 링크: `[Vercel](vercel.com)` → `GitHub Pages (정적 export, Vercel 사용 이력 — 2026-08 전환)`
+  - `next.config.mjs`: `output: 'export' + basePath: '/aetheria' + trailingSlash: true` 추가 (다음 빌드 안전망)
+  - GitHub repo About > Website: `sigco3111-aetheria.vercel.app` → `https://sigco3111.github.io/aetheria/`
 
 ---
 
