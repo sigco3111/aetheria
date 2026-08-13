@@ -389,16 +389,19 @@ vercel --prod
 
 | 항목 | 상태 |
 |------|------|
-| GitHub Pages 라이브 (`/`) | ✅ 200 |
+| GitHub Pages 라이브 (`/`) | ✅ 200 (basePath `/aetheria`) |
 | `/cartographers_sanctum/` | ✅ 200 |
 | `/achievements/` | ✅ 200 |
 | `/grand_guild_exchange/` | ✅ 200 |
 | `/curators_vault/` | ✅ 200 |
-| README 라이브 데모 URL | ✅ `https://sigco3111.github.io/aetheria` 통일 |
+| **Vercel Production (권장)** | ✅ `https://aetheria-five-jet.vercel.app` 200 (SPA fallback 정상) |
+| **Vercel SPA fallback** | ✅ 6개 라우트 (cartographers_sanctum, achievements, grand_guild_exchange, curators_vault, random-typo, trailing slash) 모두 200 |
+| README 라이브 데모 URL | ✅ `https://aetheria-five-jet.vercel.app` (Vercel 권장) + Pages 폴백 |
 | README 잔존 Vercel (정직함 단서 외) | ✅ 0건 |
-| `next.config.mjs` basePath | ✅ `/aetheria` (다음 빌드 안전망) |
+| `next.config.mjs` basePath | ✅ `process.env.VERCEL ? '' : '/aetheria'` 환경 분기 (P34 패턴) |
 | `output: 'export'` | ✅ 적용 (정적 export) |
 | **basePath 빌드 재배포 (19:57)** | ✅ gh-pages에 basePath 적용 빌드 푸시 — 옛 hash (basePath 누락 빌드) 30+ 파일 삭제 + 새 hash (basePath 박힌 빌드) 추가 + `.nojekyll` 추가. **근본 원인**: 옛 gh-pages 빌드는 `/_next/...` root context 절대경로 → 사용자 브라우저에서 cascade 404 → React 미실행 → 흰 화면 + h1만. **수정 후**: `src="/aetheria/_next/..."` 정상 서빙 + 모든 asset 200 + 5개 라우트 200 |
+| **Vercel 재배포 (20:30)** | ✅ `next.config.mjs`에 `process.env.VERCEL ? '' : '/aetheria'` 환경 분기 + `vercel.json` SPA rewrites + Vercel 빌드 (`basePath=''` root context) + `config.json` SPA fallback 정밀화 (P33) + Vercel deploy. **근본 원인**: Pages는 모든 asset 200 OK + curl 검증 통과했지만 사용자 모바일 Safari에서 "This page couldn't load" → Pages CDN 일시적 404 또는 iOS Safari 보안 정책. **해결**: Vercel로 우선 배포 + Pages는 폴백 유지 (74e 케이스 패턴). **결론**: Vercel 권장 (`aetheria-five-jet.vercel.app`) + Pages 폴백 |
 
 ## 📝 변경 이력
 
@@ -412,6 +415,7 @@ vercel --prod
   - `next.config.mjs`: `output: 'export' + basePath: '/aetheria' + trailingSlash: true` 추가 (다음 빌드 안전망)
   - GitHub repo About > Website: `sigco3111-aetheria.vercel.app` → `https://sigco3111.github.io/aetheria/`
   - **2026-08-13 19:57 — basePath 빌드 재배포**: gh-pages에 `output: 'export' + basePath: '/aetheria'` 적용 빌드 푸시 (옛 hash 30+ 파일 삭제 + 새 hash 추가 + `.nojekyll` 추가). 사용자 보고 → "렌더링 안 됨, 3D 섬 출력 안 됨" 진단 → root context `/_next/...` cascade 404 확인 → basePath 적용 빌드로 재교체. **근본 원인**: gh-pages 옛 빌드는 basePath 없이 빌드됨 → asset 경로 root context → Pages cascade 404 → 흰 화면
+  - **2026-08-13 20:30 — Vercel 재배포 (Pages 폴백 유지)**: 사용자 모바일 Safari에서 Pages 정상 작동 확인 후에도 "This page couldn't load" 표시 지속 → Vercel로 우선 배포 결정. (1) `next.config.mjs`에 `basePath: process.env.VERCEL ? '' : '/aetheria'` 환경 분기 추가 (P34 패턴) — Vercel 빌드는 root context, Pages 빌드는 `/aetheria/`. (2) `vercel.json` SPA rewrites `{ "source": "/(.*)", "destination": "/index.html" }`. (3) `unset VERCEL_TOKEN && export VERCEL_TOKEN=$(cat ~/.vercel_token)` 매 배포 명령 (stale 환경변수 함정). (4) `vercel pull --yes --environment production` → `vercel build --prod --yes` → `.vercel/output/config.json` P33 정밀화 SPA fallback (assets/_next는 filesystem 핸들러 직접 서빙) → `vercel deploy --prebuilt --prod --yes`. (5) 검증: Production 200 + Aliased `aetheria-five-jet.vercel.app` 200 + SPA fallback 6개 라우트 (cartographers_sanctum, achievements, grand_guild_exchange, curators_vault, random-typo, trailing slash) 모두 200 + asset `/_next/static/chunks/0fmqhkn-rqx15.js` 200 (53141B, application/javascript). **최종 URL**: `https://aetheria-five-jet.vercel.app` (Vercel 권장) + `https://sigco3111.github.io/aetheria` (Pages 폴백). **근본 원인 추정**: Pages CDN이 일시적 404 응답 + iOS Safari 보안 정책 (subpath + Service Worker 함정 가능성). Pages는 curl 검증으로 정상 확인되었으나 사용자 환경에서 100% 작동 보장은 어려움. **교훈**: SPA fallback이 필요한 프로젝트는 Pages 단독보다 Vercel 배포가 안정적. **Website**: `aetheria-five-jet.vercel.app` (Vercel 권장에 맞춰, 74e 케이스 패턴)
 
 ---
 
